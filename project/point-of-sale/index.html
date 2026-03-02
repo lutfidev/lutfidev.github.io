@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point of Sale API — Muhammad Lutfi</title>
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/project-detail.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <nav class="breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../index.html#projects">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Point of Sale API</span>
+        </nav>
+
+        <div class="project-hero">
+            <div class="project-hero-tags">
+                <span class="project-year">2023</span>
+                <span class="project-tag-badge">Backend</span>
+                <span class="project-tag-badge">REST API</span>
+            </div>
+            <h1>Point of Sale — Backend API</h1>
+            <p class="project-hero-subtitle">
+                Backend REST API untuk sistem kasir modern — manajemen produk & kategori, proses transaksi, manajemen stok, laporan penjualan, dan autentikasi berbasis token menggunakan Laravel Sanctum.
+            </p>
+            <div class="project-cta">
+                <a href="https://github.com/lutfidev/laravel-pos-backend" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="project-preview">
+            <img src="https://placehold.co/900x500/1a1a2e/10b981?text=Point+of+Sale+API" alt="Point of Sale API Preview" />
+        </div>
+
+        <div class="project-content-grid">
+
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p>Point of Sale Backend API adalah layanan RESTful yang menyediakan semua endpoint yang dibutuhkan untuk menjalankan sistem kasir. API ini dirancang modular sehingga bisa dikonsumsi oleh frontend berbasis web maupun aplikasi mobile.</p>
+                    <p>Dibangun dengan Laravel dan menggunakan Laravel Sanctum untuk autentikasi berbasis token yang aman. Setiap endpoint terdokumentasi dengan jelas dan mengikuti konvensi REST standar.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Challenges & Solutions</h2>
+                    <p>Konsistensi data stok saat transaksi berlangsung secara bersamaan menjadi tantangan kritis. Solusinya menggunakan database transaction dengan locking untuk memastikan tidak ada race condition yang menyebabkan stok negatif.</p>
+                    <p>Untuk laporan yang melibatkan agregasi data besar, digunakan query optimization dengan indexing yang tepat dan caching hasil laporan berulang menggunakan Laravel Cache.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>API Endpoints</h2>
+                    <ul class="feature-list">
+                        <li>Auth: register, login, logout, refresh token</li>
+                        <li>Products: CRUD produk, kategori, upload gambar</li>
+                        <li>Transactions: buat transaksi, detail, riwayat</li>
+                        <li>Stock: manajemen stok, mutasi, low stock alert</li>
+                        <li>Reports: laporan penjualan harian & bulanan</li>
+                        <li>Users: manajemen kasir dan hak akses</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">
+                        <span>Laravel</span>
+                        <span>MySQL</span>
+                        <span>Laravel Sanctum</span>
+                        <span>REST API</span>
+                        <span>PHP</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Status</span>
+                            <span class="sidebar-info-value">Completed</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Year</span>
+                            <span class="sidebar-info-value">2023</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Role</span>
+                            <span class="sidebar-info-value">Backend Developer</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Personal Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        <a href="https://github.com/lutfidev/laravel-pos-backend" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub Repository
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <nav class="project-nav">
+            <a href="../beauty-clinic/" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
+                <span class="project-nav-title">Beauty Clinic Management</span>
+            </a>
+            <a href="../analytics-dashboard/" class="project-nav-btn next">
+                <span class="project-nav-label">Next Project <i data-lucide="arrow-right"></i></span>
+                <span class="project-nav-title">Analytics Dashboard</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../js/components.js"></script>
+    <script>initComponents('../../'); lucide.createIcons();</script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>

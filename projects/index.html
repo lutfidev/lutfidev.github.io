@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Muhammad Lutfi</title>
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .projects-container { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+        .projects-header { margin-bottom: 2.5rem; }
+        .projects-header h1 { font-size: 2.25rem; margin-bottom: 0.4rem; }
+        .projects-header p { color: var(--text-muted); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="projects-container">
+
+        <div class="projects-header animate-ready">
+            <h1>Projects</h1>
+            <p>Semua proyek yang pernah saya kerjakan — dari web apps hingga mobile dan API.</p>
+        </div>
+
+        <div class="projects-grid animate-ready">
+
+            <div class="project-card">
+                <div class="project-meta">
+                    <span class="project-date">2024</span>
+                </div>
+                <h3>Beauty Clinic Management</h3>
+                <p>Sistem manajemen klinik kecantikan berbasis web — mencakup pendaftaran pasien, penjadwalan treatment, manajemen produk, dan laporan keuangan.</p>
+                <div class="project-tags">
+                    <span>Laravel</span><span>MySQL</span><span>Blade</span><span>Bootstrap</span>
+                </div>
+                <div class="project-actions">
+                    <a href="https://github.com/lutfidev/laravel-clinic" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
+                    <a href="https://www.youtube.com/" target="_blank" class="project-action-btn"><i data-lucide="external-link"></i> Demo</a>
+                    <a href="../project/beauty-clinic/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-meta">
+                    <span class="project-date">2023</span>
+                </div>
+                <h3>Point of Sale — Backend API</h3>
+                <p>Backend REST API untuk sistem kasir — manajemen produk, transaksi, stok, dan laporan penjualan harian dengan autentikasi berbasis token.</p>
+                <div class="project-tags">
+                    <span>Laravel</span><span>MySQL</span><span>REST API</span><span>Sanctum</span>
+                </div>
+                <div class="project-actions">
+                    <a href="https://github.com/lutfidev/laravel-pos-backend" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
+                    <a href="../project/point-of-sale/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-meta">
+                    <span class="project-date">2024 - 2026</span>
+                </div>
+                <h3>Analytics Dashboard</h3>
+                <p>Dashboard analitik real-time dengan visualisasi data interaktif dan fitur export report ke PDF/Excel.</p>
+                <div class="project-tags">
+                    <span>React</span><span>TypeScript</span><span>Chart.js</span><span>Vite</span>
+                </div>
+                <div class="project-actions">
+                    <a href="../project/analytics-dashboard/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-meta">
+                    <span class="project-date">2023</span>
+                </div>
+                <h3>Task Manager API</h3>
+                <p>RESTful API untuk manajemen tugas dengan autentikasi JWT, role-based access, dan real-time notifications.</p>
+                <div class="project-tags">
+                    <span>Node.js</span><span>Express</span><span>MongoDB</span><span>Socket.io</span>
+                </div>
+                <div class="project-actions">
+                    <a href="../project/task-manager-api/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-meta">
+                    <span class="project-date">2023</span>
+                </div>
+                <h3>Inventory System</h3>
+                <p>Sistem inventaris internal dengan barcode scanning, laporan stok real-time, dan notifikasi low stock otomatis.</p>
+                <div class="project-tags">
+                    <span>Laravel</span><span>MySQL</span><span>Livewire</span><span>Alpine.js</span>
+                </div>
+                <div class="project-actions">
+                    <a href="../project/inventory-system/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-meta">
+                    <span class="project-date">2024</span>
+                </div>
+                <h3>AI Chatbot</h3>
+                <p>Chatbot berbasis AI dengan integrasi OpenAI API, context memory antar sesi, dan streaming response.</p>
+                <div class="project-tags">
+                    <span>Next.js</span><span>OpenAI</span><span>Tailwind</span><span>Vercel AI SDK</span>
+                </div>
+                <div class="project-actions">
+                    <a href="../project/ai-chatbot/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+    <script>initComponents('../'); lucide.createIcons();</script>
+    <script src="../js/animations.js"></script>
+</body>
+</html>

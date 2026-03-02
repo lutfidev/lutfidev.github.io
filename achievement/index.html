@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievement — Muhammad Lutfi</title>
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .achieve-container { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+        .achieve-header { margin-bottom: 2.5rem; }
+        .achieve-header h1 { font-size: 2.25rem; margin-bottom: 0.4rem; }
+        .achieve-header p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* Filter Tabs */
+        .achieve-filter-tabs {
+            display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap;
+        }
+        .achieve-filter-tab {
+            padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 500;
+            color: var(--text-muted); background: transparent; border: 1px solid var(--border);
+            cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;
+        }
+        .achieve-filter-tab:hover { color: var(--text-main); border-color: var(--text-muted); }
+        .achieve-filter-tab.active {
+            color: var(--accent); border-color: rgba(59,130,246,0.4);
+            background: rgba(59,130,246,0.08);
+        }
+
+        .achieve-card { transition: border-color 0.25s, transform 0.25s, opacity 0.3s; }
+        .achieve-card.hidden { display: none; }
+
+        .achieve-section { margin-bottom: 2.75rem; }
+        .achieve-section-title {
+            font-size: 0.95rem; font-weight: 700;
+            color: var(--text-main); font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;
+        }
+        .achieve-section-title i { width: 17px; height: 17px; color: var(--accent); }
+
+        .achieve-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .achieve-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 14px; padding: 1.25rem 1.4rem;
+            display: flex; flex-direction: column; gap: 0.4rem;
+            transition: border-color 0.25s, transform 0.25s;
+        }
+        .achieve-card:hover { border-color: rgba(255,255,255,0.12); transform: translateY(-2px); }
+
+        .achieve-card-icon {
+            width: 34px; height: 34px; border-radius: 9px;
+            background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2);
+            display: flex; align-items: center; justify-content: center; margin-bottom: 0.25rem;
+        }
+        .achieve-card-icon i { width: 17px; height: 17px; color: var(--accent); }
+        .achieve-card-icon.green { background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.2); }
+        .achieve-card-icon.green i { color: #4ade80; }
+        .achieve-card-icon.amber { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.2); }
+        .achieve-card-icon.amber i { color: #fbbf24; }
+        .achieve-card-icon.purple { background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.2); }
+        .achieve-card-icon.purple i { color: #a78bfa; }
+
+        .achieve-card h3 { font-size: 0.9rem; font-weight: 600; color: var(--text-main); margin: 0; line-height: 1.35; }
+        .achieve-card-issuer { font-size: 0.77rem; color: var(--accent); font-weight: 500; }
+        .achieve-card-date { font-size: 0.7rem; color: var(--text-muted); }
+        .achieve-card-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; margin-top: 3px; }
+
+        .achieve-credential {
+            display: inline-flex; align-items: center; gap: 5px;
+            font-size: 0.7rem; color: var(--text-muted); text-decoration: none;
+            margin-top: 5px; transition: color 0.2s;
+        }
+        .achieve-credential:hover { color: var(--accent); }
+        .achieve-credential i { width: 12px; height: 12px; }
+
+        .achieve-card { cursor: pointer; }
+
+        /* --- MODAL --- */
+        .achieve-modal-overlay {
+            position: fixed; inset: 0; z-index: 1000;
+            background: rgba(0,0,0,0.75); backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
+            padding: 1.25rem;
+        }
+        .achieve-modal-overlay.active { opacity: 1; visibility: visible; }
+
+        .achieve-modal {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 16px; width: 100%; max-width: 480px;
+            max-height: 88vh; overflow-y: auto; overflow-x: hidden;
+            position: relative;
+            transform: translateY(20px) scale(0.97);
+            transition: transform 0.3s ease;
+        }
+        .achieve-modal::-webkit-scrollbar { width: 4px; }
+        .achieve-modal::-webkit-scrollbar-track { background: transparent; }
+        .achieve-modal::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+        .achieve-modal-overlay.active .achieve-modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-close {
+            position: absolute; top: 0.75rem; right: 0.75rem; z-index: 10;
+            background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px; width: 30px; height: 30px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; color: #fff; transition: 0.2s;
+        }
+        .modal-close:hover { background: rgba(0,0,0,0.7); border-color: rgba(255,255,255,0.25); }
+        .modal-close i { width: 15px; height: 15px; }
+
+        /* Image area — top of modal, no padding */
+        .modal-img-wrap {
+            width: 100%; overflow: hidden; position: relative;
+            background: #111; border-bottom: 1px solid var(--border);
+        }
+        .modal-img-wrap img {
+            width: 100%; display: block; cursor: zoom-in;
+        }
+        .modal-img-wrap .img-placeholder {
+            width: 100%; padding: 2.5rem 1rem; display: flex;
+            align-items: center; justify-content: center; flex-direction: column; gap: 6px;
+            color: var(--text-muted); font-size: 0.78rem;
+        }
+        .modal-img-wrap .img-placeholder i { width: 28px; height: 28px; opacity: 0.3; }
+        .modal-img-loading {
+            padding: 3rem 1rem; display: flex;
+            align-items: center; justify-content: center;
+            background: #111; color: var(--text-muted); font-size: 0.78rem;
+        }
+
+        /* Modal body content */
+        .modal-body { padding: 1.25rem 1.5rem 1.5rem; }
+
+        .modal-header-row {
+            display: flex; align-items: flex-start; gap: 12px; margin-bottom: 1rem;
+        }
+        .modal-icon {
+            width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .modal-icon i { width: 20px; height: 20px; }
+        .modal-icon.blue { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2); }
+        .modal-icon.blue i { color: var(--accent); }
+        .modal-icon.green { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2); }
+        .modal-icon.green i { color: #4ade80; }
+        .modal-icon.amber { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.2); }
+        .modal-icon.amber i { color: #fbbf24; }
+        .modal-icon.purple { background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.2); }
+        .modal-icon.purple i { color: #a78bfa; }
+
+        .modal-header-text { flex: 1; min-width: 0; }
+        .modal-title { font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin: 0; line-height: 1.3; }
+        .modal-issuer { font-size: 0.8rem; color: var(--accent); font-weight: 500; margin-top: 2px; }
+
+        .modal-info-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+        .modal-info-item {
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+            border-radius: 8px; padding: 0.55rem 0.75rem;
+        }
+        .modal-info-label { font-size: 0.62rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1px; }
+        .modal-info-value { font-size: 0.8rem; color: var(--text-main); font-weight: 500; }
+
+        .modal-desc {
+            font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .modal-skills { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 1rem; }
+        .modal-skill-tag {
+            font-size: 0.68rem; padding: 3px 9px; border-radius: 4px;
+            background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.15);
+            color: var(--accent);
+        }
+
+        .modal-footer {
+            display: flex; align-items: center; justify-content: space-between;
+            padding-top: 0.85rem; border-top: 1px solid var(--border);
+        }
+        .modal-status {
+            display: inline-flex; align-items: center; gap: 5px;
+            font-size: 0.72rem; font-weight: 500; padding: 3px 10px;
+            border-radius: 20px;
+        }
+        .modal-status.valid { color: #4ade80; background: rgba(34,197,94,0.1); }
+        .modal-status.event { color: #fbbf24; background: rgba(245,158,11,0.1); }
+        .modal-status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+        .modal-view-btn {
+            display: inline-flex; align-items: center; gap: 5px;
+            font-size: 0.72rem; color: var(--text-muted); text-decoration: none;
+            padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border);
+            cursor: pointer; background: none; transition: 0.2s;
+        }
+        .modal-view-btn:hover { color: var(--accent); border-color: rgba(59,130,246,0.3); }
+        .modal-view-btn i { width: 13px; height: 13px; }
+
+        /* Fullscreen image viewer */
+        .img-fullscreen-overlay {
+            position: fixed; inset: 0; z-index: 2000;
+            background: rgba(0,0,0,0.92); backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
+            cursor: zoom-out; padding: 2rem;
+        }
+        .img-fullscreen-overlay.active { opacity: 1; visibility: visible; }
+        .img-fullscreen-overlay img {
+            max-width: 100%; max-height: 90vh; border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+        }
+        .fullscreen-close {
+            position: absolute; top: 1.25rem; right: 1.25rem;
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px; width: 36px; height: 36px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; color: #fff; transition: 0.2s;
+        }
+        .fullscreen-close:hover { background: rgba(255,255,255,0.2); }
+        .fullscreen-close i { width: 18px; height: 18px; }
+
+        /* Light mode */
+        body.light-mode .modal-img-wrap { background: #e8e8e8; }
+        body.light-mode .modal-img-loading { background: #e8e8e8; }
+        body.light-mode .modal-close { background: rgba(255,255,255,0.7); border-color: #ddd; color: #333; }
+        body.light-mode .modal-close:hover { background: rgba(255,255,255,0.9); }
+        body.light-mode .modal-info-item { background: rgba(0,0,0,0.03); }
+        body.light-mode .modal-skill-tag { background: rgba(59,130,246,0.06); }
+
+        @media (max-width: 640px) {
+            .achieve-grid { grid-template-columns: 1fr; }
+            .modal-info-grid { grid-template-columns: 1fr; }
+            .modal-body { padding: 1rem 1.25rem 1.25rem; }
+            .achieve-modal-overlay { padding: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="achieve-container">
+
+        <div class="achieve-header animate-ready">
+            <h1>Achievement</h1>
+            <p>Sertifikasi dan penghargaan yang pernah diraih.</p>
+        </div>
+
+        <div class="achieve-filter-tabs animate-ready">
+            <button class="achieve-filter-tab active" data-filter="all">All</button>
+            <button class="achieve-filter-tab" data-filter="certification">Certifications</button>
+            <button class="achieve-filter-tab" data-filter="award">Awards</button>
+            <button class="achieve-filter-tab" data-filter="event">Events</button>
+        </div>
+
+        <!-- Certificates -->
+        <div class="achieve-section animate-ready" data-section="certification">
+            <div class="achieve-section-title">
+                <i data-lucide="badge-check"></i> Licenses & Certificates
+            </div>
+            <div class="achieve-grid">
+
+                <div class="achieve-card" data-category="certification" data-detail='{
+                    "icon": "code-2", "color": "blue",
+                    "title": "Junior Web Developer",
+                    "issuer": "BNSP (Badan Nasional Sertifikasi Profesi)",
+                    "date": "Maret 2025",
+                    "expiry": "Maret 2028",
+                    "status": "valid",
+                    "image": "https://drive.google.com/file/d/1g0WySCi9H3YrmUVgCB1G6bdEXKdZjP4r/view?usp=sharing",
+                    "desc": "Sertifikasi kompetensi profesi Junior Web Developer dari badan nasional resmi Indonesia. Mencakup kemampuan dalam merancang, mengembangkan, dan mengelola aplikasi web sesuai standar nasional.",
+                    "skills": ["HTML/CSS", "JavaScript", "Responsive Design", "Web API", "Version Control"]
+                }'>
+                    <div class="achieve-card-icon">
+                        <i data-lucide="code-2"></i>
+                    </div>
+                    <h3>Junior Web Developer</h3>
+                    <span class="achieve-card-issuer">BNSP (Badan Nasional Sertifikasi Profesi)</span>
+                    <span class="achieve-card-date">Maret 2025 &nbsp;·&nbsp; Berlaku hingga Maret 2028</span>
+                    <p class="achieve-card-desc">Sertifikasi kompetensi profesi Junior Web Developer dari badan nasional resmi Indonesia.</p>
+                </div>
+
+                <div class="achieve-card" data-category="certification" data-detail='{
+                    "icon": "layout", "color": "green",
+                    "title": "Belajar Pengembangan Web Intermediate",
+                    "issuer": "Dicoding Indonesia",
+                    "date": "November 2025",
+                    "expiry": "November 2028",
+                    "status": "valid",
+                    "image": "https://drive.google.com/file/d/1fRotRLLte6q6EMDblzfsNZeF9i-VR75y/view?usp=sharing",
+                    "desc": "Menguasai konsep web development tingkat menengah termasuk arsitektur aplikasi, optimasi, pengembangan API, serta penerapan best practices dalam membangun aplikasi web yang scalable dan maintainable.",
+                    "skills": ["Web Architecture", "REST API", "Performance Optimization", "Clean Code", "Testing"]
+                }'>
+                    <div class="achieve-card-icon green">
+                        <i data-lucide="layout"></i>
+                    </div>
+                    <h3>Belajar Pengembangan Web Intermediate</h3>
+                    <span class="achieve-card-issuer">Dicoding Indonesia</span>
+                    <span class="achieve-card-date">November 2025 &nbsp;·&nbsp; Berlaku hingga November 2028</span>
+                    <p class="achieve-card-desc">Menguasai konsep web development tingkat menengah termasuk arsitektur aplikasi, optimasi, dan pengembangan API.</p>
+                </div>
+
+                <div class="achieve-card" data-category="certification" data-detail='{
+                    "icon": "languages", "color": "purple",
+                    "title": "EPrT — English Proficiency Test",
+                    "issuer": "Telkom University",
+                    "date": "Januari 2026",
+                    "expiry": "Januari 2028",
+                    "status": "valid",
+                    "image": "https://drive.google.com/file/d/1UgtWuCgO-0wq0-VdAd2ZQVUVj4PyA76z/view?usp=sharing",
+                    "desc": "Sertifikasi kemampuan bahasa Inggris untuk keperluan akademik dan profesional. Mengukur kemampuan reading, listening, dan structure dalam konteks akademik.",
+                    "skills": ["Reading Comprehension", "Listening", "Grammar & Structure"]
+                }'>
+                    <div class="achieve-card-icon purple">
+                        <i data-lucide="languages"></i>
+                    </div>
+                    <h3>EPrT — English Proficiency Test</h3>
+                    <span class="achieve-card-issuer">Telkom University</span>
+                    <span class="achieve-card-date">Januari 2026 &nbsp;·&nbsp; Berlaku hingga Januari 2028</span>
+                    <p class="achieve-card-desc">Sertifikasi kemampuan bahasa Inggris untuk keperluan akademik dan profesional.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Awards & Competition -->
+        <div class="achieve-section animate-ready" data-section="award">
+            <div class="achieve-section-title">
+                <i data-lucide="trophy"></i> Awards & Competition
+            </div>
+            <div class="achieve-grid">
+
+                <div class="achieve-card" data-category="award" data-detail='{
+                    "icon": "trophy", "color": "amber",
+                    "title": "Hackathon In BCA Tech Competition",
+                    "issuer": "Bank Central Asia (BCA)",
+                    "date": "Desember 2021",
+                    "expiry": "Maret 2022",
+                    "status": "event",
+                    "image": "",
+                    "desc": "Berpartisipasi dalam kompetisi hackathon teknologi yang diselenggarakan oleh BCA. Mengembangkan solusi inovatif berbasis teknologi finansial bersama tim untuk memecahkan permasalahan nyata di industri perbankan.",
+                    "skills": ["Fintech", "Problem Solving", "Team Collaboration", "Prototyping"]
+                }'>
+                    <div class="achieve-card-icon amber">
+                        <i data-lucide="trophy"></i>
+                    </div>
+                    <h3>Hackathon In BCA Tech Competition</h3>
+                    <span class="achieve-card-issuer">Bank Central Asia (BCA)</span>
+                    <span class="achieve-card-date">Desember 2021 – Maret 2022</span>
+                    <p class="achieve-card-desc">Berpartisipasi dalam kompetisi hackathon teknologi yang diselenggarakan oleh BCA, mengembangkan solusi inovatif berbasis teknologi finansial.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Detail Modal -->
+    <div class="achieve-modal-overlay" id="achieveModal">
+        <div class="achieve-modal">
+            <button class="modal-close" id="modalClose"><i data-lucide="x"></i></button>
+            <div class="modal-img-wrap" id="modalImgWrap"></div>
+            <div class="modal-body">
+                <div class="modal-header-row">
+                    <div class="modal-icon" id="modalIcon"><i id="modalIconI"></i></div>
+                    <div class="modal-header-text">
+                        <div class="modal-title" id="modalTitle"></div>
+                        <div class="modal-issuer" id="modalIssuer"></div>
+                    </div>
+                </div>
+                <div class="modal-info-grid" id="modalInfoGrid"></div>
+                <p class="modal-desc" id="modalDesc"></p>
+                <div class="modal-skills" id="modalSkills"></div>
+                <div class="modal-footer" id="modalFooter"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen image viewer -->
+    <div class="img-fullscreen-overlay" id="imgFullscreen">
+        <button class="fullscreen-close" id="fullscreenClose"><i data-lucide="x"></i></button>
+        <img id="fullscreenImg" src="" alt="">
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+    <script>initComponents('../'); lucide.createIcons();</script>
+    <script src="../js/animations.js"></script>
+
+    <script>
+    // Filter tabs
+    (function() {
+        const tabs = document.querySelectorAll('.achieve-filter-tab');
+        const cards = document.querySelectorAll('.achieve-card[data-category]');
+        const sections = document.querySelectorAll('.achieve-section[data-section]');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const filter = tab.getAttribute('data-filter');
+
+                if (filter === 'all') {
+                    cards.forEach(c => c.classList.remove('hidden'));
+                    sections.forEach(s => s.style.display = '');
+                } else {
+                    cards.forEach(c => {
+                        if (c.getAttribute('data-category') === filter) {
+                            c.classList.remove('hidden');
+                        } else {
+                            c.classList.add('hidden');
+                        }
+                    });
+                    sections.forEach(s => {
+                        const sectionType = s.getAttribute('data-section');
+                        const visibleCards = s.querySelectorAll(`.achieve-card[data-category="${filter}"]`);
+                        s.style.display = (sectionType === filter || visibleCards.length > 0) ? '' : 'none';
+                    });
+                }
+            });
+        });
+    })();
+
+    (function() {
+        const overlay = document.getElementById('achieveModal');
+        const closeBtn = document.getElementById('modalClose');
+        const fullscreenOverlay = document.getElementById('imgFullscreen');
+        const fullscreenImg = document.getElementById('fullscreenImg');
+        const fullscreenClose = document.getElementById('fullscreenClose');
+
+        // Convert Google Drive share link to direct image URL
+        function gdriveToImg(url) {
+            if (!url) return '';
+            // Handle: https://drive.google.com/file/d/FILE_ID/view?...
+            const match = url.match(/\/file\/d\/([^/]+)/);
+            if (match) return 'https://lh3.googleusercontent.com/d/' + match[1];
+            // Handle: https://drive.google.com/open?id=FILE_ID
+            const match2 = url.match(/[?&]id=([^&]+)/);
+            if (match2) return 'https://lh3.googleusercontent.com/d/' + match2[1];
+            return url; // already a direct URL
+        }
+
+        let currentImgUrl = '';
+
+        function openModal(data) {
+            // Icon
+            const iconWrap = document.getElementById('modalIcon');
+            iconWrap.className = 'modal-icon ' + data.color;
+            const iconI = document.getElementById('modalIconI');
+            iconI.setAttribute('data-lucide', data.icon);
+
+            // Text
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalIssuer').textContent = data.issuer;
+            document.getElementById('modalDesc').textContent = data.desc;
+
+            // Image
+            const imgWrap = document.getElementById('modalImgWrap');
+            const imgUrl = gdriveToImg(data.image);
+            currentImgUrl = imgUrl;
+
+            if (imgUrl) {
+                imgWrap.style.display = '';
+                imgWrap.innerHTML = '<div class="modal-img-loading">Memuat gambar...</div>';
+                const img = document.createElement('img');
+                img.alt = data.title;
+                img.onload = function() {
+                    imgWrap.innerHTML = '';
+                    imgWrap.appendChild(img);
+                    img.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        fullscreenImg.src = imgUrl;
+                        fullscreenOverlay.classList.add('active');
+                    });
+                };
+                img.onerror = function() {
+                    imgWrap.innerHTML = '<div class="img-placeholder"><i data-lucide="image-off"></i><span>Gambar tidak dapat dimuat</span></div>';
+                    lucide.createIcons({ nodes: [imgWrap] });
+                };
+                img.src = imgUrl;
+            } else {
+                imgWrap.style.display = 'none';
+            }
+
+            // Info grid
+            const infoGrid = document.getElementById('modalInfoGrid');
+            if (data.status === 'valid') {
+                infoGrid.innerHTML = `
+                    <div class="modal-info-item">
+                        <div class="modal-info-label">Diterbitkan</div>
+                        <div class="modal-info-value">${data.date}</div>
+                    </div>
+                    <div class="modal-info-item">
+                        <div class="modal-info-label">Berlaku Hingga</div>
+                        <div class="modal-info-value">${data.expiry}</div>
+                    </div>`;
+            } else {
+                infoGrid.innerHTML = `
+                    <div class="modal-info-item">
+                        <div class="modal-info-label">Mulai</div>
+                        <div class="modal-info-value">${data.date}</div>
+                    </div>
+                    <div class="modal-info-item">
+                        <div class="modal-info-label">Selesai</div>
+                        <div class="modal-info-value">${data.expiry}</div>
+                    </div>`;
+            }
+
+            // Skills
+            const skillsWrap = document.getElementById('modalSkills');
+            skillsWrap.innerHTML = data.skills.map(s => `<span class="modal-skill-tag">${s}</span>`).join('');
+
+            // Footer
+            const footer = document.getElementById('modalFooter');
+            const statusHtml = data.status === 'valid'
+                ? '<span class="modal-status valid"><span class="modal-status-dot"></span> Aktif</span>'
+                : '<span class="modal-status event"><span class="modal-status-dot"></span> Selesai</span>';
+            const viewBtn = imgUrl
+                ? '<button class="modal-view-btn" id="modalViewFull"><i data-lucide="expand"></i> Lihat Full</button>'
+                : '';
+            footer.innerHTML = statusHtml + viewBtn;
+
+            // Re-render lucide icons inside modal
+            lucide.createIcons({ nodes: [overlay] });
+
+            // Bind view full button
+            const viewFullBtn = document.getElementById('modalViewFull');
+            if (viewFullBtn) {
+                viewFullBtn.addEventListener('click', function() {
+                    fullscreenImg.src = currentImgUrl;
+                    fullscreenOverlay.classList.add('active');
+                });
+            }
+
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeFullscreen() {
+            fullscreenOverlay.classList.remove('active');
+            fullscreenImg.src = '';
+        }
+
+        document.querySelectorAll('.achieve-card[data-detail]').forEach(card => {
+            card.addEventListener('click', () => {
+                const data = JSON.parse(card.getAttribute('data-detail'));
+                openModal(data);
+            });
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+
+        fullscreenClose.addEventListener('click', closeFullscreen);
+        fullscreenOverlay.addEventListener('click', e => { if (e.target === fullscreenOverlay) closeFullscreen(); });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                if (fullscreenOverlay.classList.contains('active')) closeFullscreen();
+                else closeModal();
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

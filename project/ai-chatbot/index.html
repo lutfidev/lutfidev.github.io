@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot — Muhammad Lutfi</title>
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/project-detail.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../index.html#projects">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">AI Chatbot</span>
+        </nav>
+
+        <!-- Hero -->
+        <div class="project-hero">
+            <div class="project-hero-tags">
+                <span class="project-year">2024</span>
+                <span class="project-tag-badge">AI / ML</span>
+                <span class="project-tag-badge">Full Stack</span>
+                <span class="project-tag-badge">Open Source</span>
+            </div>
+            <h1>AI Chatbot</h1>
+            <p class="project-hero-subtitle">
+                Chatbot berbasis AI dengan integrasi OpenAI API, context memory antar sesi, streaming response, dan tampilan chat modern yang dibangun dengan Next.js dan Vercel AI SDK.
+            </p>
+            <div class="project-cta">
+                <a href="https://github.com/username/ai-chatbot" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> View on GitHub
+                </a>
+                <a href="https://ai-chat-demo.vercel.app" target="_blank" class="cta-btn cta-btn-secondary">
+                    <i data-lucide="external-link"></i> Try Demo
+                </a>
+            </div>
+        </div>
+
+        <!-- Preview -->
+        <div class="project-preview">
+            <img src="https://placehold.co/900x500/1a1a2e/06b6d4?text=AI+Chatbot+Preview" alt="AI Chatbot Preview" />
+        </div>
+
+        <!-- Content Grid -->
+        <div class="project-content-grid">
+
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p>AI Chatbot adalah aplikasi web yang memungkinkan pengguna berinteraksi dengan berbagai AI model (GPT-4o, GPT-4 Turbo) melalui antarmuka chat yang intuitif. Dibangun dengan Next.js App Router dan Vercel AI SDK untuk streaming response yang smooth.</p>
+                    <p>Setiap conversation disimpan di database dengan context window management — secara otomatis meringkas conversation lama saat mendekati token limit, memungkinkan percakapan panjang tanpa kehilangan konteks penting.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Challenges & Solutions</h2>
+                    <p>Mengelola context window AI dengan efisien adalah tantangan utama. Solusinya adalah implementasi sliding window dengan summarization: saat percakapan panjang, message lama diringkas menggunakan AI itu sendiri menjadi summary singkat yang tetap memberikan konteks relevan.</p>
+                    <p>Streaming response yang harus tetap persisted meski pengguna refresh halaman diselesaikan dengan Server-Sent Events dan optimistic UI updates — pesan muncul secara real-time dan tersimpan atomically saat selesai.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>Streaming response real-time dengan Vercel AI SDK</li>
+                        <li>Context memory yang persisten antar sesi</li>
+                        <li>Dukungan multi-model: GPT-4o, GPT-4 Turbo</li>
+                        <li>Markdown rendering dengan syntax highlighting kode</li>
+                        <li>Chat history dengan pencarian dan kategorisasi</li>
+                        <li>Prompt templates yang bisa disave dan reuse</li>
+                        <li>Rate limiting per user dengan usage dashboard</li>
+                        <li>Export conversation ke PDF atau Markdown</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">
+                        <span>Next.js 14</span>
+                        <span>TypeScript</span>
+                        <span>OpenAI API</span>
+                        <span>Vercel AI SDK</span>
+                        <span>Tailwind CSS</span>
+                        <span>PostgreSQL</span>
+                        <span>Prisma</span>
+                        <span>NextAuth.js</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Status</span>
+                            <span class="sidebar-info-value">Active Development</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Duration</span>
+                            <span class="sidebar-info-value">6 weeks</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Role</span>
+                            <span class="sidebar-info-value">Full Stack Developer</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Personal Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        <a href="https://github.com/username/ai-chatbot" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub Repository
+                        </a>
+                        <a href="https://ai-chat-demo.vercel.app" target="_blank" class="sidebar-link">
+                            <i data-lucide="external-link"></i> Try Demo
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Prev/Next Navigation -->
+        <nav class="project-nav">
+            <a href="../inventory-system/" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
+                <span class="project-nav-title">Inventory System</span>
+            </a>
+            <span class="project-nav-btn next empty"></span>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../js/components.js"></script>
+    <script>initComponents('../../'); lucide.createIcons();</script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>

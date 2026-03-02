@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Platform — Muhammad Lutfi</title>
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/project-detail.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../index.html#projects">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">E-Commerce Platform</span>
+        </nav>
+
+        <!-- Hero -->
+        <div class="project-hero">
+            <div class="project-hero-tags">
+                <span class="project-year">2023</span>
+                <span class="project-tag-badge">Full Stack</span>
+                <span class="project-tag-badge">SaaS</span>
+            </div>
+            <h1>E-Commerce Platform</h1>
+            <p class="project-hero-subtitle">
+                Platform toko online lengkap dengan payment gateway Midtrans, manajemen produk & stok, tracking order real-time, dan dashboard admin.
+            </p>
+            <div class="project-cta">
+                <a href="https://toko-online-demo.vercel.app" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="external-link"></i> Live Demo
+                </a>
+            </div>
+        </div>
+
+        <!-- Preview -->
+        <div class="project-preview">
+            <img src="https://placehold.co/900x500/1a1a2e/f59e0b?text=E-Commerce+Platform+Preview" alt="E-Commerce Platform Preview" />
+        </div>
+
+        <!-- Content Grid -->
+        <div class="project-content-grid">
+
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p>E-Commerce Platform adalah solusi lengkap untuk UMKM yang ingin berjualan online. Dibangun dengan Laravel sebagai backend, platform ini menyediakan semua fitur yang dibutuhkan mulai dari katalog produk hingga manajemen pengiriman.</p>
+                    <p>Sistem dirancang dengan arsitektur yang scalable, menggunakan Redis untuk session management dan caching, serta PostgreSQL sebagai database utama dengan query yang dioptimasi untuk high traffic.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Challenges & Solutions</h2>
+                    <p>Race condition pada saat checkout bersamaan menjadi tantangan kritis. Solusinya adalah implementasi database-level locking dengan SELECT FOR UPDATE dan queue-based payment processing menggunakan Laravel Queue.</p>
+                    <p>Untuk mencegah overselling produk, sistem menggunakan optimistic locking dengan version column sehingga transaksi yang conflicting otomatis di-retry atau dibatalkan dengan pesan error yang informatif.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>Integrasi payment gateway Midtrans (VA, QRIS, kartu kredit)</li>
+                        <li>Manajemen produk dengan variant, SKU, dan bulk import CSV</li>
+                        <li>Tracking order real-time dengan integrasi JNE, J&T, SiCepat</li>
+                        <li>Dashboard admin dengan laporan penjualan dan analitik</li>
+                        <li>Flash sale & voucher sistem dengan rate limiting</li>
+                        <li>Review & rating produk dengan moderasi konten</li>
+                        <li>Multi-seller support dengan commission management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">
+                        <span>Laravel 10</span>
+                        <span>PostgreSQL</span>
+                        <span>Redis</span>
+                        <span>Tailwind CSS</span>
+                        <span>Alpine.js</span>
+                        <span>Midtrans</span>
+                        <span>Laravel Queue</span>
+                        <span>Nginx</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Status</span>
+                            <span class="sidebar-info-value">Completed</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Duration</span>
+                            <span class="sidebar-info-value">5 months</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Role</span>
+                            <span class="sidebar-info-value">Full Stack Developer</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Team Size</span>
+                            <span class="sidebar-info-value">2 people</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        <a href="https://toko-online-demo.vercel.app" target="_blank" class="sidebar-link">
+                            <i data-lucide="external-link"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Prev/Next Navigation -->
+        <nav class="project-nav">
+            <a href="../analytics-dashboard/" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
+                <span class="project-nav-title">Analytics Dashboard</span>
+            </a>
+            <a href="../task-manager-api/" class="project-nav-btn next">
+                <span class="project-nav-label"><i data-lucide="arrow-right"></i> Next Project</span>
+                <span class="project-nav-title">Task Manager API</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../js/components.js"></script>
+    <script>initComponents('../../'); lucide.createIcons();</script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>

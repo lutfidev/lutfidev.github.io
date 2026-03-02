@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Clinic Management — Muhammad Lutfi</title>
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/project-detail.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <nav class="breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../index.html#projects">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Beauty Clinic Management</span>
+        </nav>
+
+        <div class="project-hero">
+            <div class="project-hero-tags">
+                <span class="project-year">2024</span>
+                <span class="project-tag-badge">Web App</span>
+                <span class="project-tag-badge">Laravel</span>
+            </div>
+            <h1>Beauty Clinic Management</h1>
+            <p class="project-hero-subtitle">
+                Sistem manajemen klinik kecantikan berbasis web — mencakup pendaftaran pasien, penjadwalan treatment, manajemen produk, laporan keuangan, dan riwayat kunjungan.
+            </p>
+            <div class="project-cta">
+                <a href="https://github.com/lutfidev/laravel-clinic" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> GitHub
+                </a>
+                <a href="https://www.youtube.com/" target="_blank" class="cta-btn cta-btn-secondary">
+                    <i data-lucide="play-circle"></i> Demo Video
+                </a>
+            </div>
+        </div>
+
+        <div class="project-preview">
+            <img src="https://placehold.co/900x500/1a1a2e/ec4899?text=Beauty+Clinic+Management" alt="Beauty Clinic Management Preview" />
+        </div>
+
+        <div class="project-content-grid">
+
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p>Beauty Clinic Management adalah sistem informasi manajemen berbasis web yang dirancang khusus untuk klinik kecantikan. Sistem ini membantu pengelola klinik dalam mengelola data pasien, jadwal treatment, stok produk, dan laporan keuangan dalam satu platform terintegrasi.</p>
+                    <p>Dibangun menggunakan Laravel framework dengan database MySQL, sistem ini menerapkan arsitektur MVC yang clean dan menggunakan Blade templating engine untuk tampilan yang responsif.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Challenges & Solutions</h2>
+                    <p>Tantangan utama adalah manajemen jadwal yang kompleks — satu terapis bisa menangani beberapa pasien dalam sehari dengan slot waktu berbeda. Solusinya adalah implementasi sistem booking dengan validasi konflik jadwal otomatis menggunakan query yang efisien.</p>
+                    <p>Untuk laporan keuangan, sistem menggunakan agregasi data transaksi harian, mingguan, dan bulanan yang bisa diekspor langsung ke format PDF untuk keperluan pembukuan klinik.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>Pendaftaran dan manajemen data pasien</li>
+                        <li>Penjadwalan treatment dengan validasi konflik waktu</li>
+                        <li>Manajemen produk dan stok klinik</li>
+                        <li>Riwayat kunjungan dan rekam medis pasien</li>
+                        <li>Laporan keuangan harian, mingguan, bulanan</li>
+                        <li>Manajemen terapis dan jadwal kerja</li>
+                        <li>Role-based access: Admin dan Kasir</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">
+                        <span>Laravel</span>
+                        <span>MySQL</span>
+                        <span>Blade</span>
+                        <span>Bootstrap</span>
+                        <span>JavaScript</span>
+                        <span>jQuery</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Status</span>
+                            <span class="sidebar-info-value">Completed</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Year</span>
+                            <span class="sidebar-info-value">2024</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Role</span>
+                            <span class="sidebar-info-value">Full Stack Developer</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Personal Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        <a href="https://github.com/lutfidev/laravel-clinic" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub Repository
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" class="sidebar-link">
+                            <i data-lucide="play-circle"></i> Demo Video
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <nav class="project-nav">
+            <span class="project-nav-btn empty"></span>
+            <a href="../point-of-sale/" class="project-nav-btn next">
+                <span class="project-nav-label">Next Project <i data-lucide="arrow-right"></i></span>
+                <span class="project-nav-title">Point of Sale API</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../js/components.js"></script>
+    <script>initComponents('../../'); lucide.createIcons();</script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>

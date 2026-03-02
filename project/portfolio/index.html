@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website — Muhammad Lutfi</title>
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/project-detail.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../index.html#projects">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Portfolio Website</span>
+        </nav>
+
+        <!-- Hero -->
+        <div class="project-hero">
+            <div class="project-hero-tags">
+                <span class="project-year">2024</span>
+                <span class="project-tag-badge">Frontend</span>
+                <span class="project-tag-badge">Open Source</span>
+            </div>
+            <h1>Portfolio Website</h1>
+            <p class="project-hero-subtitle">
+                Website portfolio personal yang kamu lihat sekarang — dibangun dengan HTML, CSS, dan vanilla JavaScript tanpa framework, menampilkan desain bento grid dark theme dengan animasi interaktif.
+            </p>
+            <div class="project-cta">
+                <a href="https://github.com/username/portfolio-v2" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> View on GitHub
+                </a>
+                <a href="https://lutfi.dev" target="_blank" class="cta-btn cta-btn-secondary">
+                    <i data-lucide="external-link"></i> Live Site
+                </a>
+            </div>
+        </div>
+
+        <!-- Preview -->
+        <div class="project-preview">
+            <img src="https://placehold.co/900x500/1a1a2e/a78bfa?text=Portfolio+Website+Preview" alt="Portfolio Website Preview" />
+        </div>
+
+        <!-- Content Grid -->
+        <div class="project-content-grid">
+
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p>Portfolio ini didesain dengan filosofi "less is more" — fokus pada konten dan typography yang kuat daripada animasi berlebihan. Desain bento grid terinspirasi dari desain produk Apple dan Vercel's new website.</p>
+                    <p>Dibangun tanpa framework atau build tool apapun — pure HTML, CSS, dan vanilla JavaScript. Ini membuktikan bahwa web modern yang performant tidak selalu membutuhkan stack yang besar.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Design Decisions</h2>
+                    <p>Color palette dipilih dengan sangat hati-hati: hitam #0a0a0a sebagai background utama (bukan pure black yang terlalu keras di mata), dengan aksen biru elektrik #3b82f6 untuk elemen interaktif.</p>
+                    <p>Typography menggunakan dua font: Space Grotesk untuk heading (geometric, modern, kuat) dan Inter untuk body text (highly legible, friendly). Kombinasi ini menciptakan hierarchy yang jelas.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>Bento grid layout asimetris yang unik dan tidak generik</li>
+                        <li>Mouse spotlight effect pada setiap card</li>
+                        <li>Scroll animations dengan IntersectionObserver</li>
+                        <li>Glassmorphism navbar dengan blur effect</li>
+                        <li>Halaman detail project dengan navigasi prev/next</li>
+                        <li>Fully responsive dari mobile hingga ultrawide</li>
+                        <li>Tidak ada dependency — zero JavaScript bundles</li>
+                        <li>Lighthouse score 98+ di semua kategori</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Lucide Icons</span>
+                        <span>Google Fonts</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Status</span>
+                            <span class="sidebar-info-value">Active</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Duration</span>
+                            <span class="sidebar-info-value">Ongoing</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Role</span>
+                            <span class="sidebar-info-value">Designer & Developer</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Personal Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        <a href="https://github.com/username/portfolio-v2" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub Repository
+                        </a>
+                        <a href="https://lutfi.dev" target="_blank" class="sidebar-link">
+                            <i data-lucide="external-link"></i> Live Site
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Prev/Next Navigation -->
+        <nav class="project-nav">
+            <a href="../task-manager-api/" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
+                <span class="project-nav-title">Task Manager API</span>
+            </a>
+            <a href="../inventory-system/" class="project-nav-btn next">
+                <span class="project-nav-label"><i data-lucide="arrow-right"></i> Next Project</span>
+                <span class="project-nav-title">Inventory System</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../js/components.js"></script>
+    <script>initComponents('../../'); lucide.createIcons();</script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>

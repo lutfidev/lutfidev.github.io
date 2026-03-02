@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager API — Muhammad Lutfi</title>
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/project-detail.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../index.html#projects">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Task Manager API</span>
+        </nav>
+
+        <!-- Hero -->
+        <div class="project-hero">
+            <div class="project-hero-tags">
+                <span class="project-year">2023</span>
+                <span class="project-tag-badge">Backend</span>
+                <span class="project-tag-badge">REST API</span>
+                <span class="project-tag-badge">Open Source</span>
+            </div>
+            <h1>Task Manager API</h1>
+            <p class="project-hero-subtitle">
+                RESTful API untuk manajemen tugas dengan autentikasi JWT, role-based access control, real-time notifications via Socket.io, dan dokumentasi Swagger lengkap.
+            </p>
+            <div class="project-cta">
+                <a href="https://github.com/username/task-manager" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> View on GitHub
+                </a>
+                <a href="https://task-api-docs.vercel.app" target="_blank" class="cta-btn cta-btn-secondary">
+                    <i data-lucide="book-open"></i> API Docs
+                </a>
+            </div>
+        </div>
+
+        <!-- Preview -->
+        <div class="project-preview">
+            <img src="https://placehold.co/900x500/1a1a2e/10b981?text=Task+Manager+API+Preview" alt="Task Manager API Preview" />
+        </div>
+
+        <!-- Content Grid -->
+        <div class="project-content-grid">
+
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p>Task Manager API adalah backend service yang menyediakan endpoint lengkap untuk aplikasi manajemen tugas. Dibangun dengan Node.js dan Express, API ini mengikuti RESTful conventions dan dilengkapi dokumentasi interaktif menggunakan Swagger UI.</p>
+                    <p>Sistem autentikasi menggunakan JWT dengan refresh token rotation — access token berumur pendek (15 menit) sedangkan refresh token disimpan di httpOnly cookie untuk mencegah XSS attacks.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Challenges & Solutions</h2>
+                    <p>Implementasi real-time notifications yang efisien menjadi tantangan utama. Menggunakan Socket.io dengan room-based architecture dimana setiap user dan project punya dedicated room, sehingga notifikasi hanya dikirim ke penerima yang relevan.</p>
+                    <p>Untuk mencegah N+1 query problem, semua relasi diload dengan aggregation pipeline MongoDB sehingga kompleksitas query tetap O(1) terlepas dari jumlah data.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>JWT authentication dengan refresh token rotation</li>
+                        <li>Role-based access control: Owner, Admin, Member, Viewer</li>
+                        <li>Real-time notifications via Socket.io</li>
+                        <li>Task dengan subtasks, due date, priority, dan attachment</li>
+                        <li>Project workspace dengan invite system via email</li>
+                        <li>Activity log untuk semua perubahan task</li>
+                        <li>Rate limiting & request validation middleware</li>
+                        <li>Dokumentasi Swagger interaktif dengan try-it-out</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">
+                        <span>Node.js</span>
+                        <span>Express</span>
+                        <span>MongoDB</span>
+                        <span>Socket.io</span>
+                        <span>JWT</span>
+                        <span>Swagger</span>
+                        <span>Redis</span>
+                        <span>Nodemailer</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Status</span>
+                            <span class="sidebar-info-value">Completed</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Duration</span>
+                            <span class="sidebar-info-value">2 months</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Role</span>
+                            <span class="sidebar-info-value">Backend Developer</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Personal Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        <a href="https://github.com/username/task-manager" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub Repository
+                        </a>
+                        <a href="https://task-api-docs.vercel.app" target="_blank" class="sidebar-link">
+                            <i data-lucide="book-open"></i> API Documentation
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Prev/Next Navigation -->
+        <nav class="project-nav">
+            <a href="../analytics-dashboard/" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
+                <span class="project-nav-title">Analytics Dashboard</span>
+            </a>
+            <a href="../inventory-system/" class="project-nav-btn next">
+                <span class="project-nav-label">Next Project <i data-lucide="arrow-right"></i></span>
+                <span class="project-nav-title">Inventory System</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../js/components.js"></script>
+    <script>initComponents('../../'); lucide.createIcons();</script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>
