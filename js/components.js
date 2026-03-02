@@ -38,7 +38,7 @@ function getSidebarHTML(base) {
         <div class="sidebar-divider"></div>
 
         <nav class="sidebar-nav">
-            <a href="${base}index.html" class="sidebar-item" data-page="home">
+            <a href="${base}" class="sidebar-item" data-page="home">
                 <i data-lucide="house"></i>
                 <span>Home</span>
             </a>
@@ -76,7 +76,7 @@ function getSidebarHTML(base) {
     </aside>
     <div class="sidebar-mobile-overlay" id="mobile-overlay">
         <nav class="sidebar-mobile-nav">
-            <a href="${base}index.html" class="sidebar-mobile-link">
+            <a href="${base}" class="sidebar-mobile-link">
                 <i data-lucide="house"></i><span>Home</span>
             </a>
             <a href="${base}projects/" class="sidebar-mobile-link">
