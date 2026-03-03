@@ -166,9 +166,9 @@
                         <span class="gh-stat-label">Following</span>
                     </div>
                     <div class="gh-stat-card">
-                        <i data-lucide="git-fork"></i>
-                        <span class="gh-stat-value" id="gh-gists">—</span>
-                        <span class="gh-stat-label">Gists</span>
+                        <i data-lucide="eye"></i>
+                        <span class="gh-stat-value" id="gh-visitors">—</span>
+                        <span class="gh-stat-label">Visitors</span>
                     </div>
                 </div>
             </div>
@@ -194,7 +194,12 @@
             document.getElementById('gh-repos').textContent = d.public_repos ?? '—';
             document.getElementById('gh-followers').textContent = d.followers ?? '—';
             document.getElementById('gh-following').textContent = d.following ?? '—';
-            document.getElementById('gh-gists').textContent = d.public_gists ?? '—';
+        })
+        .catch(() => {});
+    fetch('https://komarev.com/ghpvc/?username=lutfidev&base=0&abbreviated=true&label=x&format=json')
+        .then(r => r.json())
+        .then(d => {
+            document.getElementById('gh-visitors').textContent = d.message ?? '—';
         })
         .catch(() => {});
     </script>
