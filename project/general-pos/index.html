@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager API — Muhammad Lutfi</title>
+    <title>General POS System — Muhammad Lutfi</title>
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/project-detail.css">
@@ -21,69 +21,63 @@
 
     <div class="project-detail-container">
 
-        <!-- Breadcrumb -->
         <nav class="breadcrumb">
             <a href="../../">Home</a>
             <span class="breadcrumb-sep">/</span>
             <a href="../../#projects">Projects</a>
             <span class="breadcrumb-sep">/</span>
-            <span class="breadcrumb-current">Task Manager API</span>
+            <span class="breadcrumb-current">General POS System</span>
         </nav>
 
-        <!-- Hero -->
         <div class="project-hero">
             <div class="project-hero-tags">
-                <span class="project-year">2023</span>
+                <span class="project-year">2024</span>
                 <span class="project-tag-badge">Backend</span>
                 <span class="project-tag-badge">REST API</span>
-                <span class="project-tag-badge">Open Source</span>
             </div>
-            <h1>Task Manager API</h1>
+            <h1>General POS System</h1>
             <p class="project-hero-subtitle">
-                RESTful API untuk manajemen tugas dengan autentikasi JWT, role-based access control, real-time notifications via Socket.io, dan dokumentasi Swagger lengkap.
+                Backend API modular untuk sistem POS general-purpose — bisa dipakai untuk retail, F&amp;B, atau jasa dengan konfigurasi fleksibel.
             </p>
             <div class="project-cta">
-                <a href="https://github.com/username/task-manager" target="_blank" class="cta-btn cta-btn-primary">
-                    <i data-lucide="github"></i> View on GitHub
+                <a href="https://github.com/lutfidev" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> GitHub
                 </a>
-                <a href="https://task-api-docs.vercel.app" target="_blank" class="cta-btn cta-btn-secondary">
-                    <i data-lucide="book-open"></i> API Docs
+                <a href="#" target="_blank" class="cta-btn cta-btn-secondary">
+                    <i data-lucide="file-text"></i> API Docs
                 </a>
             </div>
         </div>
 
-        <!-- Preview -->
         <div class="project-preview">
-            <img src="https://placehold.co/900x500/1a1a2e/10b981?text=Task+Manager+API+Preview" alt="Task Manager API Preview" />
+            <img src="https://placehold.co/900x500/1a1a2e/64748b?text=General+POS+System+API" alt="General POS System Preview" />
         </div>
 
-        <!-- Content Grid -->
         <div class="project-content-grid">
 
             <div class="project-main-content">
                 <div class="content-section">
                     <h2>Overview</h2>
-                    <p>Task Manager API adalah backend service yang menyediakan endpoint lengkap untuk aplikasi manajemen tugas. Dibangun dengan Node.js dan Express, API ini mengikuti RESTful conventions dan dilengkapi dokumentasi interaktif menggunakan Swagger UI.</p>
-                    <p>Sistem autentikasi menggunakan JWT dengan refresh token rotation — access token berumur pendek (15 menit) sedangkan refresh token disimpan di httpOnly cookie untuk mencegah XSS attacks.</p>
+                    <p>General POS System adalah backend API modular yang dirancang sebagai fondasi untuk berbagai jenis sistem point-of-sale. Dengan arsitektur multi-tenant, satu deployment bisa melayani multiple bisnis dengan konfigurasi yang independen.</p>
+                    <p>API didokumentasikan lengkap menggunakan Swagger/OpenAPI, memudahkan frontend developer atau third-party integrator untuk mengonsumsi API. Deployment menggunakan Docker untuk konsistensi environment di development dan production.</p>
                 </div>
 
                 <div class="content-section">
                     <h2>Challenges & Solutions</h2>
-                    <p>Implementasi real-time notifications yang efisien menjadi tantangan utama. Menggunakan Socket.io dengan room-based architecture dimana setiap user dan project punya dedicated room, sehingga notifikasi hanya dikirim ke penerima yang relevan.</p>
-                    <p>Untuk mencegah N+1 query problem, semua relasi diload dengan aggregation pipeline MongoDB sehingga kompleksitas query tetap O(1) terlepas dari jumlah data.</p>
+                    <p>Multi-tenant architecture yang aman memerlukan data isolation yang ketat. Implementasi menggunakan tenant-scoped middleware yang memastikan setiap query hanya mengakses data milik tenant yang bersangkutan.</p>
+                    <p>Webhook system untuk integrasi third-party memerlukan retry mechanism dan dead letter queue untuk menangani endpoint yang tidak responsif. Bull queue digunakan untuk reliable webhook delivery dengan exponential backoff.</p>
                 </div>
 
                 <div class="content-section">
                     <h2>Key Features</h2>
                     <ul class="feature-list">
-                        <li>JWT authentication dengan refresh token rotation</li>
-                        <li>Role-based access control: Owner, Admin, Member, Viewer</li>
-                        <li>Real-time notifications via Socket.io</li>
-                        <li>Task dengan subtasks, due date, priority, dan attachment</li>
-                        <li>Project workspace dengan invite system via email</li>
-                        <li>Activity log untuk semua perubahan task</li>
-                        <li>Rate limiting & request validation middleware</li>
-                        <li>Dokumentasi Swagger interaktif dengan try-it-out</li>
+                        <li>RESTful API dengan dokumentasi Swagger</li>
+                        <li>Multi-tenant architecture</li>
+                        <li>Manajemen produk dengan variant &amp; SKU</li>
+                        <li>Transaksi dengan multiple payment method</li>
+                        <li>Role-based access control (RBAC)</li>
+                        <li>Webhook untuk integrasi third-party</li>
+                        <li>Docker containerized deployment</li>
                     </ul>
                 </div>
             </div>
@@ -94,12 +88,11 @@
                     <div class="sidebar-tags">
                         <span>Node.js</span>
                         <span>Express</span>
-                        <span>MongoDB</span>
-                        <span>Socket.io</span>
+                        <span>PostgreSQL</span>
+                        <span>Redis</span>
                         <span>JWT</span>
                         <span>Swagger</span>
-                        <span>Redis</span>
-                        <span>Nodemailer</span>
+                        <span>Docker</span>
                     </div>
                 </div>
 
@@ -128,27 +121,23 @@
                 <div class="sidebar-card">
                     <h3>Links</h3>
                     <div class="sidebar-links">
-                        <a href="https://github.com/username/task-manager" target="_blank" class="sidebar-link">
-                            <i data-lucide="github"></i> GitHub Repository
+                        <a href="https://github.com/lutfidev" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub
                         </a>
-                        <a href="https://task-api-docs.vercel.app" target="_blank" class="sidebar-link">
-                            <i data-lucide="book-open"></i> API Documentation
+                        <a href="#" target="_blank" class="sidebar-link">
+                            <i data-lucide="file-text"></i> API Docs
                         </a>
                     </div>
                 </div>
             </aside>
         </div>
 
-        <!-- Prev/Next Navigation -->
         <nav class="project-nav">
-            <a href="../analytics-dashboard/" class="project-nav-btn">
+            <a href="../pos-cafe/" class="project-nav-btn">
                 <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
-                <span class="project-nav-title">Analytics Dashboard</span>
+                <span class="project-nav-title">POS Cafe System</span>
             </a>
-            <a href="../inventory-system/" class="project-nav-btn next">
-                <span class="project-nav-label">Next Project <i data-lucide="arrow-right"></i></span>
-                <span class="project-nav-title">Inventory System</span>
-            </a>
+            <span class="project-nav-btn disabled"></span>
         </nav>
 
     </div>

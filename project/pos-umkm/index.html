@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Clinic Management — Muhammad Lutfi</title>
+    <title>POS untuk UMKM — Muhammad Lutfi</title>
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/project-detail.css">
@@ -26,21 +26,21 @@
             <span class="breadcrumb-sep">/</span>
             <a href="../../#projects">Projects</a>
             <span class="breadcrumb-sep">/</span>
-            <span class="breadcrumb-current">Beauty Clinic Management</span>
+            <span class="breadcrumb-current">POS untuk UMKM</span>
         </nav>
 
         <div class="project-hero">
             <div class="project-hero-tags">
                 <span class="project-year">2024</span>
+                <span class="project-tag-badge">Full Stack</span>
                 <span class="project-tag-badge">Web App</span>
-                <span class="project-tag-badge">Laravel</span>
             </div>
-            <h1>Beauty Clinic Management</h1>
+            <h1>POS untuk UMKM</h1>
             <p class="project-hero-subtitle">
-                Sistem manajemen klinik kecantikan berbasis web — mencakup pendaftaran pasien, penjadwalan treatment, manajemen produk, laporan keuangan, dan riwayat kunjungan.
+                Sistem Point of Sale ringan untuk UMKM — transaksi cepat, manajemen produk, dan laporan penjualan harian yang mudah dipahami.
             </p>
             <div class="project-cta">
-                <a href="https://github.com/lutfidev/laravel-clinic" target="_blank" class="cta-btn cta-btn-primary">
+                <a href="https://github.com/lutfidev" target="_blank" class="cta-btn cta-btn-primary">
                     <i data-lucide="github"></i> GitHub
                 </a>
                 <a href="https://www.youtube.com/" target="_blank" class="cta-btn cta-btn-secondary">
@@ -50,7 +50,7 @@
         </div>
 
         <div class="project-preview">
-            <img src="https://placehold.co/900x500/1a1a2e/ec4899?text=Beauty+Clinic+Management" alt="Beauty Clinic Management Preview" />
+            <img src="https://placehold.co/900x500/1a1a2e/f97316?text=POS+untuk+UMKM" alt="POS untuk UMKM Preview" />
         </div>
 
         <div class="project-content-grid">
@@ -58,26 +58,26 @@
             <div class="project-main-content">
                 <div class="content-section">
                     <h2>Overview</h2>
-                    <p>Beauty Clinic Management adalah sistem informasi manajemen berbasis web yang dirancang khusus untuk klinik kecantikan. Sistem ini membantu pengelola klinik dalam mengelola data pasien, jadwal treatment, stok produk, dan laporan keuangan dalam satu platform terintegrasi.</p>
-                    <p>Dibangun menggunakan Laravel framework dengan database MySQL, sistem ini menerapkan arsitektur MVC yang clean dan menggunakan Blade templating engine untuk tampilan yang responsif.</p>
+                    <p>POS untuk UMKM adalah sistem kasir yang dirancang khusus untuk kebutuhan usaha mikro, kecil, dan menengah. Fokus utama pada kesederhanaan dan kecepatan — kasir bisa melakukan transaksi dengan cepat menggunakan barcode scanner tanpa perlu training yang rumit.</p>
+                    <p>Dibangun dengan Laravel 10 dan Bootstrap untuk UI yang familiar, sistem ini juga mendukung cetak struk langsung ke thermal printer untuk pengalaman kasir yang seamless.</p>
                 </div>
 
                 <div class="content-section">
                     <h2>Challenges & Solutions</h2>
-                    <p>Tantangan utama adalah manajemen jadwal yang kompleks — satu terapis bisa menangani beberapa pasien dalam sehari dengan slot waktu berbeda. Solusinya adalah implementasi sistem booking dengan validasi konflik jadwal otomatis menggunakan query yang efisien.</p>
-                    <p>Untuk laporan keuangan, sistem menggunakan agregasi data transaksi harian, mingguan, dan bulanan yang bisa diekspor langsung ke format PDF untuk keperluan pembukuan klinik.</p>
+                    <p>Kompatibilitas thermal printer dengan berbagai merek dan model menjadi tantangan. Solusinya menggunakan Thermal Printer JS library yang mendukung ESC/POS protocol universal, sehingga kompatibel dengan mayoritas printer di pasaran.</p>
+                    <p>Stock alert system dirancang untuk memberikan notifikasi otomatis ketika stok produk mencapai batas minimum, membantu owner untuk restock tepat waktu.</p>
                 </div>
 
                 <div class="content-section">
                     <h2>Key Features</h2>
                     <ul class="feature-list">
-                        <li>Pendaftaran dan manajemen data pasien</li>
-                        <li>Penjadwalan treatment dengan validasi konflik waktu</li>
-                        <li>Manajemen produk dan stok klinik</li>
-                        <li>Riwayat kunjungan dan rekam medis pasien</li>
-                        <li>Laporan keuangan harian, mingguan, bulanan</li>
-                        <li>Manajemen terapis dan jadwal kerja</li>
-                        <li>Role-based access: Admin dan Kasir</li>
+                        <li>Transaksi kasir cepat dengan barcode scanner</li>
+                        <li>Manajemen produk &amp; kategori</li>
+                        <li>Laporan penjualan harian/mingguan/bulanan</li>
+                        <li>Cetak struk thermal printer</li>
+                        <li>Multi-user (owner, kasir)</li>
+                        <li>Diskon &amp; promo management</li>
+                        <li>Stock alert low inventory</li>
                     </ul>
                 </div>
             </div>
@@ -86,12 +86,12 @@
                 <div class="sidebar-card">
                     <h3>Tech Stack</h3>
                     <div class="sidebar-tags">
-                        <span>Laravel</span>
+                        <span>Laravel 10</span>
                         <span>MySQL</span>
                         <span>Blade</span>
                         <span>Bootstrap</span>
-                        <span>JavaScript</span>
                         <span>jQuery</span>
+                        <span>Thermal Printer JS</span>
                     </div>
                 </div>
 
@@ -103,8 +103,8 @@
                             <span class="sidebar-info-value">Completed</span>
                         </div>
                         <div class="sidebar-info-item">
-                            <span class="sidebar-info-label">Year</span>
-                            <span class="sidebar-info-value">2024</span>
+                            <span class="sidebar-info-label">Duration</span>
+                            <span class="sidebar-info-value">2 months</span>
                         </div>
                         <div class="sidebar-info-item">
                             <span class="sidebar-info-label">Role</span>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="sidebar-info-item">
                             <span class="sidebar-info-label">Type</span>
-                            <span class="sidebar-info-value">Personal Project</span>
+                            <span class="sidebar-info-value">Freelance</span>
                         </div>
                     </div>
                 </div>
@@ -120,8 +120,8 @@
                 <div class="sidebar-card">
                     <h3>Links</h3>
                     <div class="sidebar-links">
-                        <a href="https://github.com/lutfidev/laravel-clinic" target="_blank" class="sidebar-link">
-                            <i data-lucide="github"></i> GitHub Repository
+                        <a href="https://github.com/lutfidev" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub
                         </a>
                         <a href="https://www.youtube.com/" target="_blank" class="sidebar-link">
                             <i data-lucide="play-circle"></i> Demo Video
@@ -132,10 +132,13 @@
         </div>
 
         <nav class="project-nav">
-            <span class="project-nav-btn empty"></span>
-            <a href="../point-of-sale/" class="project-nav-btn next">
-                <span class="project-nav-label">Next Project <i data-lucide="arrow-right"></i></span>
-                <span class="project-nav-title">Point of Sale API</span>
+            <a href="../siakad/" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
+                <span class="project-nav-title">SIAKAD</span>
+            </a>
+            <a href="../swimming-ticketing/" class="project-nav-btn next">
+                <span class="project-nav-label"><i data-lucide="arrow-right"></i> Next Project</span>
+                <span class="project-nav-title">Swimming Ticketing</span>
             </a>
         </nav>
 

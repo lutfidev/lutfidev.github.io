@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Buku Bisnis — Muhammad Lutfi</title>
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/project-detail.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <nav class="breadcrumb">
+            <a href="../../">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../#projects">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Aplikasi Buku Bisnis</span>
+        </nav>
+
+        <div class="project-hero">
+            <div class="project-hero-tags">
+                <span class="project-year">2024</span>
+                <span class="project-tag-badge">Mobile App</span>
+                <span class="project-tag-badge">Finance</span>
+            </div>
+            <h1>Aplikasi Buku Bisnis</h1>
+            <p class="project-hero-subtitle">
+                Aplikasi pencatatan keuangan bisnis sederhana — catat pemasukan, pengeluaran, dan lihat ringkasan profit secara otomatis dengan grafik interaktif.
+            </p>
+            <div class="project-cta">
+                <a href="https://github.com/lutfidev" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="project-preview">
+            <img src="https://placehold.co/900x500/1a1a2e/10b981?text=Aplikasi+Buku+Bisnis" alt="Aplikasi Buku Bisnis Preview" />
+        </div>
+
+        <div class="project-content-grid">
+
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p>Aplikasi Buku Bisnis adalah solusi pencatatan keuangan yang dirancang untuk pelaku UMKM dan bisnis kecil. Dengan antarmuka yang intuitif, pengguna dapat mencatat setiap transaksi pemasukan dan pengeluaran, lalu melihat ringkasan profit secara otomatis.</p>
+                    <p>Aplikasi ini dibangun dengan Flutter dan menyimpan data secara lokal menggunakan SQLite, sehingga bisa digunakan tanpa koneksi internet. Dilengkapi juga fitur export laporan ke PDF untuk kebutuhan pelaporan.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Challenges & Solutions</h2>
+                    <p>Mendesain UI yang simpel namun informatif untuk pengguna non-teknis menjadi tantangan utama. Solusinya adalah menggunakan dashboard visual dengan grafik FL Chart yang menampilkan tren profit bulanan secara intuitif.</p>
+                    <p>Fitur backup & restore data menggunakan file JSON yang bisa disimpan ke cloud storage pengguna, memastikan data tidak hilang saat ganti device.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>Catat pemasukan &amp; pengeluaran</li>
+                        <li>Kategori transaksi custom</li>
+                        <li>Grafik profit bulanan</li>
+                        <li>Export laporan ke PDF</li>
+                        <li>Backup &amp; restore data</li>
+                        <li>Multi-bisnis dalam satu app</li>
+                        <li>Dashboard ringkasan keuangan</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">
+                        <span>Flutter</span>
+                        <span>Dart</span>
+                        <span>SQLite</span>
+                        <span>FL Chart</span>
+                        <span>GetX</span>
+                        <span>PDF Export</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Status</span>
+                            <span class="sidebar-info-value">Completed</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Duration</span>
+                            <span class="sidebar-info-value">6 weeks</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Role</span>
+                            <span class="sidebar-info-value">Mobile Developer</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Personal Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        <a href="https://github.com/lutfidev" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <nav class="project-nav">
+            <a href="../laundry-app/" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
+                <span class="project-nav-title">Laundry App</span>
+            </a>
+            <a href="../klinik-management/" class="project-nav-btn next">
+                <span class="project-nav-label"><i data-lucide="arrow-right"></i> Next Project</span>
+                <span class="project-nav-title">Klinik Management</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../js/components.js"></script>
+    <script>initComponents('../../'); lucide.createIcons();</script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>

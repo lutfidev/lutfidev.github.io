@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chatbot — Muhammad Lutfi</title>
+    <title>Food Delivery — Muhammad Lutfi</title>
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/project-detail.css">
@@ -21,69 +21,63 @@
 
     <div class="project-detail-container">
 
-        <!-- Breadcrumb -->
         <nav class="breadcrumb">
             <a href="../../">Home</a>
             <span class="breadcrumb-sep">/</span>
             <a href="../../#projects">Projects</a>
             <span class="breadcrumb-sep">/</span>
-            <span class="breadcrumb-current">AI Chatbot</span>
+            <span class="breadcrumb-current">Food Delivery</span>
         </nav>
 
-        <!-- Hero -->
         <div class="project-hero">
             <div class="project-hero-tags">
-                <span class="project-year">2024</span>
-                <span class="project-tag-badge">AI / ML</span>
+                <span class="project-year">2024 - 2025</span>
                 <span class="project-tag-badge">Full Stack</span>
-                <span class="project-tag-badge">Open Source</span>
+                <span class="project-tag-badge">Mobile App</span>
             </div>
-            <h1>AI Chatbot</h1>
+            <h1>Food Delivery</h1>
             <p class="project-hero-subtitle">
-                Chatbot berbasis AI dengan integrasi OpenAI API, context memory antar sesi, streaming response, dan tampilan chat modern yang dibangun dengan Next.js dan Vercel AI SDK.
+                Platform food delivery lengkap dengan 3 aplikasi — app untuk user order makanan, app untuk resto kelola menu &amp; pesanan, dan app untuk driver terima &amp; antar pesanan.
             </p>
             <div class="project-cta">
-                <a href="https://github.com/username/ai-chatbot" target="_blank" class="cta-btn cta-btn-primary">
-                    <i data-lucide="github"></i> View on GitHub
+                <a href="https://github.com/lutfidev" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> GitHub
                 </a>
-                <a href="https://ai-chat-demo.vercel.app" target="_blank" class="cta-btn cta-btn-secondary">
-                    <i data-lucide="external-link"></i> Try Demo
+                <a href="https://www.youtube.com/" target="_blank" class="cta-btn cta-btn-secondary">
+                    <i data-lucide="play-circle"></i> Demo Video
                 </a>
             </div>
         </div>
 
-        <!-- Preview -->
         <div class="project-preview">
-            <img src="https://placehold.co/900x500/1a1a2e/06b6d4?text=AI+Chatbot+Preview" alt="AI Chatbot Preview" />
+            <img src="https://placehold.co/900x500/1a1a2e/f43f5e?text=Food+Delivery+Platform" alt="Food Delivery Preview" />
         </div>
 
-        <!-- Content Grid -->
         <div class="project-content-grid">
 
             <div class="project-main-content">
                 <div class="content-section">
                     <h2>Overview</h2>
-                    <p>AI Chatbot adalah aplikasi web yang memungkinkan pengguna berinteraksi dengan berbagai AI model (GPT-4o, GPT-4 Turbo) melalui antarmuka chat yang intuitif. Dibangun dengan Next.js App Router dan Vercel AI SDK untuk streaming response yang smooth.</p>
-                    <p>Setiap conversation disimpan di database dengan context window management — secara otomatis meringkas conversation lama saat mendekati token limit, memungkinkan percakapan panjang tanpa kehilangan konteks penting.</p>
+                    <p>Food Delivery adalah platform delivery makanan komprehensif yang terdiri dari 3 aplikasi mobile (User, Resto, Driver) dan 1 admin panel web. Setiap aplikasi dirancang untuk peran spesifik — user bisa browse resto dan order makanan, resto bisa kelola menu dan terima pesanan, dan driver bisa terima order dan navigasi pengantaran.</p>
+                    <p>Backend dibangun dengan Laravel 11 dan menggunakan Pusher untuk real-time communication antar semua role. Tracking driver menggunakan Google Maps API dengan update lokasi secara berkala.</p>
                 </div>
 
                 <div class="content-section">
                     <h2>Challenges & Solutions</h2>
-                    <p>Mengelola context window AI dengan efisien adalah tantangan utama. Solusinya adalah implementasi sliding window dengan summarization: saat percakapan panjang, message lama diringkas menggunakan AI itu sendiri menjadi summary singkat yang tetap memberikan konteks relevan.</p>
-                    <p>Streaming response yang harus tetap persisted meski pengguna refresh halaman diselesaikan dengan Server-Sent Events dan optimistic UI updates — pesan muncul secara real-time dan tersimpan atomically saat selesai.</p>
+                    <p>Koordinasi real-time antara 3 role berbeda (user, resto, driver) merupakan tantangan arsitektural terbesar. Solusinya menggunakan event-driven architecture dengan Pusher channels yang terpisah per order, memastikan setiap stakeholder mendapat update yang relevan.</p>
+                    <p>Optimasi route untuk driver menggunakan Google Directions API dengan caching strategy agar tidak terlalu banyak API call. Sistem juga menghitung estimasi waktu sampai berdasarkan jarak dan kondisi rute.</p>
                 </div>
 
                 <div class="content-section">
                     <h2>Key Features</h2>
                     <ul class="feature-list">
-                        <li>Streaming response real-time dengan Vercel AI SDK</li>
-                        <li>Context memory yang persisten antar sesi</li>
-                        <li>Dukungan multi-model: GPT-4o, GPT-4 Turbo</li>
-                        <li>Markdown rendering dengan syntax highlighting kode</li>
-                        <li>Chat history dengan pencarian dan kategorisasi</li>
-                        <li>Prompt templates yang bisa disave dan reuse</li>
-                        <li>Rate limiting per user dengan usage dashboard</li>
-                        <li>Export conversation ke PDF atau Markdown</li>
+                        <li>App User: browse resto, order, tracking driver real-time</li>
+                        <li>App Resto: kelola menu, terima/tolak order, laporan penjualan</li>
+                        <li>App Driver: terima order, navigasi maps, update status delivery</li>
+                        <li>Payment gateway Midtrans</li>
+                        <li>Push notification semua role</li>
+                        <li>Rating &amp; review resto</li>
+                        <li>Admin panel web dashboard</li>
                     </ul>
                 </div>
             </div>
@@ -92,14 +86,13 @@
                 <div class="sidebar-card">
                     <h3>Tech Stack</h3>
                     <div class="sidebar-tags">
-                        <span>Next.js 14</span>
-                        <span>TypeScript</span>
-                        <span>OpenAI API</span>
-                        <span>Vercel AI SDK</span>
-                        <span>Tailwind CSS</span>
-                        <span>PostgreSQL</span>
-                        <span>Prisma</span>
-                        <span>NextAuth.js</span>
+                        <span>Flutter</span>
+                        <span>Laravel 11</span>
+                        <span>MySQL</span>
+                        <span>Firebase</span>
+                        <span>Google Maps API</span>
+                        <span>Midtrans</span>
+                        <span>Pusher</span>
                     </div>
                 </div>
 
@@ -112,7 +105,7 @@
                         </div>
                         <div class="sidebar-info-item">
                             <span class="sidebar-info-label">Duration</span>
-                            <span class="sidebar-info-value">6 weeks</span>
+                            <span class="sidebar-info-value">5 months</span>
                         </div>
                         <div class="sidebar-info-item">
                             <span class="sidebar-info-label">Role</span>
@@ -128,24 +121,26 @@
                 <div class="sidebar-card">
                     <h3>Links</h3>
                     <div class="sidebar-links">
-                        <a href="https://github.com/username/ai-chatbot" target="_blank" class="sidebar-link">
-                            <i data-lucide="github"></i> GitHub Repository
+                        <a href="https://github.com/lutfidev" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub
                         </a>
-                        <a href="https://ai-chat-demo.vercel.app" target="_blank" class="sidebar-link">
-                            <i data-lucide="external-link"></i> Try Demo
+                        <a href="https://www.youtube.com/" target="_blank" class="sidebar-link">
+                            <i data-lucide="play-circle"></i> Demo Video
                         </a>
                     </div>
                 </div>
             </aside>
         </div>
 
-        <!-- Prev/Next Navigation -->
         <nav class="project-nav">
-            <a href="../inventory-system/" class="project-nav-btn">
+            <a href="../absensi-face/" class="project-nav-btn">
                 <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
-                <span class="project-nav-title">Inventory System</span>
+                <span class="project-nav-title">Absensi Face Recognition</span>
             </a>
-            <span class="project-nav-btn next empty"></span>
+            <a href="../pos-cafe/" class="project-nav-btn next">
+                <span class="project-nav-label"><i data-lucide="arrow-right"></i> Next Project</span>
+                <span class="project-nav-title">POS Cafe System</span>
+            </a>
         </nav>
 
     </div>

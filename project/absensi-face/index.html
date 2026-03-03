@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Face Recognition + GPS — Muhammad Lutfi</title>
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/project-detail.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <nav class="breadcrumb">
+            <a href="../../">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../#projects">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Absensi Face Recognition + GPS</span>
+        </nav>
+
+        <div class="project-hero">
+            <div class="project-hero-tags">
+                <span class="project-year">2025</span>
+                <span class="project-tag-badge">Mobile App</span>
+                <span class="project-tag-badge">AI/ML</span>
+            </div>
+            <h1>Absensi Face Recognition + GPS</h1>
+            <p class="project-hero-subtitle">
+                Aplikasi absensi karyawan dengan verifikasi face recognition dan validasi lokasi GPS — anti-titip absen dan anti-fake location.
+            </p>
+            <div class="project-cta">
+                <a href="https://github.com/lutfidev" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="project-preview">
+            <img src="https://placehold.co/900x500/1a1a2e/a855f7?text=Absensi+Face+Recognition" alt="Absensi Face Recognition Preview" />
+        </div>
+
+        <div class="project-content-grid">
+
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p>Absensi Face Recognition + GPS adalah aplikasi mobile yang mengkombinasikan teknologi face recognition dan validasi lokasi GPS untuk sistem absensi karyawan yang aman dan akurat. Aplikasi ini dirancang untuk mencegah titip absen dan penggunaan fake GPS.</p>
+                    <p>Menggunakan TensorFlow Lite dan Google ML Kit untuk face recognition on-device, sehingga proses verifikasi wajah berlangsung cepat tanpa memerlukan koneksi internet. Dashboard admin berbasis web (Laravel) menyediakan rekap absensi dan laporan yang komprehensif.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Challenges & Solutions</h2>
+                    <p>Liveness detection untuk mencegah penggunaan foto sebagai pengganti wajah asli menjadi tantangan utama. Implementasi menggunakan blink detection dan head movement verification untuk memastikan wajah yang terdeteksi adalah orang yang benar-benar hadir.</p>
+                    <p>Anti-fake GPS menggunakan kombinasi GPS provider checking, mock location detection, dan validasi geofencing radius untuk memastikan karyawan berada di lokasi yang benar saat melakukan absensi.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>Face recognition untuk verifikasi identitas</li>
+                        <li>Validasi lokasi GPS dengan geofencing</li>
+                        <li>Anti-spoofing (liveness detection)</li>
+                        <li>Rekap absensi bulanan</li>
+                        <li>Dashboard admin web (Laravel)</li>
+                        <li>Notifikasi keterlambatan otomatis</li>
+                        <li>Export laporan absensi ke Excel</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">
+                        <span>Flutter</span>
+                        <span>Dart</span>
+                        <span>TensorFlow Lite</span>
+                        <span>Google ML Kit</span>
+                        <span>Firebase</span>
+                        <span>Google Maps API</span>
+                        <span>GetX</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Status</span>
+                            <span class="sidebar-info-value">Completed</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Duration</span>
+                            <span class="sidebar-info-value">3 months</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Role</span>
+                            <span class="sidebar-info-value">Mobile Developer</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Client Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        <a href="https://github.com/lutfidev" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <nav class="project-nav">
+            <a href="../pos-resto/" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
+                <span class="project-nav-title">POS Resto</span>
+            </a>
+            <a href="../food-delivery/" class="project-nav-btn next">
+                <span class="project-nav-label"><i data-lucide="arrow-right"></i> Next Project</span>
+                <span class="project-nav-title">Food Delivery</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../js/components.js"></script>
+    <script>initComponents('../../'); lucide.createIcons();</script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>

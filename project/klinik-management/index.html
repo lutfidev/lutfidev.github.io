@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Platform — Muhammad Lutfi</title>
+    <title>Klinik Management — Muhammad Lutfi</title>
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/project-detail.css">
@@ -21,64 +21,63 @@
 
     <div class="project-detail-container">
 
-        <!-- Breadcrumb -->
         <nav class="breadcrumb">
             <a href="../../">Home</a>
             <span class="breadcrumb-sep">/</span>
             <a href="../../#projects">Projects</a>
             <span class="breadcrumb-sep">/</span>
-            <span class="breadcrumb-current">E-Commerce Platform</span>
+            <span class="breadcrumb-current">Klinik Management</span>
         </nav>
 
-        <!-- Hero -->
         <div class="project-hero">
             <div class="project-hero-tags">
-                <span class="project-year">2023</span>
+                <span class="project-year">2025</span>
                 <span class="project-tag-badge">Full Stack</span>
-                <span class="project-tag-badge">SaaS</span>
+                <span class="project-tag-badge">Enterprise</span>
             </div>
-            <h1>E-Commerce Platform</h1>
+            <h1>Klinik Management</h1>
             <p class="project-hero-subtitle">
-                Platform toko online lengkap dengan payment gateway Midtrans, manajemen produk & stok, tracking order real-time, dan dashboard admin.
+                Sistem manajemen klinik lengkap — penjadwalan dokter, rekam medis elektronik, dan pembayaran QRIS terintegrasi dalam satu platform.
             </p>
             <div class="project-cta">
-                <a href="https://toko-online-demo.vercel.app" target="_blank" class="cta-btn cta-btn-primary">
-                    <i data-lucide="external-link"></i> Live Demo
+                <a href="https://github.com/lutfidev" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> GitHub
+                </a>
+                <a href="https://www.youtube.com/" target="_blank" class="cta-btn cta-btn-secondary">
+                    <i data-lucide="play-circle"></i> Demo Video
                 </a>
             </div>
         </div>
 
-        <!-- Preview -->
         <div class="project-preview">
-            <img src="https://placehold.co/900x500/1a1a2e/f59e0b?text=E-Commerce+Platform+Preview" alt="E-Commerce Platform Preview" />
+            <img src="https://placehold.co/900x500/1a1a2e/8b5cf6?text=Klinik+Management" alt="Klinik Management Preview" />
         </div>
 
-        <!-- Content Grid -->
         <div class="project-content-grid">
 
             <div class="project-main-content">
                 <div class="content-section">
                     <h2>Overview</h2>
-                    <p>E-Commerce Platform adalah solusi lengkap untuk UMKM yang ingin berjualan online. Dibangun dengan Laravel sebagai backend, platform ini menyediakan semua fitur yang dibutuhkan mulai dari katalog produk hingga manajemen pengiriman.</p>
-                    <p>Sistem dirancang dengan arsitektur yang scalable, menggunakan Redis untuk session management dan caching, serta PostgreSQL sebagai database utama dengan query yang dioptimasi untuk high traffic.</p>
+                    <p>Klinik Management adalah sistem informasi manajemen klinik yang mencakup seluruh aspek operasional — dari penjadwalan dokter, pencatatan rekam medis elektronik (EMR), hingga sistem pembayaran terintegrasi dengan QRIS via Midtrans.</p>
+                    <p>Sistem ini dirancang untuk klinik umum dan spesialis dengan multi-role access menggunakan Spatie Permissions, memastikan setiap pengguna hanya mengakses fitur sesuai perannya.</p>
                 </div>
 
                 <div class="content-section">
                     <h2>Challenges & Solutions</h2>
-                    <p>Race condition pada saat checkout bersamaan menjadi tantangan kritis. Solusinya adalah implementasi database-level locking dengan SELECT FOR UPDATE dan queue-based payment processing menggunakan Laravel Queue.</p>
-                    <p>Untuk mencegah overselling produk, sistem menggunakan optimistic locking dengan version column sehingga transaksi yang conflicting otomatis di-retry atau dibatalkan dengan pesan error yang informatif.</p>
+                    <p>Conflict detection pada penjadwalan dokter menjadi tantangan kompleks — harus memastikan tidak ada jadwal yang bertabrakan. Implementasi menggunakan database constraint dan validation layer ganda untuk mencegah double-booking.</p>
+                    <p>Antrian pasien real-time menggunakan Livewire polling yang efisien, memberikan update status antrian tanpa perlu refresh halaman secara manual.</p>
                 </div>
 
                 <div class="content-section">
                     <h2>Key Features</h2>
                     <ul class="feature-list">
-                        <li>Integrasi payment gateway Midtrans (VA, QRIS, kartu kredit)</li>
-                        <li>Manajemen produk dengan variant, SKU, dan bulk import CSV</li>
-                        <li>Tracking order real-time dengan integrasi JNE, J&T, SiCepat</li>
-                        <li>Dashboard admin dengan laporan penjualan dan analitik</li>
-                        <li>Flash sale & voucher sistem dengan rate limiting</li>
-                        <li>Review & rating produk dengan moderasi konten</li>
-                        <li>Multi-seller support dengan commission management</li>
+                        <li>Penjadwalan dokter dengan conflict detection</li>
+                        <li>Rekam medis elektronik (EMR)</li>
+                        <li>Pembayaran QRIS via Midtrans</li>
+                        <li>Antrian pasien real-time</li>
+                        <li>Manajemen obat &amp; resep</li>
+                        <li>Role-based access (admin, dokter, kasir)</li>
+                        <li>Laporan kunjungan &amp; keuangan</li>
                     </ul>
                 </div>
             </div>
@@ -87,14 +86,13 @@
                 <div class="sidebar-card">
                     <h3>Tech Stack</h3>
                     <div class="sidebar-tags">
-                        <span>Laravel 10</span>
-                        <span>PostgreSQL</span>
-                        <span>Redis</span>
-                        <span>Tailwind CSS</span>
+                        <span>Laravel 11</span>
+                        <span>MySQL</span>
+                        <span>Livewire</span>
                         <span>Alpine.js</span>
-                        <span>Midtrans</span>
-                        <span>Laravel Queue</span>
-                        <span>Nginx</span>
+                        <span>Midtrans QRIS</span>
+                        <span>Tailwind CSS</span>
+                        <span>Spatie Permissions</span>
                     </div>
                 </div>
 
@@ -107,15 +105,15 @@
                         </div>
                         <div class="sidebar-info-item">
                             <span class="sidebar-info-label">Duration</span>
-                            <span class="sidebar-info-value">5 months</span>
+                            <span class="sidebar-info-value">4 months</span>
                         </div>
                         <div class="sidebar-info-item">
                             <span class="sidebar-info-label">Role</span>
                             <span class="sidebar-info-value">Full Stack Developer</span>
                         </div>
                         <div class="sidebar-info-item">
-                            <span class="sidebar-info-label">Team Size</span>
-                            <span class="sidebar-info-value">2 people</span>
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Client Project</span>
                         </div>
                     </div>
                 </div>
@@ -123,23 +121,25 @@
                 <div class="sidebar-card">
                     <h3>Links</h3>
                     <div class="sidebar-links">
-                        <a href="https://toko-online-demo.vercel.app" target="_blank" class="sidebar-link">
-                            <i data-lucide="external-link"></i> Live Demo
+                        <a href="https://github.com/lutfidev" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" class="sidebar-link">
+                            <i data-lucide="play-circle"></i> Demo Video
                         </a>
                     </div>
                 </div>
             </aside>
         </div>
 
-        <!-- Prev/Next Navigation -->
         <nav class="project-nav">
-            <a href="../analytics-dashboard/" class="project-nav-btn">
+            <a href="../buku-bisnis/" class="project-nav-btn">
                 <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
-                <span class="project-nav-title">Analytics Dashboard</span>
+                <span class="project-nav-title">Aplikasi Buku Bisnis</span>
             </a>
-            <a href="../task-manager-api/" class="project-nav-btn next">
+            <a href="../online-shop/" class="project-nav-btn next">
                 <span class="project-nav-label"><i data-lucide="arrow-right"></i> Next Project</span>
-                <span class="project-nav-title">Task Manager API</span>
+                <span class="project-nav-title">Online Shop</span>
             </a>
         </nav>
 

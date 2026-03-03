@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analytics Dashboard — Muhammad Lutfi</title>
+    <title>POS Cafe System — Muhammad Lutfi</title>
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/project-detail.css">
@@ -21,67 +21,63 @@
 
     <div class="project-detail-container">
 
-        <!-- Breadcrumb -->
         <nav class="breadcrumb">
             <a href="../../">Home</a>
             <span class="breadcrumb-sep">/</span>
             <a href="../../#projects">Projects</a>
             <span class="breadcrumb-sep">/</span>
-            <span class="breadcrumb-current">Analytics Dashboard</span>
+            <span class="breadcrumb-current">POS Cafe System</span>
         </nav>
 
-        <!-- Hero -->
         <div class="project-hero">
             <div class="project-hero-tags">
                 <span class="project-year">2024</span>
+                <span class="project-tag-badge">Full Stack</span>
                 <span class="project-tag-badge">Web App</span>
-                <span class="project-tag-badge">Open Source</span>
             </div>
-            <h1>Analytics Dashboard</h1>
+            <h1>POS Cafe System</h1>
             <p class="project-hero-subtitle">
-                Dashboard analitik real-time dengan visualisasi data interaktif, filter dinamis, dan fitur export report ke PDF/Excel.
+                Sistem POS modern untuk cafe — order dari tablet, loyalty program pelanggan, dan integrasi dengan mesin kasir untuk operasional yang efisien.
             </p>
             <div class="project-cta">
-                <a href="https://github.com/username/analytics-dashboard" target="_blank" class="cta-btn cta-btn-primary">
-                    <i data-lucide="github"></i> View on GitHub
+                <a href="https://github.com/lutfidev" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> GitHub
                 </a>
-                <a href="https://analytics-demo.vercel.app" target="_blank" class="cta-btn cta-btn-secondary">
+                <a href="#" target="_blank" class="cta-btn cta-btn-secondary">
                     <i data-lucide="external-link"></i> Live Demo
                 </a>
             </div>
         </div>
 
-        <!-- Preview -->
         <div class="project-preview">
-            <img src="https://placehold.co/900x500/1a1a2e/3b82f6?text=Analytics+Dashboard+Preview" alt="Analytics Dashboard Preview" />
+            <img src="https://placehold.co/900x500/1a1a2e/d946ef?text=POS+Cafe+System" alt="POS Cafe System Preview" />
         </div>
 
-        <!-- Content Grid -->
         <div class="project-content-grid">
 
             <div class="project-main-content">
                 <div class="content-section">
                     <h2>Overview</h2>
-                    <p>Analytics Dashboard adalah aplikasi web yang memungkinkan tim bisnis memantau metrik performa secara real-time. Dashboard ini dibangun dengan React dan TypeScript untuk menjamin type safety dan maintainability kode jangka panjang.</p>
-                    <p>Data divisualisasikan menggunakan Chart.js dengan animasi smooth, mendukung berbagai jenis grafik: line chart, bar chart, pie chart, dan heatmap. Pengguna dapat memfilter data berdasarkan rentang tanggal, region, dan kategori produk.</p>
+                    <p>POS Cafe System adalah sistem point-of-sale modern yang dirancang untuk operasional cafe. Dengan interface tablet-friendly, barista dan pelayan bisa mengambil order langsung dari tablet tanpa perlu ke meja kasir. Sistem ini juga dilengkapi loyalty program untuk meningkatkan retensi pelanggan.</p>
+                    <p>Dibangun dengan tech stack MERN (MongoDB, Express, React, Node.js) dan menggunakan Socket.io untuk real-time order synchronization antara front-of-house dan kitchen.</p>
                 </div>
 
                 <div class="content-section">
                     <h2>Challenges & Solutions</h2>
-                    <p>Tantangan utama adalah performa saat memuat dataset besar (100k+ rows). Solusinya adalah implementasi virtualized list dan pagination server-side, serta caching response API dengan React Query untuk mengurangi redundant network calls.</p>
-                    <p>Masalah kedua adalah real-time update tanpa membebani server. Solved dengan WebSocket connection yang reconnect otomatis dan debounced state updates.</p>
+                    <p>Real-time order sync antara multiple tablet dan kitchen display memerlukan arsitektur WebSocket yang reliable. Socket.io dengan room-based channels memastikan setiap device hanya menerima update yang relevan.</p>
+                    <p>Loyalty program dengan point calculation yang akurat dan redemption yang aman memerlukan transaction-safe operations untuk mencegah point fraud atau double redemption.</p>
                 </div>
 
                 <div class="content-section">
                     <h2>Key Features</h2>
                     <ul class="feature-list">
-                        <li>Real-time data updates via WebSocket dengan auto-reconnect</li>
-                        <li>7 tipe chart interaktif dengan zoom dan pan support</li>
-                        <li>Export report ke PDF dan Excel dengan custom template</li>
-                        <li>Filter multi-dimensi: tanggal, region, kategori, channel</li>
-                        <li>Dark/light mode dengan preferensi tersimpan di localStorage</li>
-                        <li>Responsive design — optimal di desktop, tablet, dan mobile</li>
-                        <li>Role-based access: admin, analyst, viewer</li>
+                        <li>Tablet-friendly order interface</li>
+                        <li>Loyalty program &amp; membership card</li>
+                        <li>Real-time order sync via WebSocket</li>
+                        <li>Manajemen menu dengan foto &amp; modifier</li>
+                        <li>Laporan penjualan &amp; analytics</li>
+                        <li>Multi-payment (cash, QRIS, e-wallet)</li>
+                        <li>Inventory tracking bahan baku</li>
                     </ul>
                 </div>
             </div>
@@ -90,14 +86,13 @@
                 <div class="sidebar-card">
                     <h3>Tech Stack</h3>
                     <div class="sidebar-tags">
-                        <span>React 18</span>
-                        <span>TypeScript</span>
-                        <span>Chart.js</span>
-                        <span>React Query</span>
-                        <span>Vite</span>
-                        <span>Tailwind CSS</span>
-                        <span>WebSocket</span>
+                        <span>React</span>
                         <span>Node.js</span>
+                        <span>Express</span>
+                        <span>MongoDB</span>
+                        <span>Socket.io</span>
+                        <span>Tailwind CSS</span>
+                        <span>Stripe</span>
                     </div>
                 </div>
 
@@ -106,7 +101,7 @@
                     <div class="sidebar-info-list">
                         <div class="sidebar-info-item">
                             <span class="sidebar-info-label">Status</span>
-                            <span class="sidebar-info-value">Active Development</span>
+                            <span class="sidebar-info-value">Completed</span>
                         </div>
                         <div class="sidebar-info-item">
                             <span class="sidebar-info-label">Duration</span>
@@ -114,11 +109,11 @@
                         </div>
                         <div class="sidebar-info-item">
                             <span class="sidebar-info-label">Role</span>
-                            <span class="sidebar-info-value">Frontend Lead</span>
+                            <span class="sidebar-info-value">Full Stack Developer</span>
                         </div>
                         <div class="sidebar-info-item">
-                            <span class="sidebar-info-label">Team Size</span>
-                            <span class="sidebar-info-value">3 people</span>
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Personal Project</span>
                         </div>
                     </div>
                 </div>
@@ -126,10 +121,10 @@
                 <div class="sidebar-card">
                     <h3>Links</h3>
                     <div class="sidebar-links">
-                        <a href="https://github.com/username/analytics-dashboard" target="_blank" class="sidebar-link">
-                            <i data-lucide="github"></i> GitHub Repository
+                        <a href="https://github.com/lutfidev" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub
                         </a>
-                        <a href="https://analytics-demo.vercel.app" target="_blank" class="sidebar-link">
+                        <a href="#" target="_blank" class="sidebar-link">
                             <i data-lucide="external-link"></i> Live Demo
                         </a>
                     </div>
@@ -137,15 +132,14 @@
             </aside>
         </div>
 
-        <!-- Prev/Next Navigation -->
         <nav class="project-nav">
-            <a href="../point-of-sale/" class="project-nav-btn">
+            <a href="../food-delivery/" class="project-nav-btn">
                 <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
-                <span class="project-nav-title">Point of Sale API</span>
+                <span class="project-nav-title">Food Delivery</span>
             </a>
-            <a href="../task-manager-api/" class="project-nav-btn next">
-                <span class="project-nav-label">Next Project <i data-lucide="arrow-right"></i></span>
-                <span class="project-nav-title">Task Manager API</span>
+            <a href="../general-pos/" class="project-nav-btn next">
+                <span class="project-nav-label"><i data-lucide="arrow-right"></i> Next Project</span>
+                <span class="project-nav-title">General POS System</span>
             </a>
         </nav>
 

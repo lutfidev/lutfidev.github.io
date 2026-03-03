@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website — Muhammad Lutfi</title>
+    <title>CBT Test Potensi Akademik — Muhammad Lutfi</title>
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/project-detail.css">
@@ -21,68 +21,63 @@
 
     <div class="project-detail-container">
 
-        <!-- Breadcrumb -->
         <nav class="breadcrumb">
             <a href="../../">Home</a>
             <span class="breadcrumb-sep">/</span>
             <a href="../../#projects">Projects</a>
             <span class="breadcrumb-sep">/</span>
-            <span class="breadcrumb-current">Portfolio Website</span>
+            <span class="breadcrumb-current">CBT Test Potensi Akademik</span>
         </nav>
 
-        <!-- Hero -->
         <div class="project-hero">
             <div class="project-hero-tags">
                 <span class="project-year">2024</span>
-                <span class="project-tag-badge">Frontend</span>
-                <span class="project-tag-badge">Open Source</span>
+                <span class="project-tag-badge">Full Stack</span>
+                <span class="project-tag-badge">Education</span>
             </div>
-            <h1>Portfolio Website</h1>
+            <h1>CBT Test Potensi Akademik</h1>
             <p class="project-hero-subtitle">
-                Website portfolio personal yang kamu lihat sekarang — dibangun dengan HTML, CSS, dan vanilla JavaScript tanpa framework, menampilkan desain bento grid dark theme dengan animasi interaktif.
+                Computer Based Test untuk ujian Tes Potensi Akademik — dilengkapi timer otomatis, bank soal, randomisasi soal, dan hasil skor instan.
             </p>
             <div class="project-cta">
-                <a href="https://github.com/username/portfolio-v2" target="_blank" class="cta-btn cta-btn-primary">
-                    <i data-lucide="github"></i> View on GitHub
+                <a href="https://github.com/lutfidev" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> GitHub
                 </a>
-                <a href="https://lutfi.dev" target="_blank" class="cta-btn cta-btn-secondary">
-                    <i data-lucide="external-link"></i> Live Site
+                <a href="#" target="_blank" class="cta-btn cta-btn-secondary">
+                    <i data-lucide="external-link"></i> Demo
                 </a>
             </div>
         </div>
 
-        <!-- Preview -->
         <div class="project-preview">
-            <img src="https://placehold.co/900x500/1a1a2e/a78bfa?text=Portfolio+Website+Preview" alt="Portfolio Website Preview" />
+            <img src="https://placehold.co/900x500/1a1a2e/6366f1?text=CBT+Test+Potensi+Akademik" alt="CBT Test Potensi Akademik Preview" />
         </div>
 
-        <!-- Content Grid -->
         <div class="project-content-grid">
 
             <div class="project-main-content">
                 <div class="content-section">
                     <h2>Overview</h2>
-                    <p>Portfolio ini didesain dengan filosofi "less is more" — fokus pada konten dan typography yang kuat daripada animasi berlebihan. Desain bento grid terinspirasi dari desain produk Apple dan Vercel's new website.</p>
-                    <p>Dibangun tanpa framework atau build tool apapun — pure HTML, CSS, dan vanilla JavaScript. Ini membuktikan bahwa web modern yang performant tidak selalu membutuhkan stack yang besar.</p>
+                    <p>CBT Test Potensi Akademik adalah platform ujian berbasis komputer yang dirancang untuk menyelenggarakan Tes Potensi Akademik (TPA) secara online. Sistem ini mendukung berbagai kategori soal — verbal, numerik, dan logika — dengan randomisasi otomatis untuk setiap peserta.</p>
+                    <p>Dilengkapi timer countdown per sesi, anti-cheating measures, dan kalkulasi skor instan setelah ujian selesai. Admin dapat mengelola bank soal dan mengekspor hasil ujian ke Excel.</p>
                 </div>
 
                 <div class="content-section">
-                    <h2>Design Decisions</h2>
-                    <p>Color palette dipilih dengan sangat hati-hati: hitam #0a0a0a sebagai background utama (bukan pure black yang terlalu keras di mata), dengan aksen biru elektrik #3b82f6 untuk elemen interaktif.</p>
-                    <p>Typography menggunakan dua font: Space Grotesk untuk heading (geometric, modern, kuat) dan Inter untuk body text (highly legible, friendly). Kombinasi ini menciptakan hierarchy yang jelas.</p>
+                    <h2>Challenges & Solutions</h2>
+                    <p>Anti-cheating implementation menjadi prioritas utama. Sistem mendeteksi tab switching dan memaksa fullscreen mode selama ujian. Jika peserta keluar dari fullscreen lebih dari 3 kali, ujian otomatis di-submit.</p>
+                    <p>Randomisasi soal yang adil memerlukan algoritma yang memastikan setiap peserta mendapat distribusi soal yang seimbang dari setiap kategori, bukan sekadar acak total.</p>
                 </div>
 
                 <div class="content-section">
                     <h2>Key Features</h2>
                     <ul class="feature-list">
-                        <li>Bento grid layout asimetris yang unik dan tidak generik</li>
-                        <li>Mouse spotlight effect pada setiap card</li>
-                        <li>Scroll animations dengan IntersectionObserver</li>
-                        <li>Glassmorphism navbar dengan blur effect</li>
-                        <li>Halaman detail project dengan navigasi prev/next</li>
-                        <li>Fully responsive dari mobile hingga ultrawide</li>
-                        <li>Tidak ada dependency — zero JavaScript bundles</li>
-                        <li>Lighthouse score 98+ di semua kategori</li>
+                        <li>Timer countdown per sesi ujian</li>
+                        <li>Randomisasi soal &amp; opsi jawaban</li>
+                        <li>Bank soal dengan kategori (verbal, numerik, logika)</li>
+                        <li>Hasil skor instan setelah ujian</li>
+                        <li>Dashboard admin kelola soal &amp; peserta</li>
+                        <li>Export hasil ke Excel</li>
+                        <li>Anti-cheating (fullscreen mode, tab detection)</li>
                     </ul>
                 </div>
             </div>
@@ -91,11 +86,12 @@
                 <div class="sidebar-card">
                     <h3>Tech Stack</h3>
                     <div class="sidebar-tags">
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>JavaScript</span>
-                        <span>Lucide Icons</span>
-                        <span>Google Fonts</span>
+                        <span>Laravel 10</span>
+                        <span>MySQL</span>
+                        <span>Livewire</span>
+                        <span>Alpine.js</span>
+                        <span>Tailwind CSS</span>
+                        <span>Laravel Excel</span>
                     </div>
                 </div>
 
@@ -104,15 +100,15 @@
                     <div class="sidebar-info-list">
                         <div class="sidebar-info-item">
                             <span class="sidebar-info-label">Status</span>
-                            <span class="sidebar-info-value">Active</span>
+                            <span class="sidebar-info-value">Completed</span>
                         </div>
                         <div class="sidebar-info-item">
                             <span class="sidebar-info-label">Duration</span>
-                            <span class="sidebar-info-value">Ongoing</span>
+                            <span class="sidebar-info-value">3 months</span>
                         </div>
                         <div class="sidebar-info-item">
                             <span class="sidebar-info-label">Role</span>
-                            <span class="sidebar-info-value">Designer & Developer</span>
+                            <span class="sidebar-info-value">Full Stack Developer</span>
                         </div>
                         <div class="sidebar-info-item">
                             <span class="sidebar-info-label">Type</span>
@@ -124,26 +120,25 @@
                 <div class="sidebar-card">
                     <h3>Links</h3>
                     <div class="sidebar-links">
-                        <a href="https://github.com/username/portfolio-v2" target="_blank" class="sidebar-link">
-                            <i data-lucide="github"></i> GitHub Repository
+                        <a href="https://github.com/lutfidev" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub
                         </a>
-                        <a href="https://lutfi.dev" target="_blank" class="sidebar-link">
-                            <i data-lucide="external-link"></i> Live Site
+                        <a href="#" target="_blank" class="sidebar-link">
+                            <i data-lucide="external-link"></i> Demo
                         </a>
                     </div>
                 </div>
             </aside>
         </div>
 
-        <!-- Prev/Next Navigation -->
         <nav class="project-nav">
-            <a href="../task-manager-api/" class="project-nav-btn">
+            <a href="../online-shop/" class="project-nav-btn">
                 <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
-                <span class="project-nav-title">Task Manager API</span>
+                <span class="project-nav-title">Online Shop</span>
             </a>
-            <a href="../inventory-system/" class="project-nav-btn next">
+            <a href="../siakad/" class="project-nav-btn next">
                 <span class="project-nav-label"><i data-lucide="arrow-right"></i> Next Project</span>
-                <span class="project-nav-title">Inventory System</span>
+                <span class="project-nav-title">SIAKAD</span>
             </a>
         </nav>
 

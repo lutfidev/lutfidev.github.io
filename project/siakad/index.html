@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAKAD — Muhammad Lutfi</title>
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/project-detail.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <nav class="breadcrumb">
+            <a href="../../">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../#projects">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">SIAKAD</span>
+        </nav>
+
+        <div class="project-hero">
+            <div class="project-hero-tags">
+                <span class="project-year">2024 - 2025</span>
+                <span class="project-tag-badge">Full Stack</span>
+                <span class="project-tag-badge">Enterprise</span>
+            </div>
+            <h1>SIAKAD</h1>
+            <p class="project-hero-subtitle">
+                Sistem Informasi Akademik untuk manajemen data mahasiswa, KRS, penjadwalan kuliah, input nilai, dan cetak transkrip akademik.
+            </p>
+            <div class="project-cta">
+                <a href="https://github.com/lutfidev" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="project-preview">
+            <img src="https://placehold.co/900x500/1a1a2e/0ea5e9?text=SIAKAD" alt="SIAKAD Preview" />
+        </div>
+
+        <div class="project-content-grid">
+
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p>SIAKAD (Sistem Informasi Akademik) adalah platform manajemen akademik komprehensif yang mencakup seluruh siklus administrasi perguruan tinggi — dari pendaftaran mahasiswa, pengisian KRS, penjadwalan mata kuliah, hingga input nilai dan cetak transkrip.</p>
+                    <p>Sistem ini memiliki portal terpisah untuk mahasiswa dan dosen, dengan dashboard akademik yang menampilkan statistik IPK, kehadiran, dan progress studi secara visual menggunakan Chart.js.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Challenges & Solutions</h2>
+                    <p>Penjadwalan mata kuliah otomatis yang menghindari konflik ruangan dan waktu dosen merupakan tantangan algoritmik yang kompleks. Implementasi menggunakan constraint-based scheduling dengan validasi multi-layer.</p>
+                    <p>Generasi PDF untuk transkrip dan KHS memerlukan layout yang presisi. DomPDF digunakan dengan template Blade yang telah disesuaikan untuk format akademik standar.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>Manajemen data mahasiswa &amp; dosen</li>
+                        <li>Pengisian KRS online</li>
+                        <li>Penjadwalan mata kuliah otomatis</li>
+                        <li>Input nilai &amp; perhitungan IPK</li>
+                        <li>Cetak transkrip &amp; KHS (PDF)</li>
+                        <li>Dashboard akademik dengan statistik</li>
+                        <li>Portal mahasiswa &amp; dosen terpisah</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">
+                        <span>Laravel 11</span>
+                        <span>MySQL</span>
+                        <span>Livewire</span>
+                        <span>Tailwind CSS</span>
+                        <span>DomPDF</span>
+                        <span>Spatie Permissions</span>
+                        <span>Chart.js</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Status</span>
+                            <span class="sidebar-info-value">Active Development</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Duration</span>
+                            <span class="sidebar-info-value">6 months</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Role</span>
+                            <span class="sidebar-info-value">Full Stack Developer</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Client Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        <a href="https://github.com/lutfidev" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <nav class="project-nav">
+            <a href="../cbt-tpa/" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
+                <span class="project-nav-title">CBT Test Potensi Akademik</span>
+            </a>
+            <a href="../pos-umkm/" class="project-nav-btn next">
+                <span class="project-nav-label"><i data-lucide="arrow-right"></i> Next Project</span>
+                <span class="project-nav-title">POS untuk UMKM</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../js/components.js"></script>
+    <script>initComponents('../../'); lucide.createIcons();</script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic Web POS Dashboard — Muhammad Lutfi</title>
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/project-detail.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../../">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../#projects">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Clinic Web POS Dashboard</span>
+        </nav>
+
+        <!-- Hero -->
+        <div class="project-hero">
+            <div class="project-hero-tags">
+                <span class="project-year">2025</span>
+                <span class="project-tag-badge">Full Stack</span>
+                <span class="project-tag-badge">Web App</span>
+            </div>
+            <h1>Clinic Web POS Dashboard</h1>
+            <p class="project-hero-subtitle">
+                Dashboard POS berbasis web untuk klinik kecantikan — kelola transaksi treatment, penjualan produk, dan laporan keuangan harian dalam satu platform.
+            </p>
+            <div class="project-cta">
+                <a href="https://github.com/lutfidev" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> GitHub
+                </a>
+                <a href="https://www.youtube.com/" target="_blank" class="cta-btn cta-btn-secondary">
+                    <i data-lucide="play-circle"></i> Demo Video
+                </a>
+            </div>
+        </div>
+
+        <!-- Preview -->
+        <div class="project-preview">
+            <img src="https://placehold.co/900x500/1a1a2e/ec4899?text=Clinic+Web+POS+Dashboard" alt="Clinic Web POS Dashboard Preview" />
+        </div>
+
+        <!-- Content Grid -->
+        <div class="project-content-grid">
+
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p>Clinic Web POS Dashboard adalah sistem point-of-sale berbasis web yang dirancang khusus untuk klinik kecantikan. Platform ini mengintegrasikan seluruh proses bisnis klinik — mulai dari pencatatan transaksi treatment, penjualan produk kecantikan, hingga laporan keuangan harian yang komprehensif.</p>
+                    <p>Dibangun dengan Laravel 11 dan Livewire untuk pengalaman real-time tanpa reload halaman, serta dilengkapi integrasi pembayaran QRIS via Midtrans untuk kemudahan pembayaran pelanggan.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Challenges & Solutions</h2>
+                    <p>Tantangan utama adalah mengelola concurrent transactions dari beberapa kasir sekaligus tanpa terjadi konflik stok produk. Solusinya menggunakan database locking dan queue-based processing untuk memastikan konsistensi data.</p>
+                    <p>Integrasi thermal printer untuk cetak struk juga menjadi tantangan karena variasi hardware. Digunakan ESC/POS protocol yang kompatibel dengan mayoritas thermal printer di pasaran.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>Transaksi treatment &amp; produk</li>
+                        <li>Manajemen stok produk klinik</li>
+                        <li>Laporan penjualan harian/bulanan</li>
+                        <li>Integrasi pembayaran QRIS via Midtrans</li>
+                        <li>Multi-user (admin, kasir, terapis)</li>
+                        <li>Dashboard analytics real-time</li>
+                        <li>Cetak struk thermal printer</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">
+                        <span>Laravel 11</span>
+                        <span>MySQL</span>
+                        <span>Livewire</span>
+                        <span>Tailwind CSS</span>
+                        <span>Chart.js</span>
+                        <span>Midtrans</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Status</span>
+                            <span class="sidebar-info-value">Completed</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Duration</span>
+                            <span class="sidebar-info-value">3 months</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Role</span>
+                            <span class="sidebar-info-value">Full Stack Developer</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Client Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        <a href="https://github.com/lutfidev" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" class="sidebar-link">
+                            <i data-lucide="play-circle"></i> Demo Video
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Prev/Next Navigation -->
+        <nav class="project-nav">
+            <span class="project-nav-btn disabled"></span>
+            <a href="../laundry-app/" class="project-nav-btn next">
+                <span class="project-nav-label"><i data-lucide="arrow-right"></i> Next Project</span>
+                <span class="project-nav-title">Laundry App</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../js/components.js"></script>
+    <script>initComponents('../../'); lucide.createIcons();</script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>
