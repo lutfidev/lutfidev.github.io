@@ -196,7 +196,7 @@
             document.getElementById('gh-following').textContent = d.following ?? '—';
         })
         .catch(() => {});
-    fetch('https://komarev.com/ghpvc/?username=lutfidev&base=0&abbreviated=true&label=x&format=json')
+    fetch('https://komarev.com/ghpvc/?username=lutfidev&base=1700&abbreviated=true&label=x&format=json')
         .then(r => r.json())
         .then(d => {
             document.getElementById('gh-visitors').textContent = d.message ?? '—';
