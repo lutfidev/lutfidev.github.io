@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warung Tycoon — Muhammad Lutfi</title>
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/project-detail.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <nav class="breadcrumb">
+            <a href="../../">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../#projects">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Warung Tycoon</span>
+        </nav>
+
+        <div class="project-hero">
+            <div class="project-hero-tags">
+                <span class="project-year">2026</span>
+                <span class="project-tag-badge">Mobile Game</span>
+                <span class="project-tag-badge">Offline First</span>
+            </div>
+            <h1>Warung Tycoon</h1>
+            <p class="project-hero-subtitle">
+                Game idle/incremental bertema warung Indonesia — mulai dari gerobak gorengan, berkembang lewat warteg, hingga bisnis katering skala besar.
+            </p>
+            <div class="project-cta">
+                <a href="https://github.com/lutfidev" target="_blank" class="cta-btn cta-btn-primary">
+                    <i data-lucide="github"></i> GitHub
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.warungtycoon.app" target="_blank" class="cta-btn cta-btn-secondary">
+                    <i data-lucide="smartphone"></i> Google Play
+                </a>
+            </div>
+        </div>
+
+        <div class="project-preview">
+            <img src="https://placehold.co/900x500/1a1a2e/f59e0b?text=Warung+Tycoon" alt="Warung Tycoon Preview" />
+        </div>
+
+        <div class="project-content-grid">
+
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p>Warung Tycoon adalah game idle/incremental bertema warung Indonesia. Pemain memulai dari gerobak gorengan kecil, berkembang lewat warteg, hingga bisnis katering skala besar — dengan sistem prestige "Buka Cabang" untuk reset progres demi bonus permanen.</p>
+                    <p>Game berjalan 100% offline, tanpa backend dan tanpa login — seluruh state disimpan lokal di perangkat lewat Hive, sehingga pemain bisa langsung main begitu aplikasi dibuka tanpa perlu koneksi internet sama sekali.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Challenges &amp; Solutions</h2>
+                    <p>Timer yang berjalan saat app di background menyebabkan drift pada perhitungan income. Solusinya, income dihitung murni dari selisih <code>DateTime.now()</code> dan <code>lastTick</code>, bukan dari akumulasi tick timer — timer UI hanya dipakai untuk refresh visual di 10 FPS.</p>
+                    <p>Logika earnings sempat terduplikasi antara mode online dan offline. Keduanya kemudian disatukan: offline earnings memakai fungsi perhitungan yang sama persis dengan online, hanya dengan delta waktu yang lebih besar lalu di-cap.</p>
+                    <p>Engine ekonomi harus bisa diuji tanpa emulator, jadi <code>lib/core/</code> dipisah total sebagai Dart murni tanpa satu pun impor Flutter — seluruh formula harga, income, dan prestige bisa diuji lewat <code>dart test</code> biasa dengan target coverage 100% di layer ini.</p>
+                    <p>Angka di level tinggi bisa membengkak sangat besar, tapi <code>double</code> (jangkauan ~1e308) tetap dipertahankan daripada <code>BigInt</code> karena jauh lebih dari cukup untuk kebutuhan game ini dan lebih ringan secara performa.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>8 tingkatan produk (Gorengan → Katering) dengan kurva harga geometris <code>price(n) = basePrice × 1.07ⁿ</code></li>
+                        <li>Milestone kelipatan income di level 25/50/100/200</li>
+                        <li>Sistem pegawai (manager) — sekali beli, produk otomatis menghasilkan tanpa tap manual</li>
+                        <li>Offline earnings dari selisih timestamp asli, cap 4 jam (12 jam via IAP)</li>
+                        <li>Anti-cheat untuk deteksi jam sistem yang dimundurkan</li>
+                        <li>Prestige "Buka Cabang" berbasis lifetime earnings — pelanggan setia sebagai multiplier permanen</li>
+                        <li>Format angka ala Indonesia (rb/jt/M/T/Kd/Kn) dengan koma sebagai desimal</li>
+                        <li>Monetisasi non-intrusif — rewarded ads, interstitial hanya pasca-prestige, tanpa banner ads</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">
+                        <span>Flutter</span>
+                        <span>Dart</span>
+                        <span>Riverpod</span>
+                        <span>Hive</span>
+                        <span>Google Mobile Ads</span>
+                        <span>In App Purchase</span>
+                        <span>intl</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Status</span>
+                            <span class="sidebar-info-value">Pre-launch</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Duration</span>
+                            <span class="sidebar-info-value">6 months</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Role</span>
+                            <span class="sidebar-info-value">Full Stack Developer</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Personal Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        <a href="https://github.com/lutfidev" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.warungtycoon.app" target="_blank" class="sidebar-link">
+                            <i data-lucide="smartphone"></i> Google Play
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <nav class="project-nav">
+            <a href="../general-pos/" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
+                <span class="project-nav-title">General POS System</span>
+            </a>
+            <span class="project-nav-btn empty"></span>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../js/components.js"></script>
+    <script>initComponents('../../'); lucide.createIcons();</script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>
