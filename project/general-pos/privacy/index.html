@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — General POS System — Muhammad Lutfi</title>
+    <meta name="description" content="Privacy policy for General POS System — what data it collects, how it is used, and who it is shared with.">
+    <link rel="stylesheet" href="../../../css/nav.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/project-detail.css">
+    <link rel="stylesheet" href="../../../css/privacy.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <nav class="breadcrumb">
+            <a href="../../../">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../../projects/">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../">General POS System</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Privacy Policy</span>
+        </nav>
+
+        <div class="policy-header">
+            <div class="project-hero-tags">
+                <span class="project-tag-badge">Privacy Policy</span>
+                <span class="project-year">Backend API</span>
+            </div>
+            <h1>Privacy Policy</h1>
+            <p class="policy-subtitle">General POS System — Multi-tenant REST API (Node.js / Express), self-hosted via Docker</p>
+            <p class="policy-meta">Effective August 6, 2026 · Last updated August 6, 2026</p>
+        </div>
+
+        <div class="policy-body">
+
+                <p>This project is a backend API, not a consumer application. It stores whatever the businesses using it send through their own point-of-sale clients. Each tenant is the controller of its own data; the API acts as the processor.</p>
+
+                <div class="policy-callout">
+                    <div class="policy-callout-title">Summary</div>
+                    <ul>
+                        <li>Self-hosted — the API and its PostgreSQL database run on infrastructure the tenant controls.</li>
+                        <li>Data is isolated per tenant; access is enforced with JWT authentication and role-based permissions.</li>
+                        <li>No analytics, no advertising, no telemetry is sent to the developer.</li>
+                        <li>Webhooks send data to endpoints the tenant configures — the destination is the tenant’s responsibility.</li>
+                    </ul>
+                </div>
+
+                <h2>1. Controller and processor</h2>
+                <div class="policy-note">
+                    <i data-lucide="info"></i>
+                    <p><strong>General POS System</strong> is deployed by each business on its own servers. That business decides what is stored and is the <strong>data controller</strong>; the API is the <strong>processor</strong> acting on its instructions. The developer operates no shared instance and receives no telemetry from any deployment.</p>
+                </div>
+                <p>This page describes the categories of data the API handles by design, so an operator can write their own customer-facing policy on top of it.</p>
+
+                <h2>2. Data processed by the API</h2>
+                <div class="policy-table-wrap">
+                    <table class="policy-table">
+                        <thead>
+                            <tr><th>Data</th><th>Why</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Tenant and user accounts</strong></td><td>Business name, user name, email, role, and a hashed password (bcrypt/argon2). Used for authentication and role-based access control.</td></tr>
+                            <tr><td><strong>Product catalogue</strong></td><td>Products, variants, SKUs, prices, and stock levels — business data, not personal data.</td></tr>
+                            <tr><td><strong>Transactions</strong></td><td>Line items, totals, payment methods, cashier, and timestamps. Customer identity is optional and only present if the tenant’s client sends it.</td></tr>
+                            <tr><td><strong>Authentication tokens</strong></td><td>Short-lived JWT access tokens and refresh tokens; refresh tokens can be revoked server-side.</td></tr>
+                            <tr><td><strong>Cache entries (Redis)</strong></td><td>Session state and frequently read data, held temporarily with a short expiry.</td></tr>
+                            <tr><td><strong>Request logs</strong></td><td>IP address, endpoint, HTTP status, tenant ID, and timestamp — for debugging, rate limiting, and abuse detection.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>3. Multi-tenancy and isolation</h2>
+                <p>Every request is scoped to the tenant encoded in the authenticated token. One tenant cannot read or write another tenant’s records through the API. Administrative endpoints are gated by role, and role assignment is the operator’s responsibility.</p>
+
+                <h2>4. Webhooks and integrations</h2>
+                <p>Tenants can register webhook URLs to receive transaction events. When they do, the payload — which may include customer or order details — is delivered to that external endpoint. Choosing a destination, securing it, and disclosing that transfer to its own customers is the tenant’s responsibility, not the API’s.</p>
+
+                <h2>5. Third-party services</h2>
+                <p>The API itself calls no external service. Payment providers, messaging services, and any other integration are configured by the tenant, run under the tenant’s own credentials, and are governed by those providers’ policies.</p>
+
+                <h2>6. Retention</h2>
+                <p>Nothing is deleted automatically except cache entries (which expire) and rotated request logs. Business and transaction records persist until the operator deletes them or applies its own retention policy through the API.</p>
+
+                <h2>7. Data security</h2>
+                <p>The application applies standard protections: passwords are stored as one-way hashes (never in plain text), access is limited by role, and all traffic between client and server is expected to run over HTTPS/TLS.</p>
+                <p>Passwords are hashed, tokens expire and can be revoked, endpoints validate input, and the container image ships with no default credentials. TLS termination, database encryption at rest, backups, and network policy are configured by the operator on their own infrastructure.</p>
+                <p>No system is perfectly secure. Server hardening, backups, and access management for a live installation are the responsibility of the organization operating it.</p>
+
+                <h2>8. Children</h2>
+                <p>The API is business software with no consumer-facing sign-up. It is not intended for use by children.</p>
+
+                <h2>9. Your rights</h2>
+                <p>If you are a customer of a business that runs this API, that business holds your data — send access or deletion requests to them. If you are an operator and need help implementing such a request technically, contact <a href="mailto:mhdlutfidev@gmail.com">mhdlutfidev@gmail.com</a>.</p>
+
+                <h2>10. Changes to this policy</h2>
+                <p>If this policy changes, the &ldquo;Last updated&rdquo; date at the top of this page will be revised. Material changes will be reflected in the application release notes.</p>
+
+                <h2>11. Contact</h2>
+                <p>Questions, complaints, or privacy requests about this application:</p>
+                <p><strong><a href="mailto:mhdlutfidev@gmail.com">mhdlutfidev@gmail.com</a></strong></p>
+                <p>I aim to respond within 7 business days.</p>
+
+        </div>
+
+        <nav class="project-nav">
+            <a href="../" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Back to project</span>
+                <span class="project-nav-title">General POS System</span>
+            </a>
+            <span class="project-nav-btn empty"></span>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../../js/components.js"></script>
+    <script>initComponents('../../../'); lucide.createIcons();</script>
+    <script src="../../../js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Klinik Management — Muhammad Lutfi</title>
+    <meta name="description" content="Privacy policy for Klinik Management — what data it collects, how it is used, and who it is shared with.">
+    <link rel="stylesheet" href="../../../css/nav.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/project-detail.css">
+    <link rel="stylesheet" href="../../../css/privacy.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <nav class="breadcrumb">
+            <a href="../../../">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../../projects/">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../">Klinik Management</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Privacy Policy</span>
+        </nav>
+
+        <div class="policy-header">
+            <div class="project-hero-tags">
+                <span class="project-tag-badge">Privacy Policy</span>
+                <span class="project-year">Web App</span>
+            </div>
+            <h1>Privacy Policy</h1>
+            <p class="policy-subtitle">Klinik Management — Web application (Laravel) with electronic medical records</p>
+            <p class="policy-meta">Effective August 6, 2026 · Last updated August 6, 2026</p>
+        </div>
+
+        <div class="policy-body">
+
+                <p>This system stores health data — the most sensitive category there is. It is installed and run by a clinic, which is the data controller and is bound by healthcare confidentiality rules. This page documents what the software stores, who can see it, and how it is protected.</p>
+
+                <div class="policy-callout">
+                    <div class="policy-callout-title">Summary</div>
+                    <ul>
+                        <li>Holds patient identity, medical records, prescriptions, appointments, and payments.</li>
+                        <li>Access is <strong>role-based</strong> — doctors, cashiers, and admins each see only what their role permits.</li>
+                        <li>Payments run through <strong>Midtrans QRIS</strong>; the system never stores payment credentials.</li>
+                        <li>The clinic is the data controller; the developer has no access to any patient data.</li>
+                    </ul>
+                </div>
+
+                <h2>1. Who this policy applies to</h2>
+                <div class="policy-note">
+                    <i data-lucide="info"></i>
+                    <p><strong>Klinik Management</strong> is software that an organization installs and runs on its own infrastructure. The clinic operating a given installation decides what data is entered into it and is the <strong>data controller</strong> for that installation. This page documents what the application itself collects and processes by design; it is the reference policy for the software, and an operator may publish additional terms on top of it. As the developer, I have no access to any production database unless an operator explicitly grants it for maintenance.</p>
+                </div>
+
+                <h2>2. Data we collect</h2>
+                <div class="policy-table-wrap">
+                    <table class="policy-table">
+                        <thead>
+                            <tr><th>Data</th><th>Why</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Patient identity</strong></td><td>Name, date of birth, gender, address, phone number, and where required an identity or insurance number — to create and correctly match a medical record.</td></tr>
+                            <tr><td><strong>Medical records (EMR)</strong></td><td>Complaints, examination findings, diagnosis, treatments, and doctor notes — the clinical record of your visit.</td></tr>
+                            <tr><td><strong>Prescriptions and dispensing</strong></td><td>Medicines prescribed, dosage, and stock movement.</td></tr>
+                            <tr><td><strong>Appointments and queue</strong></td><td>Chosen doctor, schedule slot, queue number, and visit status.</td></tr>
+                            <tr><td><strong>Payment records</strong></td><td>Service fees, totals, Midtrans order ID and status. No card or bank credentials.</td></tr>
+                            <tr><td><strong>Staff accounts</strong></td><td>Name, role (admin, doctor, cashier), and hashed password.</td></tr>
+                            <tr><td><strong>Audit logs</strong></td><td>Who opened or changed which record and when — required to keep medical records accountable.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>3. Health data and confidentiality</h2>
+                <p>Medical records are treated as confidential health information. Within the system they are reachable only by the clinic staff whose role requires it, and every access is written to an audit log.</p>
+                <p>The developer of this software does <strong>not</strong> hold, mirror, or have standing access to any clinic’s patient data. Where an operator requests maintenance support, access is granted by them, limited in time, and should be performed on anonymised or test data wherever possible.</p>
+                <p>Medical data is never used for advertising, never sold, and never shared with insurers or employers by the software itself.</p>
+
+                <h2>4. Third-party services</h2>
+                <div class="policy-table-wrap">
+                    <table class="policy-table">
+                        <thead>
+                            <tr><th>Service</th><th>What it does</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Midtrans</strong> (PT Midtrans)<br> <a href="https://midtrans.com/id/privacy-policy" target="_blank" rel="noopener">Privacy policy ↗</a></td><td>Processes payments (QRIS, virtual account, e-wallet, card). Card and banking details are entered on Midtrans’ own page — this application never sees or stores them.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>5. Access control</h2>
+                <p>Roles are enforced with a permission layer (Spatie Permissions): a cashier sees billing but not clinical notes; a doctor sees the records of patients in their care; an administrator manages accounts and schedules. Assigning roles correctly is the clinic’s responsibility.</p>
+
+                <h2>6. Cookies and sessions</h2>
+                <p>The application uses cookies only for functionality:</p>
+                <ul>
+                    <li>A <strong>session cookie</strong> that keeps you logged in for the duration of your session.</li>
+                    <li>A <strong>CSRF token cookie</strong> that protects forms against cross-site request forgery.</li>
+                </ul>
+                <p>There are no advertising cookies, no third-party analytics or tracking pixels, and no cross-site profiling. Clearing cookies simply logs you out.</p>
+
+                <h2>7. Sharing and retention</h2>
+                <p>Records are shared only inside the clinic, with the patient themselves on request, and with third parties where the patient consents or the law requires (for example a referral, or a lawful request from an authority).</p>
+                <p>Medical records are retained for the period required by applicable healthcare regulations and the clinic’s own record-keeping policy — typically far longer than ordinary business data. A patient may ask for corrections to inaccurate data; a request to erase a clinical record can be refused where retaining it is a legal obligation.</p>
+
+                <h2>8. Data security</h2>
+                <p>The application applies standard protections: passwords are stored as one-way hashes (never in plain text), access is limited by role, and all traffic between client and server is expected to run over HTTPS/TLS.</p>
+                <p>Sensitive fields are protected by role-based access, audit logging, and hashed credentials. Encryption at rest, backups, network isolation, and physical security of the server are configured by the clinic operating the installation.</p>
+                <p>No system is perfectly secure. Server hardening, backups, and access management for a live installation are the responsibility of the organization operating it.</p>
+
+                <h2>9. Children</h2>
+                <p>Paediatric patients are registered by a parent or guardian at the clinic, and the guardian exercises the patient’s rights. The system never allows a child to self-register.</p>
+
+                <h2>10. Your rights</h2>
+                <p>You have the right to ask for access to, correction of, or deletion of your personal data, and to object to certain processing.</p>
+                <p>Because your data lives in the installation run by the organization you deal with, address those requests to that organization first — they hold the data and can act on it. If you cannot reach them, or you believe the application itself is at fault, contact the developer at <a href="mailto:mhdlutfidev@gmail.com">mhdlutfidev@gmail.com</a> and I will assist technically.</p>
+
+                <h2>11. Changes to this policy</h2>
+                <p>If this policy changes, the &ldquo;Last updated&rdquo; date at the top of this page will be revised. Material changes will be reflected in the application release notes.</p>
+
+                <h2>12. Contact</h2>
+                <p>Questions, complaints, or privacy requests about this application:</p>
+                <p><strong><a href="mailto:mhdlutfidev@gmail.com">mhdlutfidev@gmail.com</a></strong></p>
+                <p>I aim to respond within 7 business days.</p>
+
+        </div>
+
+        <nav class="project-nav">
+            <a href="../" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Back to project</span>
+                <span class="project-nav-title">Klinik Management</span>
+            </a>
+            <span class="project-nav-btn empty"></span>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../../js/components.js"></script>
+    <script>initComponents('../../../'); lucide.createIcons();</script>
+    <script src="../../../js/animations.js"></script>
+</body>
+</html>

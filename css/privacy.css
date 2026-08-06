@@ -1,0 +1,195 @@
+/* ============================================
+   PRIVACY POLICY PAGE STYLES
+   ============================================ */
+
+.policy-header {
+    margin-bottom: 2.5rem;
+}
+
+.policy-header h1 {
+    font-size: 2.5rem;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.04em;
+}
+
+.policy-subtitle {
+    color: var(--text-main);
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.policy-meta {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* Body copy */
+.policy-body {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.policy-body h2 {
+    font-size: 1.25rem;
+    margin: 2.75rem 0 0.9rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border);
+    letter-spacing: -0.02em;
+}
+
+.policy-body h3 {
+    font-size: 1rem;
+    margin: 1.75rem 0 0.5rem;
+}
+
+.policy-body p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.policy-body ul {
+    margin: 0 0 1.25rem 1.15rem;
+}
+
+.policy-body li {
+    margin-bottom: 0.45rem;
+    line-height: 1.75;
+}
+
+.policy-body strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.policy-body a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.policy-body a:hover {
+    border-bottom-color: var(--accent);
+}
+
+.policy-body code {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 0.1em 0.4em;
+    font-family: 'Space Grotesk', ui-monospace, monospace;
+    font-size: 0.85em;
+    color: var(--text-main);
+}
+
+/* Summary card */
+.policy-callout {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.35rem 1.5rem 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.policy-callout-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 0.85rem;
+}
+
+.policy-callout ul {
+    margin: 0 0 0 1.1rem;
+}
+
+.policy-callout li:last-child {
+    margin-bottom: 0;
+}
+
+/* Highlighted note */
+.policy-note {
+    display: flex;
+    gap: 0.8rem;
+    background: rgba(59, 130, 246, 0.07);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.policy-note i {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: var(--accent);
+}
+
+.policy-note p {
+    margin: 0;
+}
+
+/* Tables */
+.policy-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin: 1.1rem 0 1.5rem;
+}
+
+.policy-table {
+    width: 100%;
+    min-width: 480px;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.policy-table th {
+    text-align: left;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.policy-table td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.65;
+    color: var(--text-muted);
+}
+
+.policy-table tr:last-child td {
+    border-bottom: none;
+}
+
+.policy-table td strong {
+    color: var(--text-main);
+}
+
+body.light-mode .policy-table th {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+@media (max-width: 639px) {
+    .policy-header h1 {
+        font-size: 2rem;
+    }
+
+    .policy-table-wrap {
+        border-radius: 10px;
+    }
+}

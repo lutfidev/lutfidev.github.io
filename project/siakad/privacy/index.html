@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — SIAKAD — Muhammad Lutfi</title>
+    <meta name="description" content="Privacy policy for SIAKAD — what data it collects, how it is used, and who it is shared with.">
+    <link rel="stylesheet" href="../../../css/nav.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/project-detail.css">
+    <link rel="stylesheet" href="../../../css/privacy.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <nav class="breadcrumb">
+            <a href="../../../">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../../projects/">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../">SIAKAD</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Privacy Policy</span>
+        </nav>
+
+        <div class="policy-header">
+            <div class="project-hero-tags">
+                <span class="project-tag-badge">Privacy Policy</span>
+                <span class="project-year">Web App</span>
+            </div>
+            <h1>Privacy Policy</h1>
+            <p class="policy-subtitle">SIAKAD — Academic information system (Laravel)</p>
+            <p class="policy-meta">Effective August 6, 2026 · Last updated August 6, 2026</p>
+        </div>
+
+        <div class="policy-body">
+
+                <p>An academic information system holds a student’s record for years: identity, courses, grades, transcripts. It is operated by the institution, which is the data controller and is bound by its own academic and record-keeping rules.</p>
+
+                <div class="policy-callout">
+                    <div class="policy-callout-title">Summary</div>
+                    <ul>
+                        <li>Holds student and lecturer identity, course registration (KRS), grades, GPA, and transcripts.</li>
+                        <li>Separate portals with role-based access for students, lecturers, and administrators.</li>
+                        <li>No advertising, no analytics trackers, no data sold to anyone.</li>
+                        <li>The institution operating the installation is the data controller.</li>
+                    </ul>
+                </div>
+
+                <h2>1. Who this policy applies to</h2>
+                <div class="policy-note">
+                    <i data-lucide="info"></i>
+                    <p><strong>SIAKAD</strong> is software that an organization installs and runs on its own infrastructure. The institution operating a given installation decides what data is entered into it and is the <strong>data controller</strong> for that installation. This page documents what the application itself collects and processes by design; it is the reference policy for the software, and an operator may publish additional terms on top of it. As the developer, I have no access to any production database unless an operator explicitly grants it for maintenance.</p>
+                </div>
+
+                <h2>2. Data we collect</h2>
+                <div class="policy-table-wrap">
+                    <table class="policy-table">
+                        <thead>
+                            <tr><th>Data</th><th>Why</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Student identity</strong></td><td>Student number, name, date and place of birth, gender, address, phone number, email, and photo — the academic record and identity documents such as transcripts require them.</td></tr>
+                            <tr><td><strong>Lecturer and staff identity</strong></td><td>Staff number, name, contact details, and department.</td></tr>
+                            <tr><td><strong>Academic data</strong></td><td>Course registration (KRS), class schedules, attendance, grades, GPA, and academic status.</td></tr>
+                            <tr><td><strong>Documents</strong></td><td>Generated transcripts and grade reports (KHS) in PDF form.</td></tr>
+                            <tr><td><strong>Accounts</strong></td><td>Usernames, hashed passwords, and role assignments.</td></tr>
+                            <tr><td><strong>Technical logs</strong></td><td>IP address, user agent, and action timestamps — for audit and troubleshooting.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>3. Who can see what</h2>
+                <ul>
+                    <li><strong>Students</strong> see their own identity, KRS, schedule, grades, and transcript — no other student’s.</li>
+                    <li><strong>Lecturers</strong> see the students in the classes they teach, for attendance and grade entry.</li>
+                    <li><strong>Administrators</strong> manage accounts, schedules, and institution-wide reports.</li>
+                    <li>Roles are enforced by a permission layer; assignment is the institution’s responsibility.</li>
+                </ul>
+
+                <h2>4. Third-party services</h2>
+                <p>None. The system runs on the institution’s own server. PDF generation happens server-side, with no external document service, analytics, or advertising involved.</p>
+
+                <h2>5. Cookies and sessions</h2>
+                <p>The application uses cookies only for functionality:</p>
+                <ul>
+                    <li>A <strong>session cookie</strong> that keeps you logged in for the duration of your session.</li>
+                    <li>A <strong>CSRF token cookie</strong> that protects forms against cross-site request forgery.</li>
+                </ul>
+                <p>There are no advertising cookies, no third-party analytics or tracking pixels, and no cross-site profiling. Clearing cookies simply logs you out.</p>
+
+                <h2>6. Sharing and retention</h2>
+                <p>Academic data is shared inside the institution as roles allow, with the student themselves, and with external parties (accreditation bodies, government reporting, scholarship providers) where the institution is required or authorised to report. It is never sold.</p>
+                <p>Academic records are retained according to the institution’s archival obligations — transcripts and graduation records are typically kept permanently. A request to erase them can be refused where retention is a legal or academic obligation; a request to correct inaccurate data will always be considered.</p>
+
+                <h2>7. Data security</h2>
+                <p>The application applies standard protections: passwords are stored as one-way hashes (never in plain text), access is limited by role, and all traffic between client and server is expected to run over HTTPS/TLS.</p>
+                <p>No system is perfectly secure. Server hardening, backups, and access management for a live installation are the responsibility of the organization operating it.</p>
+
+                <h2>8. Children</h2>
+                <p>The system is used in higher and secondary education. Where a student is a minor, the institution handles consent through the parent or guardian; students never register themselves without institutional enrolment.</p>
+
+                <h2>9. Your rights</h2>
+                <p>You have the right to ask for access to, correction of, or deletion of your personal data, and to object to certain processing.</p>
+                <p>Because your data lives in the installation run by the organization you deal with, address those requests to that organization first — they hold the data and can act on it. If you cannot reach them, or you believe the application itself is at fault, contact the developer at <a href="mailto:mhdlutfidev@gmail.com">mhdlutfidev@gmail.com</a> and I will assist technically.</p>
+
+                <h2>10. Changes to this policy</h2>
+                <p>If this policy changes, the &ldquo;Last updated&rdquo; date at the top of this page will be revised. Material changes will be reflected in the application release notes.</p>
+
+                <h2>11. Contact</h2>
+                <p>Questions, complaints, or privacy requests about this application:</p>
+                <p><strong><a href="mailto:mhdlutfidev@gmail.com">mhdlutfidev@gmail.com</a></strong></p>
+                <p>I aim to respond within 7 business days.</p>
+
+        </div>
+
+        <nav class="project-nav">
+            <a href="../" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Back to project</span>
+                <span class="project-nav-title">SIAKAD</span>
+            </a>
+            <span class="project-nav-btn empty"></span>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../../js/components.js"></script>
+    <script>initComponents('../../../'); lucide.createIcons();</script>
+    <script src="../../../js/animations.js"></script>
+</body>
+</html>

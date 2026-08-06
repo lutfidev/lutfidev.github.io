@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — CBT Test Potensi Akademik — Muhammad Lutfi</title>
+    <meta name="description" content="Privacy policy for CBT Test Potensi Akademik — what data it collects, how it is used, and who it is shared with.">
+    <link rel="stylesheet" href="../../../css/nav.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/project-detail.css">
+    <link rel="stylesheet" href="../../../css/privacy.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="grid-background"></div>
+
+    <div class="project-detail-container">
+
+        <nav class="breadcrumb">
+            <a href="../../../">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../../projects/">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../">CBT Test Potensi Akademik</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Privacy Policy</span>
+        </nav>
+
+        <div class="policy-header">
+            <div class="project-hero-tags">
+                <span class="project-tag-badge">Privacy Policy</span>
+                <span class="project-year">Web App</span>
+            </div>
+            <h1>Privacy Policy</h1>
+            <p class="policy-subtitle">CBT Test Potensi Akademik — Web application (Laravel)</p>
+            <p class="policy-meta">Effective August 6, 2026 · Last updated August 6, 2026</p>
+        </div>
+
+        <div class="policy-body">
+
+                <p>This computer-based testing platform handles exam participant data and exam integrity signals. It is installed and operated by the institution running the exam, which decides who is registered and how long results are kept.</p>
+
+                <div class="policy-callout">
+                    <div class="policy-callout-title">Summary</div>
+                    <ul>
+                        <li>Collects participant identity, answers, scores, and exam-session activity.</li>
+                        <li>Exam integrity monitoring records <strong>events only</strong> (tab switches, fullscreen exits) — no webcam, no screen capture, no keystroke logging.</li>
+                        <li>Functional cookies only — no advertising or analytics trackers.</li>
+                        <li>The institution running the exam is the data controller.</li>
+                    </ul>
+                </div>
+
+                <h2>1. Who this policy applies to</h2>
+                <div class="policy-note">
+                    <i data-lucide="info"></i>
+                    <p><strong>CBT Test Potensi Akademik</strong> is software that an organization installs and runs on its own infrastructure. The institution operating a given installation decides what data is entered into it and is the <strong>data controller</strong> for that installation. This page documents what the application itself collects and processes by design; it is the reference policy for the software, and an operator may publish additional terms on top of it. As the developer, I have no access to any production database unless an operator explicitly grants it for maintenance.</p>
+                </div>
+
+                <h2>2. Data we collect</h2>
+                <div class="policy-table-wrap">
+                    <table class="policy-table">
+                        <thead>
+                            <tr><th>Data</th><th>Why</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Participant identity</strong></td><td>Name, participant number, and any field the institution configures (class, school, email). Used to identify whose result is whose.</td></tr>
+                            <tr><td><strong>Login credentials</strong></td><td>Username and a hashed password or exam token, for access control. Passwords are never stored in readable form.</td></tr>
+                            <tr><td><strong>Answers and scores</strong></td><td>Selected options per question, the computed score, and per-category breakdown (verbal, numerical, logic).</td></tr>
+                            <tr><td><strong>Session activity</strong></td><td>Exam start and end time, remaining time, and submission timestamps — needed for the countdown and to resume after a disconnect.</td></tr>
+                            <tr><td><strong>Integrity events</strong></td><td>Counts and timestamps of tab switches and fullscreen exits during an exam, so supervisors can review suspicious sessions.</td></tr>
+                            <tr><td><strong>Technical logs</strong></td><td>IP address, browser user agent, and request timestamps — for troubleshooting and abuse detection.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>3. What the anti-cheating feature does and does not do</h2>
+                <p>While an exam is in progress the browser reports page-visibility and fullscreen events to the application. These produce a counter and a timestamp list attached to the exam session.</p>
+                <p>It does <strong>not</strong> access your webcam or microphone, take screenshots, read other browser tabs or their contents, record keystrokes outside the exam form, or see anything happening in other applications. A browser page is technically incapable of most of that, and the platform does not attempt any of it.</p>
+
+                <h2>4. How the data is used</h2>
+                <ul>
+                    <li>Delivering the exam and enforcing the time limit.</li>
+                    <li>Scoring and producing per-participant and per-category results.</li>
+                    <li>Letting supervisors review integrity events before validating a result.</li>
+                    <li>Generating recap reports and Excel exports for the institution.</li>
+                    <li>Nothing else — no advertising, no profiling, no sale of data.</li>
+                </ul>
+
+                <h2>5. Third-party services</h2>
+                <p>None. The platform runs on the institution’s own server, with no external analytics, advertising, or content-delivery tracking.</p>
+
+                <h2>6. Cookies and sessions</h2>
+                <p>The application uses cookies only for functionality:</p>
+                <ul>
+                    <li>A <strong>session cookie</strong> that keeps you logged in for the duration of your session.</li>
+                    <li>A <strong>CSRF token cookie</strong> that protects forms against cross-site request forgery.</li>
+                    <li>A <strong>preference cookie</strong> for interface settings such as theme.</li>
+                </ul>
+                <p>There are no advertising cookies, no third-party analytics or tracking pixels, and no cross-site profiling. Clearing cookies simply logs you out.</p>
+
+                <h2>7. Sharing and retention</h2>
+                <p>Results are visible to exam administrators and supervisors within the institution, and can be exported to Excel by them. Data is not shared outside the institution except where it is legally required.</p>
+                <p>Retention follows the institution’s academic policy. Technical logs are typically rotated after a short period; question banks and results are kept as long as the institution needs them.</p>
+
+                <h2>8. Data security</h2>
+                <p>The application applies standard protections: passwords are stored as one-way hashes (never in plain text), access is limited by role, and all traffic between client and server is expected to run over HTTPS/TLS.</p>
+                <p>No system is perfectly secure. Server hardening, backups, and access management for a live installation are the responsibility of the organization operating it.</p>
+
+                <h2>9. Children</h2>
+                <p>Exams may be taken by participants under 13 when the institution administers them in an educational setting. In that case the institution obtains the necessary parental or school consent — the platform itself never registers a participant on its own.</p>
+
+                <h2>10. Your rights</h2>
+                <p>You have the right to ask for access to, correction of, or deletion of your personal data, and to object to certain processing.</p>
+                <p>Because your data lives in the installation run by the organization you deal with, address those requests to that organization first — they hold the data and can act on it. If you cannot reach them, or you believe the application itself is at fault, contact the developer at <a href="mailto:mhdlutfidev@gmail.com">mhdlutfidev@gmail.com</a> and I will assist technically.</p>
+
+                <h2>11. Changes to this policy</h2>
+                <p>If this policy changes, the &ldquo;Last updated&rdquo; date at the top of this page will be revised. Material changes will be reflected in the application release notes.</p>
+
+                <h2>12. Contact</h2>
+                <p>Questions, complaints, or privacy requests about this application:</p>
+                <p><strong><a href="mailto:mhdlutfidev@gmail.com">mhdlutfidev@gmail.com</a></strong></p>
+                <p>I aim to respond within 7 business days.</p>
+
+        </div>
+
+        <nav class="project-nav">
+            <a href="../" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Back to project</span>
+                <span class="project-nav-title">CBT Test Potensi Akademik</span>
+            </a>
+            <span class="project-nav-btn empty"></span>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../../js/components.js"></script>
+    <script>initComponents('../../../'); lucide.createIcons();</script>
+    <script src="../../../js/animations.js"></script>
+</body>
+</html>
