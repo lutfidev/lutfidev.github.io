@@ -2,6 +2,62 @@
    PRIVACY POLICY PAGE STYLES
    ============================================ */
 
+/* The site sidebar is not injected on policy pages — reclaim its gutter
+   so the document reads full-width and distraction-free. Navigation is
+   handled by the breadcrumb at the top and the back-link at the bottom. */
+body.policy-page {
+    padding-left: 0;
+}
+
+body.policy-page .sidebar,
+body.policy-page .sidebar-mobile-overlay {
+    display: none;
+}
+
+@media (max-width: 639px) {
+    body.policy-page {
+        padding-top: 0;
+    }
+}
+
+/* Standalone theme toggle — the sidebar one is not available here.
+   Keeping id="theme-toggle" is what wires it up: initThemeToggle()
+   in js/components.js binds by that id, and the .icon-dark/.icon-light
+   swap rules in css/nav.css apply to it as-is. */
+.policy-theme-toggle {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card-bg);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.policy-theme-toggle:hover {
+    color: var(--text-main);
+    border-color: var(--text-muted);
+}
+
+.policy-theme-toggle i {
+    width: 17px;
+    height: 17px;
+}
+
+.policy-page .breadcrumb {
+    flex-wrap: wrap;
+    padding-right: 3.25rem;
+}
+
 .policy-header {
     margin-bottom: 2.5rem;
 }
