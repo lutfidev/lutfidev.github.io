@@ -564,7 +564,12 @@ h1 {
     transition: opacity 0.2s, transform 0.2s;
 }
 .tool-logo-card:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
-body.light-mode .tool-logo-card::after { background: #fff; color: #111; }
+/* White-on-white: lean on a shadow so the tooltip separates from the card. */
+body.light-mode .tool-logo-card::after {
+    background: #fff;
+    color: #111;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
 
 /* Invert dark logos (e.g. GitHub) in dark mode */
 .invert-dark img { filter: invert(1); }
@@ -752,8 +757,27 @@ body.light-mode .section-title::after {
     background: var(--accent);
 }
 
+body.light-mode .card::before {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), transparent 60%);
+}
+
 body.light-mode .project-card::before {
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), transparent 60%);
+}
+
+/* The dark-mode hover is a white border — it disappears on a white card. */
+body.light-mode .project-card:hover {
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .project-action-btn:hover {
+    border-color: rgba(0, 0, 0, 0.18);
+    background: rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .project-action-btn.btn-detail:hover {
+    background: rgba(59, 130, 246, 0.08);
+    border-color: var(--accent);
 }
 
 body.light-mode .service-tags span {
@@ -768,4 +792,9 @@ body.light-mode .service-card::before {
 
 body.light-mode .github-contrib-graph {
     background: var(--card-bg);
+}
+
+/* opacity 0.5 on a light background drops the footer below readable. */
+body.light-mode .site-footer {
+    opacity: 0.75;
 }

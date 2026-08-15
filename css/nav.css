@@ -320,3 +320,35 @@ body.light-mode .label-light { display: inline-flex; }
         background: rgba(255, 255, 255, 0.06);
     }
 }
+
+/* ============================================
+   LIGHT MODE
+   The hover/active states above are white washes, which are invisible
+   on the light sidebar — restate them as dark washes.
+   ============================================ */
+body.light-mode .sidebar {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .sidebar-item:hover,
+body.light-mode .sidebar-theme-toggle:hover,
+body.light-mode .sidebar-mobile-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .sidebar-item.active {
+    background: rgba(59, 130, 246, 0.09);
+    color: var(--accent);
+}
+
+body.light-mode .sidebar-social:hover {
+    border-color: rgba(0, 0, 0, 0.18);
+    background: rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 639px) {
+    /* Mobile top bar already has a bottom border — the float shadow is noise. */
+    body.light-mode .sidebar {
+        box-shadow: none;
+    }
+}

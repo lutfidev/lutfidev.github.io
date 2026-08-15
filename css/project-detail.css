@@ -418,3 +418,38 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ============================================
+   LIGHT MODE
+   ============================================ */
+
+/* --border is too faint to read as a separator on the light background. */
+body.light-mode .breadcrumb-sep {
+    color: #c4c4c4;
+}
+
+body.light-mode .project-tag-badge {
+    background: rgba(59, 130, 246, 0.08);
+    border-color: rgba(59, 130, 246, 0.25);
+    color: #1d4ed8;
+}
+
+body.light-mode .cta-btn-secondary:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+/* Dark chips on a white sidebar card — restate as light chips. */
+body.light-mode .sidebar-tags span {
+    background: #f0f0f0;
+    color: #555555;
+    border-color: #e0e0e0;
+}
+
+body.light-mode .sidebar-link:hover {
+    background: #f0f0f0;
+}
+
+body.light-mode .project-nav-btn:hover {
+    background: #fafafa;
+    border-color: rgba(0, 0, 0, 0.2);
+}
