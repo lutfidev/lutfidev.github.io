@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Nusa Tasks — Muhammad Lutfi</title>
+    <meta name="description" content="Privacy policy for Nusa Tasks — a local-first planner that collects no data and keeps everything on your device.">
+    <link rel="stylesheet" href="../../../css/nav.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/project-detail.css">
+    <link rel="stylesheet" href="../../../css/privacy.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@1.31.0"></script>
+</head>
+<body class="policy-page">
+
+    <div class="grid-background"></div>
+
+    <button class="policy-theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-dark"></i>
+        <i data-lucide="moon" class="icon-light"></i>
+    </button>
+
+    <div class="project-detail-container">
+
+        <nav class="breadcrumb">
+            <a href="../../../">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../../projects/">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../">Nusa Tasks</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Privacy Policy</span>
+        </nav>
+
+        <div class="policy-header">
+            <div class="project-hero-tags">
+                <span class="project-tag-badge">Privacy Policy</span>
+                <span class="project-year">Mobile App</span>
+            </div>
+            <h1>Privacy Policy</h1>
+            <p class="policy-subtitle">Nusa Tasks — <code>com.nusatasks.app</code></p>
+            <p class="policy-meta">Effective September 8, 2026 · Last updated September 25, 2026</p>
+        </div>
+
+        <div class="policy-body">
+
+                <p>Nusa Tasks is a local-first app. Your tasks, notes, habits and settings are stored on your device. They are never uploaded to us, and we do not operate a server that receives your content. The same policy is shown inside the app under <em>Settings &rsaquo; Privacy &amp; data</em>.</p>
+
+                <div class="policy-callout">
+                    <div class="policy-callout-title">Summary</div>
+                    <ul>
+                        <li>We (the developer) do <strong>not</strong> collect, store, or transmit any of your data.</li>
+                        <li>There is no account system, no analytics, no ads, no crash reporting and no tracking.</li>
+                        <li>Everything is stored <strong>locally</strong> on your device, and Android Auto Backup is <strong>switched off</strong>.</li>
+                        <li>An export you start yourself is the only way your data leaves the device.</li>
+                    </ul>
+                </div>
+
+                <h2>1. Data we collect</h2>
+                <p><strong>Nothing.</strong> Nusa Tasks has no account system, no analytics SDK, no advertising SDK, no crash-reporting service and no tracking of any kind. The app does not request the Internet permission, so it has no way to send your data anywhere on its own. We cannot see your data, because it never leaves your device unless you export it yourself.</p>
+
+                <h2>2. What is stored on your device</h2>
+                <ul>
+                    <li>Tasks, subtasks, categories, tags and templates.</li>
+                    <li>Habits and their completion history.</li>
+                    <li>Notes.</li>
+                    <li>Focus session history and unlocked achievements.</li>
+                    <li>Your display name, language, theme and reminder preferences.</li>
+                    <li>A summary of the tasks due in the next two weeks, used to draw the home-screen widget.</li>
+                </ul>
+                <p>All of it lives in the app’s private storage area. Under Android’s security model, other apps cannot read it.</p>
+
+                <h2>3. App permissions</h2>
+                <div class="policy-table-wrap">
+                    <table class="policy-table">
+                        <thead>
+                            <tr><th>Permission</th><th>Why it is requested</th><th>If you deny it</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Notifications (<code>POST_NOTIFICATIONS</code>)</td><td>Show task reminders, habit reminders and the optional planning/review nudges.</td><td>Everything else keeps working; reminders simply do not appear.</td></tr>
+                            <tr><td>Exact alarms (<code>SCHEDULE_EXACT_ALARM</code>)</td><td>Deliver a reminder at the exact minute you chose.</td><td>Reminders still arrive, scheduled inexactly, and may be a few minutes late.</td></tr>
+                            <tr><td>Boot completed (<code>RECEIVE_BOOT_COMPLETED</code>)</td><td>Re-arm your scheduled reminders after the device restarts.</td><td>Reminders set before a restart would be lost.</td></tr>
+                            <tr><td>File selection</td><td>Only when you tap Import and pick a backup file.</td><td>Import is unavailable; nothing else changes.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Nusa Tasks does <strong>not</strong> request location, contacts, camera, microphone or any other sensitive permission.</p>
+
+                <h2>4. Backups you create</h2>
+                <p><strong>Export data</strong> writes a JSON file containing your tasks, categories, habits, notes, focus history, achievements and preferences, and hands it to whichever app you choose (email, cloud drive, file manager). What happens to that copy afterwards is governed by the app you sent it to. Nusa Tasks does not upload it anywhere.</p>
+                <p>Android’s own <strong>Auto Backup is switched off</strong>. The app declares <code>android:allowBackup="false"</code> and data extraction rules that exclude every storage domain from both Google Drive backup and device-to-device transfer, so the system never copies your tasks, notes or habits off the device.</p>
+
+                <h2>5. Deleting your data</h2>
+                <ul>
+                    <li><em>Settings &rsaquo; Clear All Data</em> permanently deletes everything stored by the app on the device, cancels every scheduled reminder and empties the home-screen widget.</li>
+                    <li>Uninstalling the app removes the local database with it.</li>
+                    <li>Because we never receive your data, there is nothing for us to delete on our side and no data-deletion request to file.</li>
+                </ul>
+
+                <h2>6. Children</h2>
+                <p>Nusa Tasks is a general-purpose productivity tool. It collects no data from anyone, including children.</p>
+
+                <h2>7. Changes to this policy</h2>
+                <p>If the app ever gains a feature that transmits data (for example an optional cloud backup), this policy will be updated before that feature ships, and the feature will be opt-in. The &ldquo;Last updated&rdquo; date at the top of this page will be revised with every change.</p>
+
+                <h2>8. Contact</h2>
+                <p>Questions about privacy:</p>
+                <p><strong><a href="mailto:mhdlutfidev@gmail.com">mhdlutfidev@gmail.com</a></strong></p>
+
+        </div>
+
+        <nav class="project-nav">
+            <a href="../" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Back to project</span>
+                <span class="project-nav-title">Nusa Tasks</span>
+            </a>
+            <span class="project-nav-btn empty"></span>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../../js/components.js"></script>
+    <script>initComponents('../../../'); lucide.createIcons();</script>
+    <script src="../../../js/animations.js"></script>
+</body>
+</html>
