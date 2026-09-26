@@ -1,9 +1,10 @@
 // Lucide v1 dropped the brand icons from its icon set, so `data-lucide="github"`
 // and friends silently render nothing. Re-register them and merge them into
 // every createIcons() call. Icon paths are the originals from lucide 0.544.0.
-(function registerBrandIcons() {
+function registerBrandIcons() {
     const lucide = window.lucide;
-    if (!lucide || typeof lucide.createIcons !== 'function') return;
+    if (!lucide || typeof lucide.createIcons !== 'function' || lucide.brandIconsRegistered) return;
+    lucide.brandIconsRegistered = true;
 
     const brandIcons = {
         Github: [
@@ -32,7 +33,16 @@
             icons: options.icons ? Object.assign({}, options.icons, brandIcons) : allIcons
         }));
     };
-})();
+}
+
+// Lucide is loaded with `defer` so its ~400KB bundle never blocks the first
+// paint. Deferred scripts run before DOMContentLoaded, so icons are rendered
+// then — or right away if lucide happens to be ready already.
+function renderIcons() {
+    if (!window.lucide) return;
+    registerBrandIcons();
+    window.lucide.createIcons();
+}
 
 // Auto-detect basePath based on current URL
 const path = window.location.pathname;
@@ -215,4 +225,10 @@ function initComponents(base) {
     initHamburger();
     setActiveNav();
     initThemeToggle();
+
+    if (window.lucide) {
+        renderIcons();
+    } else {
+        document.addEventListener('DOMContentLoaded', renderIcons);
+    }
 }

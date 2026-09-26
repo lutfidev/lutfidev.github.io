@@ -632,7 +632,7 @@ body.light-mode .invert-dark img { filter: none; }
     background: var(--card-bg); border: 1px solid var(--border);
     border-radius: 14px; padding: 1.25rem; overflow-x: auto;
 }
-.github-contrib-graph img { width: 100%; display: block; border-radius: 4px; }
+.github-contrib-graph img { width: 100%; height: auto; display: block; border-radius: 4px; }
 .github-stats-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem;
 }
