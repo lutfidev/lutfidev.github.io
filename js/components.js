@@ -137,6 +137,13 @@ function getSidebarHTML(base) {
             <a href="${base}contact/" class="sidebar-mobile-link">
                 <i data-lucide="phone"></i><span>Contact</span>
             </a>
+            <div class="sidebar-mobile-divider"></div>
+            <button class="sidebar-mobile-link sidebar-mobile-theme" data-theme-toggle>
+                <i data-lucide="sun" class="icon-dark"></i>
+                <i data-lucide="moon" class="icon-light"></i>
+                <span class="label-dark">Light Mode</span>
+                <span class="label-light">Dark Mode</span>
+            </button>
         </nav>
     </div>`;
 }
@@ -199,12 +206,14 @@ function initTheme() {
     }
 }
 
+// The sidebar toggle (#theme-toggle) is hidden on the mobile top bar, so the
+// mobile menu carries its own [data-theme-toggle] button.
 function initThemeToggle() {
-    const btn = document.getElementById('theme-toggle');
-    if (!btn) return;
-    btn.addEventListener('click', () => {
-        const isLight = document.body.classList.toggle('light-mode');
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    document.querySelectorAll('#theme-toggle, [data-theme-toggle]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const isLight = document.body.classList.toggle('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
     });
 }
 

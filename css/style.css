@@ -25,7 +25,7 @@ body {
     padding-left: var(--sidebar-w);
 }
 
-@media (max-width: 639px) {
+@media (max-width: 768px) {
     body {
         padding-left: 0;
         padding-top: var(--mobile-bar-h);
@@ -402,9 +402,11 @@ h1 {
 /* --- PROJECTS SECTION --- */
 .projects-section { margin-bottom: 4rem; }
 
+/* Columns follow the space actually available (the sidebar eats 280px on
+   desktop), so cards never get squeezed narrower than their action row. */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 1.25rem;
 }
 
@@ -519,14 +521,20 @@ h1 {
     background: rgba(255, 255, 255, 0.04);
 }
 
+/* Detail is the primary action: it takes the rest of the row, so it lines up
+   the same on every card and fills a full row cleanly if the buttons wrap. */
 .project-action-btn.btn-detail {
+    flex: 1 0 auto;
+    justify-content: center;
     color: var(--accent);
-    border-color: rgba(59, 130, 246, 0.25);
-    margin-left: auto;
+    font-weight: 500;
+    background: rgba(59, 130, 246, 0.08);
+    border-color: rgba(59, 130, 246, 0.3);
 }
 
 .project-action-btn.btn-detail:hover {
-    background: rgba(59, 130, 246, 0.08);
+    color: #fff;
+    background: var(--accent);
     border-color: var(--accent);
 }
 
@@ -666,6 +674,16 @@ body.light-mode .invert-dark img { filter: none; }
     .services-grid { grid-template-columns: 1fr; }
     .tools-logo-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
     .github-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .container { padding: 2rem 1.25rem 3rem; }
+    .project-card { padding: 1.25rem; }
+    /* Thumb-sized tap targets */
+    .project-action-btn { min-height: 38px; padding: 8px 12px; font-size: 0.8rem; }
+}
+
+/* Touch screens keep :hover after a tap — don't leave cards lifted. */
+@media (hover: none) {
+    .card:hover, .project-card:hover, .service-card:hover,
+    .tool-logo-card:hover, .gh-stat-card:hover { transform: none; }
 }
 
 /* ============================================
@@ -776,7 +794,8 @@ body.light-mode .project-action-btn:hover {
 }
 
 body.light-mode .project-action-btn.btn-detail:hover {
-    background: rgba(59, 130, 246, 0.08);
+    color: #fff;
+    background: var(--accent);
     border-color: var(--accent);
 }
 

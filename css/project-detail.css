@@ -389,7 +389,7 @@
 /* Responsive */
 @media (max-width: 768px) {
     .project-detail-container {
-        padding: 5rem 1.25rem 3rem;
+        padding: 2rem 1.25rem 3rem;
     }
 
     .project-hero h1 {

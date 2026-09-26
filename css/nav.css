@@ -206,7 +206,7 @@ body.light-mode .label-light { display: inline-flex; }
 /* ============================================
    MOBILE: sidebar → top bar
    ============================================ */
-@media (max-width: 639px) {
+@media (max-width: 768px) {
     .sidebar {
         left: 0;
         top: 0;
@@ -319,6 +319,22 @@ body.light-mode .label-light { display: inline-flex; }
         color: var(--text-main);
         background: rgba(255, 255, 255, 0.06);
     }
+
+    .sidebar-mobile-divider {
+        height: 1px;
+        background: var(--border);
+        margin: 0.35rem 0.25rem;
+    }
+
+    /* The sidebar theme toggle is hidden on the top bar — this is its stand-in. */
+    .sidebar-mobile-theme {
+        width: 100%;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        text-align: left;
+    }
 }
 
 /* ============================================
@@ -346,7 +362,7 @@ body.light-mode .sidebar-social:hover {
     background: rgba(0, 0, 0, 0.04);
 }
 
-@media (max-width: 639px) {
+@media (max-width: 768px) {
     /* Mobile top bar already has a bottom border — the float shadow is noise. */
     body.light-mode .sidebar {
         box-shadow: none;

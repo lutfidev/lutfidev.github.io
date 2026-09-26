@@ -14,7 +14,7 @@ body.policy-page .sidebar-mobile-overlay {
     display: none;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 768px) {
     body.policy-page {
         padding-top: 0;
     }
@@ -240,7 +240,7 @@ body.light-mode .policy-table th {
     background: rgba(0, 0, 0, 0.02);
 }
 
-@media (max-width: 639px) {
+@media (max-width: 768px) {
     .policy-header h1 {
         font-size: 2rem;
     }
