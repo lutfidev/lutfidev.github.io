@@ -10,7 +10,10 @@
             }
         });
     }, {
-        threshold: 0.1,
+        // Must stay 0: a ratio threshold never fires for an element taller than
+        // viewport / threshold (e.g. the full project grid on a phone), which
+        // left it invisible forever.
+        threshold: 0,
         rootMargin: '0px 0px -40px 0px'
     });
 
