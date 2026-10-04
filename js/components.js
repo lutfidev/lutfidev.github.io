@@ -76,7 +76,7 @@ function getSidebarHTML(base) {
             <a href="https://linkedin.com/in/lutfidev/" target="_blank" class="sidebar-social" title="LinkedIn">
                 <i data-lucide="linkedin"></i>
             </a>
-            <a href="mailto:mhdlutfidev@gmail.com" class="sidebar-social" title="Email">
+            <a href="mailto:yoluvy.dev@gmail.com" class="sidebar-social" title="Email">
                 <i data-lucide="mail"></i>
             </a>
         </div>
