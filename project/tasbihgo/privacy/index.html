@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — TasbihGo — Muhammad Lutfi</title>
+    <meta name="description" content="Privacy policy for TasbihGo — a digital tasbih that keeps your dhikr history on your device, with an opt-in leaderboard.">
+    <link rel="stylesheet" href="../../../css/nav.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/project-detail.css">
+    <link rel="stylesheet" href="../../../css/privacy.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script defer src="https://unpkg.com/lucide@1.31.0/dist/umd/lucide.min.js"></script>
+</head>
+<body class="policy-page">
+
+    <div class="grid-background"></div>
+
+    <button class="policy-theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-dark"></i>
+        <i data-lucide="moon" class="icon-light"></i>
+    </button>
+
+    <div class="project-detail-container">
+
+        <nav class="breadcrumb">
+            <a href="../../../">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../../../projects/">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../">TasbihGo</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Privacy Policy</span>
+        </nav>
+
+        <div class="policy-header">
+            <div class="project-hero-tags">
+                <span class="project-tag-badge">Privacy Policy</span>
+                <span class="project-year">Mobile App</span>
+            </div>
+            <h1>Privacy Policy</h1>
+            <p class="policy-subtitle">TasbihGo - Tasbih &amp; Dzikir — <code>com.tasbihgo.app</code></p>
+            <p class="policy-meta">Last updated October 3, 2026</p>
+        </div>
+
+        <div class="policy-body">
+
+                <p>TasbihGo keeps your dhikr counts, history, statistics and settings on your device. A few features talk to online services — the leaderboard, Premium, and the app update check — and this page explains exactly what each of them sends.</p>
+
+                <div class="policy-callout">
+                    <div class="policy-callout-title">Summary</div>
+                    <ul>
+                        <li>Your counters, dhikr history, statistics, reminders and profile are stored <strong>locally</strong>, and Android Auto Backup is <strong>switched off</strong>.</li>
+                        <li>There are no ads, no analytics SDK and no crash-reporting service.</li>
+                        <li>The public leaderboard is <strong>opt-in and off by default</strong>. Only a display name, an optional Instagram username, your streak and your total count are shared, and you can remove them at any time.</li>
+                        <li>Your location is used on the device to calculate prayer times and the Qibla direction. It is never sent to our server.</li>
+                        <li>Premium is billed by Google Play. We never see your payment details.</li>
+                    </ul>
+                </div>
+
+                <h2>1. What is stored on your device</h2>
+                <ul>
+                    <li>Counter progress for each dhikr, your custom dhikr presets and dhikr chains.</li>
+                    <li>Your dhikr history, which powers statistics, streaks and weekly targets.</li>
+                    <li>Bookmarked adhkar and duas.</li>
+                    <li>Your profile: the name and optional email address you enter, and your avatar. A photo you pick as an avatar is copied into the app’s private storage.</li>
+                    <li>Your last known location (latitude and longitude), kept for up to 24 hours so prayer times load without asking for a new position each time.</li>
+                    <li>Your leaderboard display name and optional Instagram username.</li>
+                    <li>Reminder times, language, theme, sound and vibration preferences, and home-screen widget state.</li>
+                </ul>
+                <p>All of it lives in a local database and Android preferences in the app’s private storage. Under Android’s security model, other apps cannot read it. Your profile name and email are never sent anywhere.</p>
+
+                <h2>2. Location</h2>
+                <p>With your permission, TasbihGo reads your approximate location to calculate prayer times and the Qibla direction. Both calculations run entirely on your device. To show the name of your city, the coordinates are passed to Android’s built-in geocoding service, which on most phones is provided by Google under <a href="https://policies.google.com/privacy" target="_blank">Google’s privacy policy</a>. Your location is never sent to our server and is never part of the leaderboard.</p>
+
+                <h2>3. Online services</h2>
+                <div class="policy-table-wrap">
+                    <table class="policy-table">
+                        <thead>
+                            <tr><th>Service</th><th>When</th><th>What is sent</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Our backend (Supabase): update check</td><td>When the app starts.</td><td>The app’s build number, to check whether a required update is available.</td></tr>
+                            <tr><td>Our backend (Supabase): leaderboard</td><td>When you open the leaderboard, or after you opt in.</td><td>Opening the leaderboard signs you in anonymously with a random ID that is not linked to your name, email or device. Only if you opt in, the app also uploads your display name (&ldquo;Hamba Allah&rdquo; unless you change it), your optional Instagram username, your current streak, your total dhikr count and the time of the last update. These appear publicly to other users.</td></tr>
+                            <tr><td>Our backend (Supabase): VIP codes</td><td>When you redeem a VIP code, and each time the app returns to the foreground afterwards.</td><td>On redemption, the code you enter and your anonymous ID. Afterwards, only the code, to confirm it is still active.</td></tr>
+                            <tr><td>RevenueCat</td><td>When the app starts, and when you buy or restore Premium.</td><td>A random RevenueCat user ID, your Google Play purchase records for TasbihGo and basic technical details such as the app and Android version, used to confirm whether Premium is active. See <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat’s privacy policy</a>.</td></tr>
+                            <tr><td>Google Play</td><td>Purchases, the in-app review prompt and in-app update checks.</td><td>Handled by Google Play under <a href="https://policies.google.com/privacy" target="_blank">Google’s privacy policy</a>.</td></tr>
+                            <tr><td>Google Fonts</td><td>The first time a font is shown.</td><td>A request to download the font file from Google’s servers. No content from the app is included.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Like any network request, these services can see your device’s IP address when the app connects to them. All connections use HTTPS. We do not sell your data or share it for advertising.</p>
+
+                <h2>4. App permissions</h2>
+                <div class="policy-table-wrap">
+                    <table class="policy-table">
+                        <thead>
+                            <tr><th>Permission</th><th>Why it is requested</th><th>If you deny it</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Location (<code>ACCESS_COARSE_LOCATION</code>, <code>ACCESS_FINE_LOCATION</code>)</td><td>Calculate prayer times and the Qibla direction for where you are.</td><td>Prayer times and the Qibla direction cannot be set automatically; everything else keeps working.</td></tr>
+                            <tr><td>Notifications (<code>POST_NOTIFICATIONS</code>)</td><td>Morning and evening adhkar reminders and prayer-time notifications.</td><td>Everything else keeps working; reminders simply do not appear.</td></tr>
+                            <tr><td>Exact alarms (<code>SCHEDULE_EXACT_ALARM</code>)</td><td>Deliver a prayer-time notification at the exact minute.</td><td>Prayer-time notifications may not arrive on time.</td></tr>
+                            <tr><td>Boot completed (<code>RECEIVE_BOOT_COMPLETED</code>)</td><td>Re-arm your scheduled reminders after the device restarts.</td><td>Reminders set before a restart would be lost.</td></tr>
+                            <tr><td>Vibration (<code>VIBRATE</code>), wake lock (<code>WAKE_LOCK</code>)</td><td>Haptic feedback while counting, in the app and from the home-screen widget, and delivering reminders while the phone is idle.</td><td>Granted automatically by Android.</td></tr>
+                            <tr><td>Photo and file selection</td><td>Only when you pick an avatar photo or a backup file to restore, through Android’s own picker. The app sees only the item you choose.</td><td>You can use a built-in avatar instead; restore is unavailable.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Android also grants a few permissions automatically. They come from libraries the app is built with:</p>
+                <div class="policy-table-wrap">
+                    <table class="policy-table">
+                        <thead>
+                            <tr><th>Permission</th><th>Where it comes from</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Internet (<code>INTERNET</code>)</td><td>The online services listed in section 3.</td></tr>
+                            <tr><td>Billing (<code>com.android.vending.BILLING</code>)</td><td>Google Play Billing, for Premium subscriptions.</td></tr>
+                            <tr><td>Network state (<code>ACCESS_NETWORK_STATE</code>), foreground service (<code>FOREGROUND_SERVICE</code>)</td><td>Android’s WorkManager, which libraries in the app use to run short background tasks.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>TasbihGo does <strong>not</strong> request contacts, camera, microphone, SMS or call-log access.</p>
+
+                <h2>5. Premium</h2>
+                <p>Premium is an optional subscription sold through Google Play. Payment is handled entirely by Google Play; the app and RevenueCat only learn whether your subscription is active. We never see, receive or store card numbers, bank details or billing addresses. You can cancel at any time in the Google Play app under <em>Payments &amp; subscriptions</em>.</p>
+
+                <h2>6. Backups and exports you create</h2>
+                <p><strong>Create Backup</strong> writes a JSON file containing your app data and lets you save it or share it with an app you choose. <strong>Restore</strong> reads a backup file you pick. <strong>Export Statistics</strong> (Premium) produces a PDF, CSV or Excel file of your dhikr statistics and hands it to the app you choose. What happens to those copies afterwards is governed by the app you sent them to. TasbihGo does not upload them anywhere.</p>
+                <p>Android’s own <strong>Auto Backup is switched off</strong>: the app declares <code>android:allowBackup="false"</code>, so your data is not copied to your Google Drive backup.</p>
+
+                <h2>7. Feedback and bug reports</h2>
+                <p>The Feedback and Report Bug screens open your email app or WhatsApp with a message pre-filled for you. A bug report includes your device brand and model, Android version and app version so the problem can be reproduced. Nothing is sent until you send that message yourself, and you can edit or delete any part of it first.</p>
+
+                <h2>8. Deleting your data</h2>
+                <ul>
+                    <li>Turning off leaderboard participation immediately deletes your row from the leaderboard server.</li>
+                    <li><em>More &rsaquo; Delete Data</em> permanently deletes your counters, dhikr presets, chains, statistics, bookmarks and profile (name, email and avatar) from the device, withdraws you from the leaderboard and deletes your leaderboard row from the server. Settings and preferences are kept.</li>
+                    <li>Uninstalling the app removes everything stored on the device.</li>
+                    <li>To have anything else removed from our server, such as your anonymous ID or a redeemed VIP code, email us from the address below.</li>
+                </ul>
+
+                <h2>9. Children</h2>
+                <p>TasbihGo is suitable for a general audience. We do not knowingly collect personal information from children under 13. The leaderboard is off by default, and joining it shares only a display name of your choosing.</p>
+
+                <h2>10. Changes to this policy</h2>
+                <p>If the app gains a feature that sends new kinds of data, this policy will be updated before that version ships. The &ldquo;Last updated&rdquo; date at the top of this page will be revised with every change.</p>
+
+                <h2>11. Contact</h2>
+                <p>Questions about privacy, or a request to delete data from our server:</p>
+                <p><strong><a href="mailto:yoluvy.dev@gmail.com">yoluvy.dev@gmail.com</a></strong></p>
+
+        </div>
+
+        <nav class="project-nav">
+            <a href="../" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Back to project</span>
+                <span class="project-nav-title">TasbihGo</span>
+            </a>
+            <span class="project-nav-btn empty"></span>
+        </nav>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../../js/components.js"></script>
+    <script>initComponents('../../../');</script>
+    <script src="../../../js/animations.js"></script>
+</body>
+</html>
