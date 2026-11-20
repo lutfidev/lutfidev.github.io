@@ -122,9 +122,9 @@ function getFooterHTML(base) {
                 <div class="footer-col">
                     <h4>Projects</h4>
                     <ul>
-                        <li><a href="${base}project/warung-tycoon/">Warung Tycoon</a></li>
-                        <li><a href="${base}project/tropimori/">Tropimori</a></li>
-                        <li><a href="${base}project/online-shop/">Online Shop</a></li>
+                        <li><a href="${base}warung-tycoon/">Warung Tycoon</a></li>
+                        <li><a href="${base}tropimori/">Tropimori</a></li>
+                        <li><a href="${base}online-shop/">Online Shop</a></li>
                         <li><a href="${base}projects/">All projects</a></li>
                     </ul>
                 </div>
@@ -147,7 +147,7 @@ function getFooterHTML(base) {
 
 function currentPage() {
     const p = window.location.pathname;
-    if (p.includes('/projects/') || p.includes('/project/')) return 'projects';
+    if (p.includes('/projects/') || document.body.dataset.project) return 'projects';
     if (p.includes('/about/')) return 'about';
     if (p.includes('/achievement/')) return 'achievement';
     if (p.includes('/contact/')) return 'contact';

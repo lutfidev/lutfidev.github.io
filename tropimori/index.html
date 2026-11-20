@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tropimori — yoluvy.dev</title>
+    <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project-detail.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script defer src="https://unpkg.com/lucide@1.31.0/dist/umd/lucide.min.js"></script>
+</head>
+<body data-project="tropimori">
+
+    <div id="nav-placeholder"></div>
+
+    <main class="project-detail-container" style="--p-accent: #22c55e">
+
+        <nav class="breadcrumb">
+            <a href="../">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../projects/">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Tropimori</span>
+        </nav>
+
+        <div class="project-hero">
+            <div class="project-hero-tags">
+                <span class="project-year">2026</span>
+                <span class="project-tag-badge">Mobile Game</span>
+                <span class="project-tag-badge">Cozy Farming</span>
+            </div>
+            <h1>Tropimori: Cozy Island Farm</h1>
+            <p class="project-hero-subtitle">
+                Game berkebun isometrik bertema pulau tropis — tanam sayur dan pohon buah, masak hasil panen, kenali warga desa, lalu memancing di pantai saat surut.
+            </p>
+        </div>
+
+        <div class="stage detail-stage animate-ready">
+            <div class="frame frame-phone is-side">
+                <div class="screen">
+                    <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="sprout"></i></span><span class="sf-name">Tropimori</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                    <img data-shot src="../img/projects/tropimori/shot-1.webp" alt="Tropimori screenshot" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <div class="frame frame-phone">
+                <div class="screen">
+                    <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="sprout"></i></span><span class="sf-name">Tropimori</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                    <img data-shot src="../img/projects/tropimori/cover.webp" alt="Tropimori screenshot" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <div class="frame frame-phone is-side">
+                <div class="screen">
+                    <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="sprout"></i></span><span class="sf-name">Tropimori</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                    <img data-shot src="../img/projects/tropimori/shot-2.webp" alt="Tropimori screenshot" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+
+        <div class="project-content-grid">
+
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p>Tropimori adalah game berkebun santai untuk Android dengan tampilan isometrik. Pemain membangun kebun kecil di sebuah pulau tropis, menanam sayur dan pohon buah, lalu menjual hasil panen di warung atau mengirim pesanan untuk warga desa. Tanaman tetap tumbuh ketika game ditutup, jadi tidak ada tekanan untuk terus bermain.</p>
+                    <p>Di luar kebun, pemain bisa menata perabot di rumah, memasak hidangan dari bahan yang dikumpulkan, berteman dengan warga lewat obrolan dan hadiah, memelihara ayam, memancing di pantai, hingga membuka Pulau Rempah. Suasana pagi, sore, malam, dan hujan mengikuti waktu setempat. Game tersedia dalam Bahasa Indonesia dan Inggris.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Challenges &amp; Solutions</h2>
+                    <p>Waktu tumbuh tanaman harus tetap berjalan saat aplikasi ditutup. Karena itu, setiap tanaman menyimpan timestamp, bukan sisa waktu; progresnya dihitung ulang dari jam saat game dibuka kembali.</p>
+                    <p>Banyak area (kebun, desa, rumah, pantai, Pulau Rempah) memakai scene Flame yang berat. <code>SceneHost</code> melepas scene yang tertutup, mengingat posisi kamera, dan membuatnya kembali saat pemain kembali, sehingga hanya satu scene yang berjalan dalam satu waktu.</p>
+                    <p>Format save berkembang seiring fitur baru. Seluruh game disimpan sebagai satu dokumen JSON berversi; setiap fitur menambah bagian opsional sehingga save lama tetap terbaca. Save yang gagal dibaca disisihkan, bukan membuat game crash.</p>
+                    <p>Monetisasi dibuat tidak memaksa: warna tombol menunjukkan jenis transaksi (gratis, koin, iklan pilihan, uang sungguhan), tombol tutup iklan aktif sejak detik pertama, dan toko tidak pernah terbuka sendiri.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>Kebun isometrik dengan pan &amp; pinch-zoom, mode dekorasi (geser, putar, simpan)</li>
+                        <li>Tanaman musiman dan pohon buah tropis — mangga, rambutan, durian, jeruk, manggis</li>
+                        <li>Warung jual-beli, papan pesanan warga, dan hadiah harian</li>
+                        <li>Rumah yang bisa ditata, dapur untuk memasak, dan resep dari warga</li>
+                        <li>Sistem pertemanan warga, kandang ayam, dan kucing Si Belang</li>
+                        <li>Memancing, jelajah pantai saat surut, dan buku koleksi ikan</li>
+                        <li>Siklus siang-malam dan cuaca mengikuti waktu lokal, musik dan ambience berubah sesuai waktu</li>
+                        <li>Pengingat panen lokal, dua bahasa (Indonesia &amp; Inggris)</li>
+                        <li>Rewarded ads opsional, paket kebun &amp; Hapus Iklan via Google Play Billing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">
+                        <span>Flutter</span>
+                        <span>Dart</span>
+                        <span>Flame</span>
+                        <span>Google Mobile Ads</span>
+                        <span>In App Purchase</span>
+                        <span>Firebase Crashlytics</span>
+                        <span>Local Notifications</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Status</span>
+                            <span class="sidebar-info-value">Pre-launch</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Platform</span>
+                            <span class="sidebar-info-value">Android</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Role</span>
+                            <span class="sidebar-info-value">Solo Developer</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Personal Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        <a href="https://github.com/lutfidev" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub
+                        </a>
+                        <a href="privacy/" class="sidebar-link">
+                            <i data-lucide="shield-check"></i> Privacy Policy
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <section class="gallery-section" data-gallery>
+            <div class="section-head">
+                <div>
+                    <span class="eyebrow">Gallery</span>
+                    <h2>Screenshots</h2>
+                </div>
+            </div>
+            <div class="gallery-track is-phone">
+                <button type="button" class="gallery-item" aria-label="Open screenshot 1"><img src="../img/projects/tropimori/shot-1.webp" alt="Tropimori screenshot 1" decoding="async"></button>
+                <button type="button" class="gallery-item" aria-label="Open screenshot 2"><img src="../img/projects/tropimori/shot-2.webp" alt="Tropimori screenshot 2" decoding="async"></button>
+                <button type="button" class="gallery-item" aria-label="Open screenshot 3"><img src="../img/projects/tropimori/shot-3.webp" alt="Tropimori screenshot 3" decoding="async"></button>
+                <button type="button" class="gallery-item" aria-label="Open screenshot 4"><img src="../img/projects/tropimori/shot-4.webp" alt="Tropimori screenshot 4" decoding="async"></button>
+            </div>
+            <div class="gallery-empty"><i data-lucide="image"></i><p>Real screenshots of Tropimori are on the way.</p></div>
+        </section>
+
+        <nav class="project-nav">
+            <a href="../ourmoney/" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
+                <span class="project-nav-title">OurMoney</span>
+            </a>
+            <span class="project-nav-btn empty"></span>
+        </nav>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+    <script>initComponents('../');</script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/gallery.js"></script>
+</body>
+</html>
