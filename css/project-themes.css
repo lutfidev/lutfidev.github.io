@@ -1,0 +1,583 @@
+/* ============================================
+   PER-PRODUCT THEMES
+   Loaded last on every project detail page (/<slug>/) and its privacy
+   page (/<slug>/privacy/). <body data-project="<slug>"> picks the block
+   below, so the whole page (header, cards, buttons, footer) takes the
+   product's own identity, and the site's dark/light toggle is hidden.
+
+   To change a product's look, edit only its block. Tokens:
+     --tone            light | dark. Read by initTheme() in js/components.js
+                       to apply the matching base overrides.
+     --bg … --border-strong   page, card and surface colours
+     --text-main / --text-muted
+     --accent          buttons, links, icons (also used as text: keep it
+                       readable on --bg); --on-accent is text on top of it
+     --accent-soft     subtle tinted fill (hover, notes)
+     --p-accent        decorative product colour (badges, bullets, glows)
+     --stage-bg        backdrop of the big screenshot stage
+     --ambient-1..3    soft colour washes behind the page
+     --radius / --radius-sm / --shadow   card style
+     --hero-pattern    optional motif layered over the stage (a CSS image)
+   ============================================ */
+
+/* ---------- Shared behaviour for every themed page ---------- */
+
+body[data-project] {
+    --hero-pattern: none;
+    --shadow: none;
+}
+
+/* Products set their own mood: no light/dark switch here. */
+body[data-project] #theme-toggle,
+body[data-project] [data-theme-toggle] { display: none; }
+
+/* Primary buttons use the product colour instead of the monochrome ink. */
+body[data-project] .btn-primary,
+body[data-project] .cta-btn-primary { background: var(--accent); color: var(--on-accent); }
+body[data-project] .btn-ghost:hover,
+body[data-project] .cta-btn-secondary:hover { background: var(--accent-soft); }
+
+/* Card style */
+body[data-project] .sidebar-card,
+body[data-project] .feature-list li,
+body[data-project] .policy-callout,
+body[data-project] .gallery-item,
+body[data-project] .project-nav-btn:not(.empty):not(.disabled),
+body[data-project] .detail-stage { box-shadow: var(--shadow); }
+
+body[data-project] .sidebar-link i,
+body[data-project] .sidebar-link svg,
+body[data-project] .gallery-empty i,
+body[data-project] .gallery-empty svg { color: var(--accent); }
+
+body[data-project] .breadcrumb a:hover { color: var(--accent); }
+
+/* Stage backdrop: product motif on top of the usual glow. */
+body[data-project] .detail-stage {
+    background:
+        var(--hero-pattern),
+        radial-gradient(75% 65% at 50% 105%, color-mix(in srgb, var(--p-accent) 26%, transparent), transparent 70%),
+        var(--stage-bg);
+}
+
+body[data-project] ::selection { background: var(--accent); color: var(--on-accent); }
+
+/* ============================================
+   GAMES
+   ============================================ */
+
+/* Warung Tycoon — warm warung awning: cream, kitchen green, chili amber */
+body[data-project="warung-tycoon"] {
+    --tone: light;
+    --bg: #fff6e5;
+    --card-bg: #fffdf7;
+    --surface-2: #fcebcb;
+    --border: #f0d9ae;
+    --border-strong: #ddbd85;
+    --text-main: #3a2416;
+    --text-muted: #765640;
+    --accent: #2f6b3a;
+    --accent-2: #3f8a48;
+    --accent-soft: rgba(47, 107, 58, 0.10);
+    --on-accent: #fffdf7;
+    --p-accent: #b45309;
+    --stage-bg: #fce3a8;
+    --ambient-1: rgba(245, 158, 11, 0.20);
+    --ambient-2: rgba(109, 178, 90, 0.16);
+    --ambient-3: rgba(179, 38, 46, 0.08);
+    --grain-opacity: 0.04;
+    --radius: 18px;
+    --radius-sm: 12px;
+    --shadow: 0 3px 0 rgba(58, 36, 22, 0.10);
+    --hero-pattern: repeating-linear-gradient(90deg, rgba(47, 107, 58, 0.10) 0 28px, transparent 28px 56px);
+}
+
+/* Tropimori — cozy tropical island: cream sand, leaf green, shallow sea */
+body[data-project="tropimori"] {
+    --tone: light;
+    --bg: #fff7ec;
+    --card-bg: #fffdf8;
+    --surface-2: #fbebd3;
+    --border: #eed9b8;
+    --border-strong: #d9bf8e;
+    --text-main: #4a3826;
+    --text-muted: #7a6350;
+    --accent: #3f7a2e;
+    --accent-2: #86573a;
+    --accent-soft: rgba(140, 196, 99, 0.16);
+    --on-accent: #fffdf8;
+    --p-accent: #4e8a35;
+    --stage-bg: #b9e4d9;
+    --ambient-1: rgba(140, 196, 99, 0.24);
+    --ambient-2: rgba(132, 196, 210, 0.26);
+    --ambient-3: rgba(255, 201, 74, 0.18);
+    --grain-opacity: 0.04;
+    --radius: 24px;
+    --radius-sm: 16px;
+    --shadow: 0 4px 0 #ead7ae;
+    --hero-pattern: radial-gradient(circle at 1px 1px, rgba(230, 250, 247, 0.65) 1.5px, transparent 2px) 0 0 / 22px 22px;
+}
+
+/* Cabinet80s — neon arcade cabinet: deep purple night, hot pink, cyan */
+body[data-project="cabinet80s"] {
+    --tone: dark;
+    --bg: #0a0714;
+    --card-bg: #140c24;
+    --surface-2: #1c1233;
+    --border: #2a1d45;
+    --border-strong: #3d2b61;
+    --text-main: #f4eeff;
+    --text-muted: #a99bc7;
+    --accent: #ff2d8a;
+    --accent-2: #35e5ff;
+    --accent-soft: rgba(255, 45, 138, 0.14);
+    --on-accent: #0a0714;
+    --p-accent: #35e5ff;
+    --stage-bg: #05040a;
+    --ambient-1: rgba(255, 45, 138, 0.22);
+    --ambient-2: rgba(53, 229, 255, 0.14);
+    --ambient-3: rgba(255, 225, 77, 0.08);
+    --grain-opacity: 0.06;
+    --radius: 8px;
+    --radius-sm: 6px;
+    --shadow: 0 0 0 1px rgba(53, 229, 255, 0.10), 0 10px 30px -12px rgba(255, 45, 138, 0.35);
+    --hero-pattern: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 4px);
+}
+
+/* ============================================
+   MOBILE APPS
+   ============================================ */
+
+/* TasbihGo — calm night prayer: black, warm gold */
+body[data-project="tasbihgo"] {
+    --tone: dark;
+    --bg: #0a0a0a;
+    --card-bg: #141414;
+    --surface-2: #1c1b18;
+    --border: #2a2722;
+    --border-strong: #3d372a;
+    --text-main: #eeeeee;
+    --text-muted: #9c9a94;
+    --accent: #c9a84c;
+    --accent-2: #e8c65a;
+    --accent-soft: rgba(201, 168, 76, 0.12);
+    --on-accent: #0a0a0a;
+    --p-accent: #c9a84c;
+    --stage-bg: #0d0d0d;
+    --ambient-1: rgba(201, 168, 76, 0.16);
+    --ambient-2: rgba(107, 186, 122, 0.07);
+    --ambient-3: rgba(232, 198, 90, 0.08);
+    --grain-opacity: 0.05;
+    --radius: 20px;
+    --radius-sm: 14px;
+    --hero-pattern: radial-gradient(circle at 50% 50%, rgba(201, 168, 76, 0.10) 1px, transparent 1.5px) 0 0 / 26px 26px;
+}
+
+/* Nusa Tasks — clean planner: slate white, teal primary */
+body[data-project="nusa-tasks"] {
+    --tone: light;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --surface-2: #f1f5f9;
+    --border: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --text-main: #0f172a;
+    --text-muted: #5b6b80;
+    --accent: #007c8a;
+    --accent-2: #10b981;
+    --accent-soft: rgba(0, 151, 167, 0.09);
+    --on-accent: #ffffff;
+    --p-accent: #0097a7;
+    --stage-bg: #dff3f5;
+    --ambient-1: rgba(38, 198, 218, 0.14);
+    --ambient-2: rgba(16, 185, 129, 0.10);
+    --ambient-3: rgba(245, 158, 11, 0.06);
+    --grain-opacity: 0.02;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+/* OurMoney — quiet finance: paper beige, ink, deep forest green */
+body[data-project="ourmoney"] {
+    --tone: light;
+    --bg: #f5f4ef;
+    --card-bg: #ffffff;
+    --surface-2: #eef5f1;
+    --border: #e3e1d9;
+    --border-strong: #cfccc2;
+    --text-main: #17191c;
+    --text-muted: #5d6168;
+    --accent: #1e4d40;
+    --accent-2: #3f444b;
+    --accent-soft: rgba(30, 77, 64, 0.08);
+    --on-accent: #ffffff;
+    --p-accent: #1e4d40;
+    --stage-bg: #dce9e3;
+    --ambient-1: rgba(30, 77, 64, 0.10);
+    --ambient-2: rgba(220, 233, 227, 0.60);
+    --ambient-3: rgba(163, 161, 154, 0.10);
+    --grain-opacity: 0.03;
+    --radius: 20px;
+    --radius-sm: 12px;
+    --shadow: 0 1px 2px rgba(23, 25, 28, 0.05);
+}
+
+/* Absensi Face — trusted attendance: crisp white, confident blue */
+body[data-project="absensi-face"] {
+    --tone: light;
+    --bg: #f5f8ff;
+    --card-bg: #ffffff;
+    --surface-2: #eaf0fd;
+    --border: #dce4f5;
+    --border-strong: #bfcce8;
+    --text-main: #0f1b33;
+    --text-muted: #55637f;
+    --accent: #2563eb;
+    --accent-2: #3b82f6;
+    --accent-soft: rgba(37, 99, 235, 0.08);
+    --on-accent: #ffffff;
+    --p-accent: #2563eb;
+    --stage-bg: #dbe6fd;
+    --ambient-1: rgba(59, 130, 246, 0.14);
+    --ambient-2: rgba(34, 197, 94, 0.07);
+    --ambient-3: rgba(59, 130, 246, 0.06);
+    --grain-opacity: 0.02;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 1px 3px rgba(15, 27, 51, 0.06);
+}
+
+/* Food Delivery — appetite orange on warm white */
+body[data-project="food-delivery"] {
+    --tone: light;
+    --bg: #fff7f0;
+    --card-bg: #ffffff;
+    --surface-2: #ffeddd;
+    --border: #f6dcc6;
+    --border-strong: #ebc2a0;
+    --text-main: #2b160a;
+    --text-muted: #765241;
+    --accent: #c2410c;
+    --accent-2: #f97316;
+    --accent-soft: rgba(249, 115, 22, 0.10);
+    --on-accent: #ffffff;
+    --p-accent: #ea580c;
+    --stage-bg: #ffe0c2;
+    --ambient-1: rgba(249, 115, 22, 0.18);
+    --ambient-2: rgba(250, 204, 21, 0.10);
+    --ambient-3: rgba(239, 68, 68, 0.07);
+    --grain-opacity: 0.03;
+    --radius: 22px;
+    --radius-sm: 14px;
+    --shadow: 0 6px 18px -10px rgba(194, 65, 12, 0.25);
+}
+
+/* Laundry App — fresh and airy: soft sky, bubbly corners */
+body[data-project="laundry-app"] {
+    --tone: light;
+    --bg: #f3fafe;
+    --card-bg: #ffffff;
+    --surface-2: #e3f3fc;
+    --border: #d3e8f4;
+    --border-strong: #afd3e8;
+    --text-main: #0b2233;
+    --text-muted: #4f6a7c;
+    --accent: #0369a1;
+    --accent-2: #38bdf8;
+    --accent-soft: rgba(56, 189, 248, 0.12);
+    --on-accent: #ffffff;
+    --p-accent: #0284c7;
+    --stage-bg: #d4eefb;
+    --ambient-1: rgba(56, 189, 248, 0.18);
+    --ambient-2: rgba(167, 139, 250, 0.08);
+    --ambient-3: rgba(255, 255, 255, 0.50);
+    --grain-opacity: 0.02;
+    --radius: 26px;
+    --radius-sm: 16px;
+    --shadow: 0 8px 24px -14px rgba(3, 105, 161, 0.25);
+    --hero-pattern: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.55) 4px, transparent 5px) 0 0 / 48px 48px;
+}
+
+/* Aplikasi Buku Bisnis — ledger book: paper, olive green */
+body[data-project="buku-bisnis"] {
+    --tone: light;
+    --bg: #f7f9f0;
+    --card-bg: #ffffff;
+    --surface-2: #eef3df;
+    --border: #dfe6cb;
+    --border-strong: #c5d0a6;
+    --text-main: #1a2410;
+    --text-muted: #5a6648;
+    --accent: #3f6212;
+    --accent-2: #65a30d;
+    --accent-soft: rgba(132, 204, 22, 0.12);
+    --on-accent: #ffffff;
+    --p-accent: #4d7c0f;
+    --stage-bg: #e3eec7;
+    --ambient-1: rgba(132, 204, 22, 0.14);
+    --ambient-2: rgba(234, 179, 8, 0.08);
+    --ambient-3: rgba(63, 98, 18, 0.06);
+    --grain-opacity: 0.03;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow: 0 1px 0 #dfe6cb;
+    --hero-pattern: repeating-linear-gradient(0deg, rgba(63, 98, 18, 0.07) 0 1px, transparent 1px 28px);
+}
+
+/* ============================================
+   WEB APPS & API
+   ============================================ */
+
+/* Clinic Web POS — beauty clinic: blush, rose */
+body[data-project="clinic-pos"] {
+    --tone: light;
+    --bg: #fff5f8;
+    --card-bg: #ffffff;
+    --surface-2: #fde8ef;
+    --border: #f5d5e0;
+    --border-strong: #e8b4c6;
+    --text-main: #2d1420;
+    --text-muted: #7a5566;
+    --accent: #be185d;
+    --accent-2: #f472b6;
+    --accent-soft: rgba(244, 114, 182, 0.12);
+    --on-accent: #ffffff;
+    --p-accent: #db2777;
+    --stage-bg: #fcdce8;
+    --ambient-1: rgba(244, 114, 182, 0.18);
+    --ambient-2: rgba(251, 191, 36, 0.07);
+    --ambient-3: rgba(190, 24, 93, 0.06);
+    --grain-opacity: 0.02;
+    --radius: 20px;
+    --radius-sm: 12px;
+    --shadow: 0 6px 20px -12px rgba(190, 24, 93, 0.22);
+}
+
+/* Klinik Management — clinical: clean white, medical cyan */
+body[data-project="klinik-management"] {
+    --tone: light;
+    --bg: #f3fbfc;
+    --card-bg: #ffffff;
+    --surface-2: #e2f5f8;
+    --border: #d0eaee;
+    --border-strong: #a9d6de;
+    --text-main: #0a2a30;
+    --text-muted: #4d6b71;
+    --accent: #0e7490;
+    --accent-2: #06b6d4;
+    --accent-soft: rgba(6, 182, 212, 0.10);
+    --on-accent: #ffffff;
+    --p-accent: #0891b2;
+    --stage-bg: #cff0f5;
+    --ambient-1: rgba(6, 182, 212, 0.14);
+    --ambient-2: rgba(16, 185, 129, 0.08);
+    --ambient-3: rgba(6, 182, 212, 0.05);
+    --grain-opacity: 0.02;
+    --radius: 14px;
+    --radius-sm: 8px;
+    --shadow: 0 1px 3px rgba(10, 42, 48, 0.06);
+}
+
+/* Online Shop — storefront: lilac white, violet */
+body[data-project="online-shop"] {
+    --tone: light;
+    --bg: #faf8ff;
+    --card-bg: #ffffff;
+    --surface-2: #f1ecfe;
+    --border: #e4dcfa;
+    --border-strong: #cbbdf3;
+    --text-main: #1b1336;
+    --text-muted: #615878;
+    --accent: #6d28d9;
+    --accent-2: #8b5cf6;
+    --accent-soft: rgba(139, 92, 246, 0.10);
+    --on-accent: #ffffff;
+    --p-accent: #7c3aed;
+    --stage-bg: #e9e1fd;
+    --ambient-1: rgba(139, 92, 246, 0.16);
+    --ambient-2: rgba(236, 72, 153, 0.08);
+    --ambient-3: rgba(250, 204, 21, 0.06);
+    --grain-opacity: 0.02;
+    --radius: 18px;
+    --radius-sm: 12px;
+    --shadow: 0 8px 22px -14px rgba(109, 40, 217, 0.28);
+}
+
+/* Swimming Ticketing — pool day: aqua water, light ripples */
+body[data-project="swimming-ticketing"] {
+    --tone: light;
+    --bg: #f0f9ff;
+    --card-bg: #ffffff;
+    --surface-2: #e0f2fe;
+    --border: #cde7f7;
+    --border-strong: #a3d1ee;
+    --text-main: #082f49;
+    --text-muted: #47677d;
+    --accent: #0369a1;
+    --accent-2: #0ea5e9;
+    --accent-soft: rgba(14, 165, 233, 0.10);
+    --on-accent: #ffffff;
+    --p-accent: #0284c7;
+    --stage-bg: #7dd3fc;
+    --ambient-1: rgba(14, 165, 233, 0.18);
+    --ambient-2: rgba(45, 212, 191, 0.10);
+    --ambient-3: rgba(250, 204, 21, 0.06);
+    --grain-opacity: 0.02;
+    --radius: 18px;
+    --radius-sm: 12px;
+    --shadow: 0 1px 3px rgba(8, 47, 73, 0.06);
+    --hero-pattern: repeating-radial-gradient(ellipse at 50% 120%, rgba(255, 255, 255, 0.16) 0 2px, transparent 2px 26px);
+}
+
+/* POS Resto — restaurant service at night: charcoal, chili red */
+body[data-project="pos-resto"] {
+    --tone: dark;
+    --bg: #120b0b;
+    --card-bg: #1c1212;
+    --surface-2: #261818;
+    --border: #352222;
+    --border-strong: #4a2e2e;
+    --text-main: #f6edeb;
+    --text-muted: #b09a97;
+    --accent: #f87171;
+    --accent-2: #fbbf24;
+    --accent-soft: rgba(239, 68, 68, 0.12);
+    --on-accent: #1a0a0a;
+    --p-accent: #ef4444;
+    --stage-bg: #170e0e;
+    --ambient-1: rgba(239, 68, 68, 0.18);
+    --ambient-2: rgba(251, 191, 36, 0.08);
+    --ambient-3: rgba(239, 68, 68, 0.08);
+    --grain-opacity: 0.05;
+    --radius: 14px;
+    --radius-sm: 10px;
+}
+
+/* SIAKAD — academic portal: cool white, campus blue */
+body[data-project="siakad"] {
+    --tone: light;
+    --bg: #f6f8fb;
+    --card-bg: #ffffff;
+    --surface-2: #ecf1f8;
+    --border: #dce3ee;
+    --border-strong: #bac7da;
+    --text-main: #13213a;
+    --text-muted: #56637a;
+    --accent: #2c5f96;
+    --accent-2: #337ab7;
+    --accent-soft: rgba(51, 122, 183, 0.09);
+    --on-accent: #ffffff;
+    --p-accent: #337ab7;
+    --stage-bg: #dbe6f3;
+    --ambient-1: rgba(51, 122, 183, 0.13);
+    --ambient-2: rgba(167, 139, 250, 0.08);
+    --ambient-3: rgba(234, 179, 8, 0.05);
+    --grain-opacity: 0.02;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow: 0 1px 2px rgba(19, 33, 58, 0.06);
+}
+
+/* CBT Test Potensi Akademik — exam sheet: paper yellow, graph lines */
+body[data-project="cbt-tpa"] {
+    --tone: light;
+    --bg: #fffbeb;
+    --card-bg: #ffffff;
+    --surface-2: #fef3c7;
+    --border: #f3e3a6;
+    --border-strong: #e2cb73;
+    --text-main: #2a2105;
+    --text-muted: #6e6232;
+    --accent: #a16207;
+    --accent-2: #eab308;
+    --accent-soft: rgba(234, 179, 8, 0.12);
+    --on-accent: #ffffff;
+    --p-accent: #a16207;
+    --stage-bg: #fdecaa;
+    --ambient-1: rgba(234, 179, 8, 0.16);
+    --ambient-2: rgba(59, 130, 246, 0.06);
+    --ambient-3: rgba(234, 179, 8, 0.08);
+    --grain-opacity: 0.03;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --shadow: 0 1px 0 #f3e3a6;
+    --hero-pattern:
+        repeating-linear-gradient(0deg, rgba(161, 98, 7, 0.07) 0 1px, transparent 1px 24px),
+        repeating-linear-gradient(90deg, rgba(161, 98, 7, 0.07) 0 1px, transparent 1px 24px);
+}
+
+/* POS untuk UMKM — small-shop till: warm terracotta */
+body[data-project="pos-umkm"] {
+    --tone: light;
+    --bg: #fdf6f0;
+    --card-bg: #ffffff;
+    --surface-2: #f9e9db;
+    --border: #efdaca;
+    --border-strong: #ddbba0;
+    --text-main: #2e1a0e;
+    --text-muted: #74584a;
+    --accent: #b7471a;
+    --accent-2: #fb923c;
+    --accent-soft: rgba(251, 146, 60, 0.12);
+    --on-accent: #ffffff;
+    --p-accent: #c2410c;
+    --stage-bg: #fbdcc2;
+    --ambient-1: rgba(251, 146, 60, 0.16);
+    --ambient-2: rgba(132, 204, 22, 0.07);
+    --ambient-3: rgba(251, 146, 60, 0.06);
+    --grain-opacity: 0.03;
+    --radius: 14px;
+    --radius-sm: 10px;
+    --shadow: 0 2px 0 rgba(183, 71, 26, 0.10);
+}
+
+/* POS Cafe — coffee house: latte cream, espresso brown */
+body[data-project="pos-cafe"] {
+    --tone: light;
+    --bg: #f8f3ec;
+    --card-bg: #fffcf7;
+    --surface-2: #efe4d6;
+    --border: #e3d4c1;
+    --border-strong: #cdb79c;
+    --text-main: #2b1d12;
+    --text-muted: #6f5a48;
+    --accent: #6f4e37;
+    --accent-2: #d97706;
+    --accent-soft: rgba(111, 78, 55, 0.09);
+    --on-accent: #fffcf7;
+    --p-accent: #b45309;
+    --stage-bg: #e8d7c3;
+    --ambient-1: rgba(217, 119, 6, 0.12);
+    --ambient-2: rgba(111, 78, 55, 0.10);
+    --ambient-3: rgba(255, 237, 213, 0.50);
+    --grain-opacity: 0.05;
+    --radius: 18px;
+    --radius-sm: 12px;
+    --shadow: 0 2px 0 rgba(111, 78, 55, 0.10);
+}
+
+/* General POS System (API) — developer console: slate, terminal dots */
+body[data-project="general-pos"] {
+    --tone: dark;
+    --bg: #0b0f14;
+    --card-bg: #111820;
+    --surface-2: #18212b;
+    --border: #222d3a;
+    --border-strong: #33414f;
+    --text-main: #e2e8f0;
+    --text-muted: #8b9bae;
+    --accent: #7dd3fc;
+    --accent-2: #94a3b8;
+    --accent-soft: rgba(125, 211, 252, 0.10);
+    --on-accent: #0b0f14;
+    --p-accent: #94a3b8;
+    --stage-bg: #0e141b;
+    --ambient-1: rgba(100, 116, 139, 0.20);
+    --ambient-2: rgba(125, 211, 252, 0.08);
+    --ambient-3: rgba(100, 116, 139, 0.08);
+    --grain-opacity: 0.05;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --hero-pattern: radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.16) 1px, transparent 1.5px) 0 0 / 18px 18px;
+}

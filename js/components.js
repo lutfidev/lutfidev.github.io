@@ -192,7 +192,24 @@ function initToTop() {
 }
 
 // Theme: Light / Dark. A saved choice wins; otherwise follow the OS.
+// Project pages (<body data-project>) carry their product's own theme from
+// css/project-themes.css instead: its --tone picks the base overrides, and
+// the visitor's saved choice is left untouched for the rest of the site.
 function initTheme() {
+    const body = document.body;
+    if (body.dataset.project) {
+        const style = getComputedStyle(body);
+        body.classList.toggle('light-mode', style.getPropertyValue('--tone').trim() === 'light');
+        let meta = document.querySelector('meta[name="theme-color"]');
+        if (!meta) {
+            meta = document.createElement('meta');
+            meta.name = 'theme-color';
+            document.head.appendChild(meta);
+        }
+        meta.content = style.getPropertyValue('--bg').trim();
+        return;
+    }
+
     let saved = null;
     try { saved = localStorage.getItem('theme'); } catch (e) { /* storage blocked */ }
     const preferLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;

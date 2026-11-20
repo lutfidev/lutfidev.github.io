@@ -9,42 +9,8 @@
     padding-top: 3.5rem;
 }
 
-/* Standalone theme toggle — the header one is not available here.
-   Keeping id="theme-toggle" is what wires it up: initThemeToggle()
-   in js/components.js binds by that id, and the .icon-dark/.icon-light
-   swap rules in css/nav.css apply to it as-is. */
-.policy-theme-toggle {
-    position: fixed;
-    top: 1.25rem;
-    right: 1.25rem;
-    z-index: 50;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    background: var(--card-bg);
-    color: var(--text-main);
-    cursor: pointer;
-    transition: color 0.2s, border-color 0.2s;
-}
-
-.policy-theme-toggle:hover {
-    color: var(--text-main);
-    border-color: var(--text-muted);
-}
-
-.policy-theme-toggle i {
-    width: 17px;
-    height: 17px;
-}
-
 .policy-page .breadcrumb {
     flex-wrap: wrap;
-    padding-right: 3.25rem;
 }
 
 .policy-header {
