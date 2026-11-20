@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tropimori — Muhammad Lutfi</title>
+    <title>Tropimori — yoluvy.dev</title>
+    <link rel="icon" href="../../img/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/project-detail.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <script defer src="https://unpkg.com/lucide@1.31.0/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
     <div id="nav-placeholder"></div>
-    <div class="grid-background"></div>
 
-    <div class="project-detail-container">
+    <main class="project-detail-container" style="--p-accent: #22c55e">
 
         <nav class="breadcrumb">
             <a href="../../">Home</a>
             <span class="breadcrumb-sep">/</span>
-            <a href="../../#projects">Projects</a>
+            <a href="../../projects/">Projects</a>
             <span class="breadcrumb-sep">/</span>
             <span class="breadcrumb-current">Tropimori</span>
         </nav>
@@ -41,8 +41,25 @@
             </p>
         </div>
 
-        <div class="project-preview">
-            <img src="https://placehold.co/900x500/1a1a2e/22c55e?text=Tropimori" alt="Tropimori Preview" />
+        <div class="stage detail-stage animate-ready">
+            <div class="frame frame-phone is-side">
+                <div class="screen">
+                    <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="sprout"></i></span><span class="sf-name">Tropimori</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                    <img data-shot src="../../img/projects/tropimori/shot-1.webp" alt="Tropimori screenshot" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <div class="frame frame-phone">
+                <div class="screen">
+                    <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="sprout"></i></span><span class="sf-name">Tropimori</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                    <img data-shot src="../../img/projects/tropimori/cover.webp" alt="Tropimori screenshot" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <div class="frame frame-phone is-side">
+                <div class="screen">
+                    <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="sprout"></i></span><span class="sf-name">Tropimori</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                    <img data-shot src="../../img/projects/tropimori/shot-2.webp" alt="Tropimori screenshot" loading="lazy" decoding="async">
+                </div>
+            </div>
         </div>
 
         <div class="project-content-grid">
@@ -128,6 +145,22 @@
             </aside>
         </div>
 
+        <section class="gallery-section" data-gallery>
+            <div class="section-head">
+                <div>
+                    <span class="eyebrow">Gallery</span>
+                    <h2>Screenshots</h2>
+                </div>
+            </div>
+            <div class="gallery-track is-phone">
+                <button type="button" class="gallery-item" aria-label="Open screenshot 1"><img src="../../img/projects/tropimori/shot-1.webp" alt="Tropimori screenshot 1" decoding="async"></button>
+                <button type="button" class="gallery-item" aria-label="Open screenshot 2"><img src="../../img/projects/tropimori/shot-2.webp" alt="Tropimori screenshot 2" decoding="async"></button>
+                <button type="button" class="gallery-item" aria-label="Open screenshot 3"><img src="../../img/projects/tropimori/shot-3.webp" alt="Tropimori screenshot 3" decoding="async"></button>
+                <button type="button" class="gallery-item" aria-label="Open screenshot 4"><img src="../../img/projects/tropimori/shot-4.webp" alt="Tropimori screenshot 4" decoding="async"></button>
+            </div>
+            <div class="gallery-empty"><i data-lucide="image"></i><p>Real screenshots of Tropimori are on the way.</p></div>
+        </section>
+
         <nav class="project-nav">
             <a href="../ourmoney/" class="project-nav-btn">
                 <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
@@ -136,12 +169,13 @@
             <span class="project-nav-btn empty"></span>
         </nav>
 
-    </div>
+    </main>
 
     <div id="footer-placeholder"></div>
 
     <script src="../../js/components.js"></script>
     <script>initComponents('../../');</script>
     <script src="../../js/animations.js"></script>
+    <script src="../../js/gallery.js"></script>
 </body>
 </html>

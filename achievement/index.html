@@ -3,272 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Achievement — Muhammad Lutfi</title>
+    <title>Achievement — yoluvy.dev</title>
+    <meta name="description" content="Certifications and awards earned by Muhammad Lutfi.">
+    <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <script defer src="https://unpkg.com/lucide@1.31.0/dist/umd/lucide.min.js"></script>
 
     <style>
-        .achieve-container { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+        .achieve-filter-tabs { margin-bottom: 2.5rem; }
 
-        .achieve-header { margin-bottom: 2.5rem; }
-        .achieve-header h1 { font-size: 2.25rem; margin-bottom: 0.4rem; }
-        .achieve-header p { color: var(--text-muted); font-size: 0.9rem; }
-
-        /* Filter Tabs */
-        .achieve-filter-tabs {
-            display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap;
-        }
-        .achieve-filter-tab {
-            padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 500;
-            color: var(--text-muted); background: transparent; border: 1px solid var(--border);
-            cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;
-        }
-        .achieve-filter-tab:hover { color: var(--text-main); border-color: var(--text-muted); }
-        .achieve-filter-tab.active {
-            color: var(--accent); border-color: rgba(59,130,246,0.4);
-            background: rgba(59,130,246,0.08);
-        }
-
-        .achieve-card { transition: border-color 0.25s, transform 0.25s, opacity 0.3s; }
-        .achieve-card.hidden { display: none; }
-
-        .achieve-section { margin-bottom: 2.75rem; }
+        .achieve-section { margin-bottom: 3.5rem; }
         .achieve-section-title {
-            font-size: 0.95rem; font-weight: 700;
-            color: var(--text-main); font-family: 'Space Grotesk', sans-serif;
-            margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;
+            display: flex; align-items: center; gap: 10px;
+            font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
         }
-        .achieve-section-title i { width: 17px; height: 17px; color: var(--accent); }
+        .achieve-section-title i, .achieve-section-title svg { width: 24px; height: 24px; color: var(--accent); }
 
         .achieve-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+            gap: 20px;
         }
 
         .achieve-card {
-            background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 14px; padding: 1.25rem 1.4rem;
-            display: flex; flex-direction: column; gap: 0.4rem;
-            transition: border-color 0.25s, transform 0.25s;
+            --c: var(--accent);
+            position: relative;
+            display: flex; flex-direction: column; gap: 0.35rem;
+            padding: 1.75rem;
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
-        .achieve-card:hover { border-color: rgba(255,255,255,0.12); transform: translateY(-2px); }
+        .achieve-card::before {
+            content: ''; position: absolute; inset: 0 0 auto; height: 4px;
+            background: var(--c);
+        }
+        .achieve-card::after {
+            content: 'View details →';
+            position: absolute; right: 1.5rem; bottom: 1.4rem;
+            font-size: 0.78rem; font-weight: 700; color: var(--c);
+            opacity: 0; transform: translateX(-6px);
+            transition: opacity 0.25s, transform 0.25s;
+        }
+        .achieve-card:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--c) 45%, var(--border)); box-shadow: 0 30px 60px -40px var(--c); }
+        .achieve-card:hover::after { opacity: 1; transform: none; }
+        .achieve-card.hidden { display: none; }
+        .achieve-card:has(.achieve-card-icon.green) { --c: #22c55e; }
+        .achieve-card:has(.achieve-card-icon.amber) { --c: #f59e0b; }
+        .achieve-card:has(.achieve-card-icon.purple) { --c: #a78bfa; }
 
         .achieve-card-icon {
-            width: 34px; height: 34px; border-radius: 9px;
-            background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2);
-            display: flex; align-items: center; justify-content: center; margin-bottom: 0.25rem;
+            width: 52px; height: 52px; border-radius: 16px;
+            display: grid; place-items: center;
+            background: color-mix(in srgb, var(--c) 14%, transparent);
+            color: var(--c);
+            margin-bottom: 0.9rem;
         }
-        .achieve-card-icon i { width: 17px; height: 17px; color: var(--accent); }
-        .achieve-card-icon.green { background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.2); }
-        .achieve-card-icon.green i { color: #4ade80; }
-        .achieve-card-icon.amber { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.2); }
-        .achieve-card-icon.amber i { color: #fbbf24; }
-        .achieve-card-icon.purple { background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.2); }
-        .achieve-card-icon.purple i { color: #a78bfa; }
-
-        .achieve-card h3 { font-size: 0.9rem; font-weight: 600; color: var(--text-main); margin: 0; line-height: 1.35; }
-        .achieve-card-issuer { font-size: 0.77rem; color: var(--accent); font-weight: 500; }
-        .achieve-card-date { font-size: 0.7rem; color: var(--text-muted); }
-        .achieve-card-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; margin-top: 3px; }
-
-        .achieve-credential {
-            display: inline-flex; align-items: center; gap: 5px;
-            font-size: 0.7rem; color: var(--text-muted); text-decoration: none;
-            margin-top: 5px; transition: color 0.2s;
-        }
-        .achieve-credential:hover { color: var(--accent); }
-        .achieve-credential i { width: 12px; height: 12px; }
-
-        .achieve-card { cursor: pointer; }
+        .achieve-card-icon i, .achieve-card-icon svg { width: 24px; height: 24px; }
+        .achieve-card h3 { font-size: 1.15rem; letter-spacing: -0.02em; line-height: 1.3; }
+        .achieve-card-issuer { font-size: 0.88rem; font-weight: 600; color: var(--c); }
+        .achieve-card-date { font-family: var(--font); font-size: 0.72rem; color: var(--text-muted); }
+        .achieve-card-desc { font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem; padding-bottom: 1.25rem; }
 
         /* --- MODAL --- */
         .achieve-modal-overlay {
             position: fixed; inset: 0; z-index: 1000;
-            background: rgba(0,0,0,0.75); backdrop-filter: blur(8px);
+            background: rgba(5, 5, 10, 0.75); backdrop-filter: blur(10px);
             display: flex; align-items: center; justify-content: center;
             opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
             padding: 1.25rem;
         }
         .achieve-modal-overlay.active { opacity: 1; visibility: visible; }
-
         .achieve-modal {
             background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 16px; width: 100%; max-width: 480px;
+            border-radius: 24px; width: 100%; max-width: 520px;
             max-height: 88vh; overflow-y: auto; overflow-x: hidden;
             position: relative;
             transform: translateY(20px) scale(0.97);
             transition: transform 0.3s ease;
         }
-        .achieve-modal::-webkit-scrollbar { width: 4px; }
-        .achieve-modal::-webkit-scrollbar-track { background: transparent; }
-        .achieve-modal::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-
-        .achieve-modal-overlay.active .achieve-modal {
-            transform: translateY(0) scale(1);
-        }
-
+        .achieve-modal-overlay.active .achieve-modal { transform: none; }
         .modal-close {
-            position: absolute; top: 0.75rem; right: 0.75rem; z-index: 10;
-            background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px; width: 30px; height: 30px;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; color: #fff; transition: 0.2s;
+            position: absolute; top: 0.9rem; right: 0.9rem; z-index: 10;
+            width: 36px; height: 36px; border-radius: 50%;
+            display: grid; place-items: center;
+            background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff; cursor: pointer;
         }
-        .modal-close:hover { background: rgba(0,0,0,0.7); border-color: rgba(255,255,255,0.25); }
-        .modal-close i { width: 15px; height: 15px; }
-
-        /* Image area — top of modal, no padding */
-        .modal-img-wrap {
-            width: 100%; overflow: hidden; position: relative;
-            background: #111; border-bottom: 1px solid var(--border);
-        }
-        .modal-img-wrap img {
-            width: 100%; display: block; cursor: zoom-in;
-        }
+        .modal-close i, .modal-close svg { width: 16px; height: 16px; }
+        .modal-img-wrap { width: 100%; overflow: hidden; background: var(--surface-2); border-bottom: 1px solid var(--border); }
+        .modal-img-wrap img { width: 100%; display: block; cursor: zoom-in; }
         .modal-img-wrap .img-placeholder {
-            width: 100%; padding: 2.5rem 1rem; display: flex;
-            align-items: center; justify-content: center; flex-direction: column; gap: 6px;
-            color: var(--text-muted); font-size: 0.78rem;
+            padding: 2.5rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 6px;
+            color: var(--text-muted); font-size: 0.8rem;
         }
-        .modal-img-wrap .img-placeholder i { width: 28px; height: 28px; opacity: 0.3; }
-        .modal-img-loading {
-            padding: 3rem 1rem; display: flex;
-            align-items: center; justify-content: center;
-            background: #111; color: var(--text-muted); font-size: 0.78rem;
-        }
-
-        /* Modal body content */
-        .modal-body { padding: 1.25rem 1.5rem 1.5rem; }
-
-        .modal-header-row {
-            display: flex; align-items: flex-start; gap: 12px; margin-bottom: 1rem;
-        }
-        .modal-icon {
-            width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .modal-icon i { width: 20px; height: 20px; }
-        .modal-icon.blue { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2); }
-        .modal-icon.blue i { color: var(--accent); }
-        .modal-icon.green { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2); }
-        .modal-icon.green i { color: #4ade80; }
-        .modal-icon.amber { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.2); }
-        .modal-icon.amber i { color: #fbbf24; }
-        .modal-icon.purple { background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.2); }
-        .modal-icon.purple i { color: #a78bfa; }
-
+        .modal-img-wrap .img-placeholder i, .modal-img-wrap .img-placeholder svg { width: 28px; height: 28px; opacity: 0.4; }
+        .modal-img-loading { padding: 3rem 1rem; text-align: center; color: var(--text-muted); font-size: 0.8rem; }
+        .modal-body { padding: 1.5rem 1.75rem 1.75rem; }
+        .modal-header-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 1.25rem; }
+        .modal-icon { width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0; display: grid; place-items: center; }
+        .modal-icon i, .modal-icon svg { width: 22px; height: 22px; }
+        .modal-icon.blue { background: var(--accent-soft); color: var(--accent); }
+        .modal-icon.green { background: rgba(34, 197, 94, 0.12); color: #22c55e; }
+        .modal-icon.amber { background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
+        .modal-icon.purple { background: rgba(167, 139, 250, 0.14); color: #a78bfa; }
         .modal-header-text { flex: 1; min-width: 0; }
-        .modal-title { font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin: 0; line-height: 1.3; }
-        .modal-issuer { font-size: 0.8rem; color: var(--accent); font-weight: 500; margin-top: 2px; }
-
-        .modal-info-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;
-            margin-bottom: 1rem;
-        }
-        .modal-info-item {
-            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-            border-radius: 8px; padding: 0.55rem 0.75rem;
-        }
-        .modal-info-label { font-size: 0.62rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1px; }
-        .modal-info-value { font-size: 0.8rem; color: var(--text-main); font-weight: 500; }
-
-        .modal-desc {
-            font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .modal-skills { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 1rem; }
-        .modal-skill-tag {
-            font-size: 0.68rem; padding: 3px 9px; border-radius: 4px;
-            background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.15);
-            color: var(--accent);
-        }
-
-        .modal-footer {
-            display: flex; align-items: center; justify-content: space-between;
-            padding-top: 0.85rem; border-top: 1px solid var(--border);
-        }
-        .modal-status {
-            display: inline-flex; align-items: center; gap: 5px;
-            font-size: 0.72rem; font-weight: 500; padding: 3px 10px;
-            border-radius: 20px;
-        }
-        .modal-status.valid { color: #4ade80; background: rgba(34,197,94,0.1); }
-        .modal-status.event { color: #fbbf24; background: rgba(245,158,11,0.1); }
+        .modal-title { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.3; }
+        .modal-issuer { font-size: 0.88rem; color: var(--accent); font-weight: 600; margin-top: 2px; }
+        .modal-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.25rem; }
+        .modal-info-item { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 0.7rem 0.9rem; }
+        .modal-info-label { font-family: var(--font); font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+        .modal-info-value { font-size: 0.9rem; font-weight: 700; }
+        .modal-desc { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+        .modal-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+        .modal-skill-tag { font-size: 0.75rem; font-weight: 600; padding: 4px 11px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+        .modal-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--border); }
+        .modal-status { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; }
+        .modal-status.valid { color: #22c55e; background: rgba(34, 197, 94, 0.12); }
+        .modal-status.event { color: #f59e0b; background: rgba(245, 158, 11, 0.12); }
         .modal-status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
         .modal-view-btn {
-            display: inline-flex; align-items: center; gap: 5px;
-            font-size: 0.72rem; color: var(--text-muted); text-decoration: none;
-            padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border);
-            cursor: pointer; background: none; transition: 0.2s;
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.8rem; font-weight: 600; color: var(--text-main);
+            padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border);
+            background: none; cursor: pointer;
         }
-        .modal-view-btn:hover { color: var(--accent); border-color: rgba(59,130,246,0.3); }
-        .modal-view-btn i { width: 13px; height: 13px; }
+        .modal-view-btn:hover { border-color: var(--border-strong); }
+        .modal-view-btn i, .modal-view-btn svg { width: 14px; height: 14px; }
 
-        /* Fullscreen image viewer */
         .img-fullscreen-overlay {
             position: fixed; inset: 0; z-index: 2000;
-            background: rgba(0,0,0,0.92); backdrop-filter: blur(8px);
+            background: rgba(5, 5, 10, 0.94); backdrop-filter: blur(10px);
             display: flex; align-items: center; justify-content: center;
             opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
             cursor: zoom-out; padding: 2rem;
         }
         .img-fullscreen-overlay.active { opacity: 1; visibility: visible; }
-        .img-fullscreen-overlay img {
-            max-width: 100%; max-height: 90vh; border-radius: 6px;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-        }
+        .img-fullscreen-overlay img { max-width: 100%; max-height: 90vh; border-radius: 12px; }
         .fullscreen-close {
             position: absolute; top: 1.25rem; right: 1.25rem;
-            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 8px; width: 36px; height: 36px;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; color: #fff; transition: 0.2s;
+            width: 44px; height: 44px; border-radius: 50%;
+            display: grid; place-items: center;
+            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff; cursor: pointer;
         }
-        .fullscreen-close:hover { background: rgba(255,255,255,0.2); }
-        .fullscreen-close i { width: 18px; height: 18px; }
+        .fullscreen-close i, .fullscreen-close svg { width: 18px; height: 18px; }
 
-        /* Light mode */
-        body.light-mode .achieve-card:hover { border-color: rgba(0,0,0,0.15); }
-        body.light-mode .modal-img-wrap { background: #e8e8e8; }
-        body.light-mode .modal-img-loading { background: #e8e8e8; }
-        body.light-mode .modal-close { background: rgba(255,255,255,0.7); border-color: #ddd; color: #333; }
-        body.light-mode .modal-close:hover { background: rgba(255,255,255,0.9); }
-        body.light-mode .modal-info-item { background: rgba(0,0,0,0.03); }
-        body.light-mode .modal-skill-tag { background: rgba(59,130,246,0.06); }
-
-        @media (max-width: 640px) {
-            .achieve-grid { grid-template-columns: 1fr; }
+        @media (max-width: 600px) {
             .modal-info-grid { grid-template-columns: 1fr; }
-            .modal-body { padding: 1rem 1.25rem 1.25rem; }
+            .modal-body { padding: 1.25rem; }
             .achieve-modal-overlay { padding: 0.75rem; }
+            .achieve-card::after { opacity: 1; transform: none; }
         }
     </style>
 </head>
 <body>
 
     <div id="nav-placeholder"></div>
-    <div class="grid-background"></div>
 
-    <div class="achieve-container">
+    <main>
+        <section class="page-hero container">
+            <span class="eyebrow animate-ready">Achievement</span>
+            <h1 class="animate-ready">Certified &amp; <span class="grad-text">recognised</span>.</h1>
+            <p class="animate-ready">Certifications and awards I have earned.</p>
+        </section>
 
-        <div class="achieve-header animate-ready">
-            <h1>Achievement</h1>
-            <p>Certifications and awards I have earned.</p>
-        </div>
+    <div class="container">
 
-        <div class="achieve-filter-tabs animate-ready">
-            <button class="achieve-filter-tab active" data-filter="all">All</button>
-            <button class="achieve-filter-tab" data-filter="certification">Certifications</button>
-            <button class="achieve-filter-tab" data-filter="award">Awards</button>
-            <button class="achieve-filter-tab" data-filter="event">Events</button>
+        <div class="achieve-filter-tabs chips animate-ready" role="group" aria-label="Filter achievements">
+            <button class="achieve-filter-tab chip active" data-filter="all">All</button>
+            <button class="achieve-filter-tab chip" data-filter="certification">Certifications</button>
+            <button class="achieve-filter-tab chip" data-filter="award">Awards</button>
+            <button class="achieve-filter-tab chip" data-filter="event">Events</button>
         </div>
 
         <!-- Certificates -->
@@ -372,6 +288,7 @@
         </div>
 
     </div>
+    </main>
 
     <!-- Detail Modal -->
     <div class="achieve-modal-overlay" id="achieveModal">
