@@ -3,355 +3,604 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects — Muhammad Lutfi</title>
+    <title>Projects — yoluvy.dev</title>
+    <meta name="description" content="Web, mobile and game projects built by Muhammad Lutfi.">
+    <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <script defer src="https://unpkg.com/lucide@1.31.0/dist/umd/lucide.min.js"></script>
 
     <style>
-        .projects-container { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
-        .projects-header { margin-bottom: 2.5rem; }
-        .projects-header h1 { font-size: 2.25rem; margin-bottom: 0.4rem; }
-        .projects-header p { color: var(--text-muted); font-size: 0.9rem; }
+        .projects-toolbar {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;
+        }
+        .projects-count { font-family: var(--font); font-size: 0.8rem; color: var(--text-muted); }
     </style>
 </head>
 <body>
 
     <div id="nav-placeholder"></div>
-    <div class="grid-background"></div>
 
-    <div class="projects-container">
+    <main>
+        <section class="page-hero container">
+            <span class="eyebrow animate-ready">Selected &amp; recent work</span>
+            <h1 class="animate-ready">Things I've <span class="grad-text">built</span>.</h1>
+            <p class="animate-ready">20 projects across web apps, mobile apps, games and APIs — from client work to my own products on Google Play.</p>
+        </section>
 
-        <div class="projects-header animate-ready">
-            <h1>Projects</h1>
-            <p>All projects I've worked on — from web apps to mobile and APIs.</p>
-        </div>
-
-        <div class="projects-grid animate-ready">
-
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2025</span>
+        <section class="container">
+            <div class="projects-toolbar animate-ready">
+                <div class="chips" role="group" aria-label="Filter projects">
+                <button type="button" class="chip" data-filter="all" aria-pressed="true">All <span class="chip-count">20</span></button>
+                <button type="button" class="chip" data-filter="web" aria-pressed="false">Web App <span class="chip-count">9</span></button>
+                <button type="button" class="chip" data-filter="mobile" aria-pressed="false">Mobile App <span class="chip-count">7</span></button>
+                <button type="button" class="chip" data-filter="game" aria-pressed="false">Game <span class="chip-count">3</span></button>
+                <button type="button" class="chip" data-filter="api" aria-pressed="false">Backend API <span class="chip-count">1</span></button>
                 </div>
-                <h3>Clinic Web POS Dashboard</h3>
-                <p>Dashboard POS berbasis web untuk klinik kecantikan — kelola transaksi treatment, penjualan produk, dan laporan keuangan harian dalam satu platform.</p>
-                <div class="project-tags">
-                    <span>Laravel 11</span><span>MySQL</span><span>Livewire</span><span>Midtrans</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="https://www.youtube.com/" target="_blank" class="project-action-btn"><i data-lucide="play-circle"></i> Demo</a>
-                    <a href="../project/clinic-pos/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
+                <span class="projects-count" id="projects-count" aria-live="polite">Showing 20 projects</span>
             </div>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2024</span>
-                </div>
-                <h3>Laundry App</h3>
-                <p>Aplikasi mobile laundry management — mulai dari penerimaan order, tracking status cucian, hingga notifikasi pickup untuk pelanggan.</p>
-                <div class="project-tags">
-                    <span>Flutter</span><span>Firebase</span><span>Cloud Firestore</span><span>FCM</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="../project/laundry-app/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            <div class="work-grid animate-ready">
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2024</span>
+            <article class="work-card" data-category="game" style="--p-accent: #f59e0b">
+                <div class="stage">
+                    <span class="work-kind">Game</span>
+                    <div class="frame frame-phone">
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="store"></i></span><span class="sf-name">Warung Tycoon</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/warung-tycoon/cover.webp" alt="Warung Tycoon screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>Aplikasi Buku Bisnis</h3>
-                <p>Aplikasi pencatatan keuangan bisnis sederhana — catat pemasukan, pengeluaran, dan lihat ringkasan profit secara otomatis dengan grafik interaktif.</p>
-                <div class="project-tags">
-                    <span>Flutter</span><span>SQLite</span><span>FL Chart</span><span>GetX</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span class="status is-pre">Pre-launch</span>
+                    </div>
+                    <h3><a href="../project/warung-tycoon/">Warung Tycoon</a></h3>
+                    <p>Game idle/incremental bertema warung Indonesia — dari gerobak gorengan sampai bisnis katering, dengan sistem prestige "Buka Cabang" dan berjalan 100% offline.</p>
+                    <div class="tag-list"><span>Flutter</span><span>Riverpod</span><span>Hive</span><span>AdMob</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.warungtycoon.app" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="smartphone"></i> Google Play</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="../project/buku-bisnis/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2025</span>
+            <article class="work-card" data-category="game" style="--p-accent: #22c55e">
+                <div class="stage">
+                    <span class="work-kind">Game</span>
+                    <div class="frame frame-phone">
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="sprout"></i></span><span class="sf-name">Tropimori</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/tropimori/cover.webp" alt="Tropimori screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>Klinik Management</h3>
-                <p>Sistem manajemen klinik lengkap — penjadwalan dokter, rekam medis elektronik, dan pembayaran QRIS terintegrasi dalam satu platform.</p>
-                <div class="project-tags">
-                    <span>Laravel 11</span><span>MySQL</span><span>Livewire</span><span>Midtrans QRIS</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span class="status is-pre">Pre-launch</span>
+                    </div>
+                    <h3><a href="../project/tropimori/">Tropimori: Cozy Island Farm</a></h3>
+                    <p>Game berkebun isometrik bertema pulau tropis — tanam, masak hasil panen, kenali warga desa, dan memancing di pantai. Tanaman tetap tumbuh saat game ditutup.</p>
+                    <div class="tag-list"><span>Flutter</span><span>Flame</span><span>AdMob</span><span>Crashlytics</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="https://www.youtube.com/" target="_blank" class="project-action-btn"><i data-lucide="play-circle"></i> Demo</a>
-                    <a href="../project/klinik-management/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2025</span>
+            <article class="work-card" data-category="game" style="--p-accent: #ec4899">
+                <div class="stage">
+                    <span class="work-kind">Game</span>
+                    <div class="frame frame-phone">
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="gamepad-2"></i></span><span class="sf-name">Cabinet80s</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/cabinet80s/cover.webp" alt="Cabinet80s screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>Online Shop</h3>
-                <p>Platform toko online lengkap dengan payment gateway Midtrans, integrasi ongkir RajaOngkir, dan admin dashboard untuk kelola produk serta pesanan.</p>
-                <div class="project-tags">
-                    <span>Laravel 11</span><span>Midtrans</span><span>RajaOngkir API</span><span>Redis</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span class="status is-dev">In development</span>
+                    </div>
+                    <h3><a href="../project/cabinet80s/">Cabinet80s: Offline Retro Game</a></h3>
+                    <p>Launcher arcade retro untuk Android — sepuluh kabinet game yang dibeli sekali dan bisa dimainkan offline selamanya, tanpa iklan.</p>
+                    <div class="tag-list"><span>Flutter</span><span>Provider</span><span>Offline</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="#" target="_blank" class="project-action-btn"><i data-lucide="external-link"></i> Demo</a>
-                    <a href="../project/online-shop/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2024</span>
+            <article class="work-card" data-category="mobile" style="--p-accent: #14b8a6">
+                <div class="stage">
+                    <span class="work-kind">Mobile App</span>
+                    <div class="frame frame-phone">
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="moon"></i></span><span class="sf-name">TasbihGo</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/tasbihgo/cover.webp" alt="TasbihGo screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>CBT Test Potensi Akademik</h3>
-                <p>Computer Based Test untuk ujian Tes Potensi Akademik — dilengkapi timer otomatis, bank soal, randomisasi soal, dan hasil skor instan.</p>
-                <div class="project-tags">
-                    <span>Laravel 10</span><span>Livewire</span><span>Alpine.js</span><span>Laravel Excel</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span class="status is-dev">In development</span>
+                    </div>
+                    <h3><a href="../project/tasbihgo/">TasbihGo - Tasbih &amp; Dzikir</a></h3>
+                    <p>Tasbih digital dengan preset dzikir, dzikir pagi &amp; petang, statistik ibadah, arah kiblat, dan jadwal sholat.</p>
+                    <div class="tag-list"><span>Flutter</span><span>Hive</span><span>Supabase</span><span>RevenueCat</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="#" target="_blank" class="project-action-btn"><i data-lucide="external-link"></i> Demo</a>
-                    <a href="../project/cbt-tpa/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2024 - 2025</span>
+            <article class="work-card" data-category="mobile" style="--p-accent: #6366f1">
+                <div class="stage">
+                    <span class="work-kind">Mobile App</span>
+                    <div class="frame frame-phone">
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="list-checks"></i></span><span class="sf-name">Nusa Tasks</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/nusa-tasks/cover.webp" alt="Nusa Tasks screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>SIAKAD</h3>
-                <p>Sistem Informasi Akademik untuk manajemen data mahasiswa, KRS, penjadwalan kuliah, input nilai, dan cetak transkrip akademik.</p>
-                <div class="project-tags">
-                    <span>Laravel 11</span><span>Livewire</span><span>DomPDF</span><span>Spatie Permissions</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span class="status is-dev">In development</span>
+                    </div>
+                    <h3><a href="../project/nusa-tasks/">Nusa Tasks: Daily Planner</a></h3>
+                    <p>Planner harian local-first — tugas, habit, catatan, dan sesi fokus dalam satu aplikasi. Tanpa akun, tanpa cloud, tanpa tracking.</p>
+                    <div class="tag-list"><span>Flutter</span><span>Provider</span><span>Hive</span><span>Notifications</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="../project/siakad/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2024</span>
+            <article class="work-card" data-category="mobile" style="--p-accent: #10b981">
+                <div class="stage">
+                    <span class="work-kind">Mobile App</span>
+                    <div class="frame frame-phone">
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="wallet"></i></span><span class="sf-name">OurMoney</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/ourmoney/cover.webp" alt="OurMoney screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>POS untuk UMKM</h3>
-                <p>Sistem Point of Sale ringan untuk UMKM — transaksi cepat, manajemen produk, dan laporan penjualan harian yang mudah dipahami.</p>
-                <div class="project-tags">
-                    <span>Laravel 10</span><span>Bootstrap</span><span>jQuery</span><span>Thermal Printer</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2026</span>
+                        <span class="status is-dev">In development</span>
+                    </div>
+                    <h3><a href="../project/ourmoney/">OurMoney: Plan Your Money</a></h3>
+                    <p>Aplikasi perencanaan keuangan untuk mengatur dan merencanakan uang — masih dalam tahap pengembangan awal.</p>
+                    <div class="tag-list"><span>Flutter</span><span>Dart</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="https://www.youtube.com/" target="_blank" class="project-action-btn"><i data-lucide="play-circle"></i> Demo</a>
-                    <a href="../project/pos-umkm/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2025</span>
+            <article class="work-card" data-category="web" style="--p-accent: #f472b6">
+                <div class="stage">
+                    <span class="work-kind">Web App</span>
+                    <div class="frame frame-browser">
+                        <div class="frame-bar"><i></i><i></i><i></i><span>clinic-pos.app</span></div>
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="sparkles"></i></span><span class="sf-name">Clinic POS</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/clinic-pos/cover.webp" alt="Clinic POS screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>Swimming Ticketing</h3>
-                <p>Sistem ticketing kolam renang dengan QR code e-ticket dan pembayaran online — booking tiket, scan masuk, dan dashboard pengelola.</p>
-                <div class="project-tags">
-                    <span>Laravel 11</span><span>Midtrans</span><span>QR Code</span><span>Livewire</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2025</span>
+                        <span class="status is-done">Completed</span>
+                    </div>
+                    <h3><a href="../project/clinic-pos/">Clinic Web POS Dashboard</a></h3>
+                    <p>Dashboard POS berbasis web untuk klinik kecantikan — kelola transaksi treatment, penjualan produk, dan laporan keuangan harian dalam satu platform.</p>
+                    <div class="tag-list"><span>Laravel 11</span><span>MySQL</span><span>Livewire</span><span>Midtrans</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="play-circle"></i> Demo</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="#" target="_blank" class="project-action-btn"><i data-lucide="external-link"></i> Demo</a>
-                    <a href="../project/swimming-ticketing/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2025</span>
+            <article class="work-card" data-category="web" style="--p-accent: #06b6d4">
+                <div class="stage">
+                    <span class="work-kind">Web App</span>
+                    <div class="frame frame-browser">
+                        <div class="frame-bar"><i></i><i></i><i></i><span>klinik-management.app</span></div>
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="stethoscope"></i></span><span class="sf-name">Klinik Management</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/klinik-management/cover.webp" alt="Klinik Management screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>POS Resto</h3>
-                <p>Point of Sale khusus restoran — order per meja, kitchen display system, dan split bill untuk pengalaman dine-in yang seamless.</p>
-                <div class="project-tags">
-                    <span>Laravel 11</span><span>Livewire</span><span>Alpine.js</span><span>Pusher</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2025</span>
+                        <span class="status is-done">Completed</span>
+                    </div>
+                    <h3><a href="../project/klinik-management/">Klinik Management</a></h3>
+                    <p>Sistem manajemen klinik lengkap — penjadwalan dokter, rekam medis elektronik, dan pembayaran QRIS terintegrasi dalam satu platform.</p>
+                    <div class="tag-list"><span>Laravel 11</span><span>MySQL</span><span>Livewire</span><span>Midtrans QRIS</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="play-circle"></i> Demo</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="https://www.youtube.com/" target="_blank" class="project-action-btn"><i data-lucide="play-circle"></i> Demo</a>
-                    <a href="../project/pos-resto/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2025</span>
+            <article class="work-card" data-category="web" style="--p-accent: #8b5cf6">
+                <div class="stage">
+                    <span class="work-kind">Web App</span>
+                    <div class="frame frame-browser">
+                        <div class="frame-bar"><i></i><i></i><i></i><span>online-shop.app</span></div>
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="shopping-bag"></i></span><span class="sf-name">Online Shop</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/online-shop/cover.webp" alt="Online Shop screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>Absensi Face Recognition + GPS</h3>
-                <p>Aplikasi absensi karyawan dengan verifikasi face recognition dan validasi lokasi GPS — anti-titip absen dan anti-fake location.</p>
-                <div class="project-tags">
-                    <span>Flutter</span><span>TensorFlow Lite</span><span>Google ML Kit</span><span>Firebase</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2025</span>
+                        <span class="status is-done">Completed</span>
+                    </div>
+                    <h3><a href="../project/online-shop/">Online Shop</a></h3>
+                    <p>Platform toko online lengkap dengan payment gateway Midtrans, integrasi ongkir RajaOngkir, dan admin dashboard untuk kelola produk serta pesanan.</p>
+                    <div class="tag-list"><span>Laravel 11</span><span>Midtrans</span><span>RajaOngkir API</span><span>Redis</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <a href="#" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="external-link"></i> Demo</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="../project/absensi-face/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2024 - 2025</span>
+            <article class="work-card" data-category="web" style="--p-accent: #0ea5e9">
+                <div class="stage">
+                    <span class="work-kind">Web App</span>
+                    <div class="frame frame-browser">
+                        <div class="frame-bar"><i></i><i></i><i></i><span>swimming-ticketing.app</span></div>
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="waves"></i></span><span class="sf-name">Swimming Ticketing</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/swimming-ticketing/cover.webp" alt="Swimming Ticketing screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>Food Delivery</h3>
-                <p>Platform food delivery lengkap dengan 3 aplikasi — app untuk user order makanan, app untuk resto kelola menu &amp; pesanan, dan app untuk driver.</p>
-                <div class="project-tags">
-                    <span>Flutter</span><span>Laravel 11</span><span>Google Maps</span><span>Midtrans</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2025</span>
+                        <span class="status is-done">Completed</span>
+                    </div>
+                    <h3><a href="../project/swimming-ticketing/">Swimming Ticketing</a></h3>
+                    <p>Sistem ticketing kolam renang dengan QR code e-ticket dan pembayaran online — booking tiket, scan masuk, dan dashboard pengelola.</p>
+                    <div class="tag-list"><span>Laravel 11</span><span>Midtrans</span><span>QR Code</span><span>Livewire</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <a href="#" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="external-link"></i> Demo</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="https://www.youtube.com/" target="_blank" class="project-action-btn"><i data-lucide="play-circle"></i> Demo</a>
-                    <a href="../project/food-delivery/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2024</span>
+            <article class="work-card" data-category="web" style="--p-accent: #ef4444">
+                <div class="stage">
+                    <span class="work-kind">Web App</span>
+                    <div class="frame frame-browser">
+                        <div class="frame-bar"><i></i><i></i><i></i><span>pos-resto.app</span></div>
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="utensils"></i></span><span class="sf-name">POS Resto</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/pos-resto/cover.webp" alt="POS Resto screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>POS Cafe System</h3>
-                <p>Sistem POS modern untuk cafe — order dari tablet, loyalty program pelanggan, dan integrasi dengan mesin kasir untuk operasional yang efisien.</p>
-                <div class="project-tags">
-                    <span>React</span><span>Node.js</span><span>MongoDB</span><span>Socket.io</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2025</span>
+                        <span class="status is-done">Completed</span>
+                    </div>
+                    <h3><a href="../project/pos-resto/">POS Resto</a></h3>
+                    <p>Point of Sale khusus restoran — order per meja, kitchen display system, dan split bill untuk pengalaman dine-in yang seamless.</p>
+                    <div class="tag-list"><span>Laravel 11</span><span>Livewire</span><span>Alpine.js</span><span>Pusher</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="play-circle"></i> Demo</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="#" target="_blank" class="project-action-btn"><i data-lucide="external-link"></i> Demo</a>
-                    <a href="../project/pos-cafe/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2024</span>
+            <article class="work-card" data-category="mobile" style="--p-accent: #3b82f6">
+                <div class="stage">
+                    <span class="work-kind">Mobile App</span>
+                    <div class="frame frame-phone">
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="scan-face"></i></span><span class="sf-name">Absensi Face</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/absensi-face/cover.webp" alt="Absensi Face screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>General POS System</h3>
-                <p>Backend API modular untuk sistem POS general-purpose — bisa dipakai untuk retail, F&amp;B, atau jasa dengan konfigurasi fleksibel.</p>
-                <div class="project-tags">
-                    <span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Docker</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2025</span>
+                        <span class="status is-done">Completed</span>
+                    </div>
+                    <h3><a href="../project/absensi-face/">Absensi Face Recognition + GPS</a></h3>
+                    <p>Aplikasi absensi karyawan dengan verifikasi face recognition dan validasi lokasi GPS — anti-titip absen dan anti-fake location.</p>
+                    <div class="tag-list"><span>Flutter</span><span>TensorFlow Lite</span><span>Google ML Kit</span><span>Firebase</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="#" target="_blank" class="project-action-btn"><i data-lucide="file-text"></i> API Docs</a>
-                    <a href="../project/general-pos/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2026</span>
+            <article class="work-card" data-category="mobile" style="--p-accent: #f97316">
+                <div class="stage">
+                    <span class="work-kind">Mobile App</span>
+                    <div class="frame frame-phone">
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="bike"></i></span><span class="sf-name">Food Delivery</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/food-delivery/cover.webp" alt="Food Delivery screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>Warung Tycoon</h3>
-                <p>Game idle/incremental bertema warung Indonesia — dari gerobak gorengan sampai bisnis katering, dengan sistem prestige "Buka Cabang" dan berjalan 100% offline.</p>
-                <div class="project-tags">
-                    <span>Flutter</span><span>Riverpod</span><span>Hive</span><span>AdMob</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2024 – 2025</span>
+                        <span class="status is-dev">In development</span>
+                    </div>
+                    <h3><a href="../project/food-delivery/">Food Delivery</a></h3>
+                    <p>Platform food delivery lengkap dengan 3 aplikasi — app untuk user order makanan, app untuk resto kelola menu &amp; pesanan, dan app untuk driver.</p>
+                    <div class="tag-list"><span>Flutter</span><span>Laravel 11</span><span>Google Maps</span><span>Midtrans</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="play-circle"></i> Demo</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.warungtycoon.app" target="_blank" class="project-action-btn"><i data-lucide="smartphone"></i> Google Play</a>
-                    <a href="../project/warung-tycoon/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2026</span>
+            <article class="work-card" data-category="web" style="--p-accent: #a78bfa">
+                <div class="stage">
+                    <span class="work-kind">Web App</span>
+                    <div class="frame frame-browser">
+                        <div class="frame-bar"><i></i><i></i><i></i><span>siakad.app</span></div>
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="graduation-cap"></i></span><span class="sf-name">SIAKAD</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/siakad/cover.webp" alt="SIAKAD screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>TasbihGo - Tasbih &amp; Dzikir</h3>
-                <p>Tasbih digital dengan preset dzikir, dzikir pagi &amp; petang, statistik ibadah, arah kiblat, dan jadwal sholat.</p>
-                <div class="project-tags">
-                    <span>Flutter</span><span>Hive</span><span>Supabase</span><span>RevenueCat</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2024 – 2025</span>
+                        <span class="status is-dev">In development</span>
+                    </div>
+                    <h3><a href="../project/siakad/">SIAKAD</a></h3>
+                    <p>Sistem Informasi Akademik untuk manajemen data mahasiswa, KRS, penjadwalan kuliah, input nilai, dan cetak transkrip akademik.</p>
+                    <div class="tag-list"><span>Laravel 11</span><span>Livewire</span><span>DomPDF</span><span>Spatie Permissions</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="../project/tasbihgo/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2026</span>
+            <article class="work-card" data-category="mobile" style="--p-accent: #38bdf8">
+                <div class="stage">
+                    <span class="work-kind">Mobile App</span>
+                    <div class="frame frame-phone">
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="shirt"></i></span><span class="sf-name">Laundry App</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/laundry-app/cover.webp" alt="Laundry App screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>Cabinet80s: Offline Retro Game</h3>
-                <p>Launcher arcade retro untuk Android — sepuluh kabinet game yang dibeli sekali dan bisa dimainkan offline selamanya, tanpa iklan.</p>
-                <div class="project-tags">
-                    <span>Flutter</span><span>Provider</span><span>Offline</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2024</span>
+                        <span class="status is-done">Completed</span>
+                    </div>
+                    <h3><a href="../project/laundry-app/">Laundry App</a></h3>
+                    <p>Aplikasi mobile laundry management — mulai dari penerimaan order, tracking status cucian, hingga notifikasi pickup untuk pelanggan.</p>
+                    <div class="tag-list"><span>Flutter</span><span>Firebase</span><span>Cloud Firestore</span><span>FCM</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="../project/cabinet80s/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2026</span>
+            <article class="work-card" data-category="mobile" style="--p-accent: #84cc16">
+                <div class="stage">
+                    <span class="work-kind">Mobile App</span>
+                    <div class="frame frame-phone">
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="book-open"></i></span><span class="sf-name">Buku Bisnis</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/buku-bisnis/cover.webp" alt="Buku Bisnis screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>Nusa Tasks: Daily Planner</h3>
-                <p>Planner harian local-first — tugas, habit, catatan, dan sesi fokus dalam satu aplikasi. Tanpa akun, tanpa cloud, tanpa tracking.</p>
-                <div class="project-tags">
-                    <span>Flutter</span><span>Provider</span><span>Hive</span><span>Notifications</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2024</span>
+                        <span class="status is-done">Completed</span>
+                    </div>
+                    <h3><a href="../project/buku-bisnis/">Aplikasi Buku Bisnis</a></h3>
+                    <p>Aplikasi pencatatan keuangan bisnis sederhana — catat pemasukan, pengeluaran, dan lihat ringkasan profit secara otomatis dengan grafik interaktif.</p>
+                    <div class="tag-list"><span>Flutter</span><span>SQLite</span><span>FL Chart</span><span>GetX</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="../project/nusa-tasks/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2026</span>
+            <article class="work-card" data-category="web" style="--p-accent: #eab308">
+                <div class="stage">
+                    <span class="work-kind">Web App</span>
+                    <div class="frame frame-browser">
+                        <div class="frame-bar"><i></i><i></i><i></i><span>cbt-tpa.app</span></div>
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="clipboard-list"></i></span><span class="sf-name">CBT TPA</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/cbt-tpa/cover.webp" alt="CBT TPA screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>OurMoney: Plan Your Money</h3>
-                <p>Aplikasi perencanaan keuangan untuk mengatur dan merencanakan uang — masih dalam tahap pengembangan awal.</p>
-                <div class="project-tags">
-                    <span>Flutter</span><span>Dart</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2024</span>
+                        <span class="status is-done">Completed</span>
+                    </div>
+                    <h3><a href="../project/cbt-tpa/">CBT Test Potensi Akademik</a></h3>
+                    <p>Computer Based Test untuk ujian Tes Potensi Akademik — dilengkapi timer otomatis, bank soal, randomisasi soal, dan hasil skor instan.</p>
+                    <div class="tag-list"><span>Laravel 10</span><span>Livewire</span><span>Alpine.js</span><span>Laravel Excel</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <a href="#" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="external-link"></i> Demo</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="../project/ourmoney/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-date">2026</span>
+            <article class="work-card" data-category="web" style="--p-accent: #fb923c">
+                <div class="stage">
+                    <span class="work-kind">Web App</span>
+                    <div class="frame frame-browser">
+                        <div class="frame-bar"><i></i><i></i><i></i><span>pos-umkm.app</span></div>
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="receipt"></i></span><span class="sf-name">POS UMKM</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/pos-umkm/cover.webp" alt="POS UMKM screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
-                <h3>Tropimori: Cozy Island Farm</h3>
-                <p>Game berkebun isometrik bertema pulau tropis — tanam, masak hasil panen, kenali warga desa, dan memancing di pantai. Tanaman tetap tumbuh saat game ditutup.</p>
-                <div class="project-tags">
-                    <span>Flutter</span><span>Flame</span><span>AdMob</span><span>Crashlytics</span>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2024</span>
+                        <span class="status is-done">Completed</span>
+                    </div>
+                    <h3><a href="../project/pos-umkm/">POS untuk UMKM</a></h3>
+                    <p>Sistem Point of Sale ringan untuk UMKM — transaksi cepat, manajemen produk, dan laporan penjualan harian yang mudah dipahami.</p>
+                    <div class="tag-list"><span>Laravel 10</span><span>Bootstrap</span><span>jQuery</span><span>Thermal Printer</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="play-circle"></i> Demo</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
                 </div>
-                <div class="project-actions">
-                    <a href="https://github.com/lutfidev" target="_blank" class="project-action-btn"><i data-lucide="github"></i> GitHub</a>
-                    <a href="../project/tropimori/" class="project-action-btn btn-detail">Detail <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
+            </article>
 
-        </div>
-    </div>
+            <article class="work-card" data-category="web" style="--p-accent: #d97706">
+                <div class="stage">
+                    <span class="work-kind">Web App</span>
+                    <div class="frame frame-browser">
+                        <div class="frame-bar"><i></i><i></i><i></i><span>pos-cafe.app</span></div>
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="coffee"></i></span><span class="sf-name">POS Cafe</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/pos-cafe/cover.webp" alt="POS Cafe screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2024</span>
+                        <span class="status is-done">Completed</span>
+                    </div>
+                    <h3><a href="../project/pos-cafe/">POS Cafe System</a></h3>
+                    <p>Sistem POS modern untuk cafe — order dari tablet, loyalty program pelanggan, dan integrasi dengan mesin kasir untuk operasional yang efisien.</p>
+                    <div class="tag-list"><span>React</span><span>Node.js</span><span>MongoDB</span><span>Socket.io</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <a href="#" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="external-link"></i> Demo</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="work-card" data-category="api" style="--p-accent: #64748b">
+                <div class="stage">
+                    <span class="work-kind">Backend API</span>
+                    <div class="frame frame-browser">
+                        <div class="frame-bar"><i></i><i></i><i></i><span>general-pos.app</span></div>
+                        <div class="screen">
+                            <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="server"></i></span><span class="sf-name">General POS</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i><i></i></div></div>
+                            <img data-shot src="../img/projects/general-pos/cover.webp" alt="General POS screenshot" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+                <div class="work-body">
+                    <div class="work-meta">
+                        <span class="work-year">2024</span>
+                        <span class="status is-done">Completed</span>
+                    </div>
+                    <h3><a href="../project/general-pos/">General POS System</a></h3>
+                    <p>Backend API modular untuk sistem POS general-purpose — bisa dipakai untuk retail, F&amp;B, atau jasa dengan konfigurasi fleksibel.</p>
+                    <div class="tag-list"><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Docker</span></div>
+                    <div class="work-actions">
+                        <a href="https://github.com/lutfidev" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="github"></i> GitHub</a>
+                        <a href="#" target="_blank" rel="noopener" class="icon-btn"><i data-lucide="file-text"></i> API Docs</a>
+                        <span class="link-arrow">Details <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </div>
+            </article>
+
+            </div>
+        </section>
+    </main>
 
     <div id="footer-placeholder"></div>
 
     <script src="../js/components.js"></script>
     <script>initComponents('../');</script>
     <script src="../js/animations.js"></script>
+    <script>
+        // Category filter: shows cards whose data-category matches the chip.
+        (function () {
+            const chips = document.querySelectorAll('.chip[data-filter]');
+            const cards = document.querySelectorAll('.work-card[data-category]');
+            const count = document.getElementById('projects-count');
+            chips.forEach(chip => chip.addEventListener('click', () => {
+                const filter = chip.dataset.filter;
+                let shown = 0;
+                chips.forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
+                cards.forEach(card => {
+                    const show = filter === 'all' || card.dataset.category === filter;
+                    card.hidden = !show;
+                    card.classList.remove('is-revealed');
+                    if (show) {
+                        shown++;
+                        void card.offsetWidth; // restart the reveal animation
+                        card.classList.add('is-revealed');
+                    }
+                });
+                count.textContent = 'Showing ' + shown + (shown === 1 ? ' project' : ' projects');
+            }));
+        })();
+    </script>
 </body>
 </html>

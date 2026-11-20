@@ -44,176 +44,181 @@ function renderIcons() {
     window.lucide.createIcons();
 }
 
-// Auto-detect basePath based on current URL
-const path = window.location.pathname;
-let basePath;
-if (path.includes('/project/')) {
-    basePath = '../../';
-} else if (path.includes('/about/') || path.includes('/achievement/') || path.includes('/projects/') || path.includes('/contact/')) {
-    basePath = '../';
-} else {
-    basePath = './';
-}
+// ---------------------------------------------------------------------------
+// Shared chrome: header + footer. Edit these, never the markup inside a page.
+// ---------------------------------------------------------------------------
 
-function getSidebarHTML(base) {
+const NAV_ITEMS = [
+    { page: 'home', label: 'Home', href: '' },
+    { page: 'projects', label: 'Projects', href: 'projects/' },
+    { page: 'about', label: 'About', href: 'about/' },
+    { page: 'achievement', label: 'Achievement', href: 'achievement/' },
+    { page: 'contact', label: 'Contact', href: 'contact/' }
+];
+
+// The yoluvy mark: a heart whose point runs on into the tail of a "y".
+// Monochrome: the tile takes the text colour, the stroke the page colour.
+function logoMark() {
     return `
-    <aside class="sidebar" id="sidebar">
-
-        <div class="sidebar-profile">
-            <div class="sidebar-avatar">
-                <img src="${base}img/photo.jpg" alt="Muhammad Lutfi">
-            </div>
-            <div class="sidebar-profile-info">
-                <span class="sidebar-name">Muhammad Lutfi</span>
-                <span class="sidebar-handle">@lutfidev</span>
-            </div>
-        </div>
-
-        <div class="sidebar-socials">
-            <a href="https://github.com/lutfidev" target="_blank" class="sidebar-social" title="GitHub">
-                <i data-lucide="github"></i>
-            </a>
-            <a href="https://linkedin.com/in/lutfidev/" target="_blank" class="sidebar-social" title="LinkedIn">
-                <i data-lucide="linkedin"></i>
-            </a>
-            <a href="mailto:yoluvy.dev@gmail.com" class="sidebar-social" title="Email">
-                <i data-lucide="mail"></i>
-            </a>
-        </div>
-
-        <div class="sidebar-divider"></div>
-
-        <nav class="sidebar-nav">
-            <a href="${base}" class="sidebar-item" data-page="home">
-                <i data-lucide="house"></i>
-                <span>Home</span>
-            </a>
-            <a href="${base}projects/" class="sidebar-item" data-page="projects">
-                <i data-lucide="layout-grid"></i>
-                <span>Projects</span>
-            </a>
-            <a href="${base}about/" class="sidebar-item" data-page="about">
-                <i data-lucide="user"></i>
-                <span>About</span>
-            </a>
-            <a href="${base}achievement/" class="sidebar-item" data-page="achievement">
-                <i data-lucide="award"></i>
-                <span>Achievement</span>
-            </a>
-            <a href="${base}contact/" class="sidebar-item" data-page="contact">
-                <i data-lucide="phone"></i>
-                <span>Contact</span>
-            </a>
-        </nav>
-
-        <div class="sidebar-divider"></div>
-
-        <button class="sidebar-theme-toggle" id="theme-toggle">
-            <i data-lucide="sun" class="icon-dark"></i>
-            <i data-lucide="moon" class="icon-light"></i>
-            <span class="label-dark">Light Mode</span>
-            <span class="label-light">Dark Mode</span>
-        </button>
-
-        <button class="sidebar-hamburger" id="hamburger" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
-
-    </aside>
-    <div class="sidebar-mobile-overlay" id="mobile-overlay">
-        <nav class="sidebar-mobile-nav">
-            <a href="${base}" class="sidebar-mobile-link">
-                <i data-lucide="house"></i><span>Home</span>
-            </a>
-            <a href="${base}projects/" class="sidebar-mobile-link">
-                <i data-lucide="layout-grid"></i><span>Projects</span>
-            </a>
-            <a href="${base}about/" class="sidebar-mobile-link">
-                <i data-lucide="user"></i><span>About</span>
-            </a>
-            <a href="${base}achievement/" class="sidebar-mobile-link">
-                <i data-lucide="award"></i><span>Achievement</span>
-            </a>
-            <a href="${base}contact/" class="sidebar-mobile-link">
-                <i data-lucide="phone"></i><span>Contact</span>
-            </a>
-            <div class="sidebar-mobile-divider"></div>
-            <button class="sidebar-mobile-link sidebar-mobile-theme" data-theme-toggle>
-                <i data-lucide="sun" class="icon-dark"></i>
-                <i data-lucide="moon" class="icon-light"></i>
-                <span class="label-dark">Light Mode</span>
-                <span class="label-light">Dark Mode</span>
-            </button>
-        </nav>
-    </div>`;
+    <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="18" fill="currentColor"/>
+        <path d="M32 40 L18.34 27.66 A8 8 0 1 1 32 22 A8 8 0 1 1 45.66 27.66 L32 40 L24.5 51.5"
+              fill="none" style="stroke: var(--bg)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`;
 }
 
-function getFooterHTML() {
+function brandHTML(base) {
+    return `<a href="${base}" class="brand" aria-label="yoluvy.dev — home">
+        ${logoMark()}<span class="brand-word">yoluvy<span>.dev</span></span>
+    </a>`;
+}
+
+function themeButtonHTML() {
+    return `<button class="theme-btn" id="theme-toggle" type="button" aria-label="Toggle light/dark theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-dark"></i>
+        <i data-lucide="moon" class="icon-light"></i>
+    </button>`;
+}
+
+function getHeaderHTML(base) {
+    const links = NAV_ITEMS.map(n =>
+        `<a href="${base}${n.href}" data-page="${n.page}">${n.label}</a>`).join('');
+    const mobileLinks = NAV_ITEMS.map(n =>
+        `<a href="${base}${n.href}" data-page="${n.page}">${n.label} <i data-lucide="arrow-up-right"></i></a>`).join('');
+    return `
+    <header class="site-header" id="site-header">
+        <div class="container header-inner">
+            ${brandHTML(base)}
+            <nav class="main-nav" aria-label="Main">${links}</nav>
+            <div class="header-actions">
+                ${themeButtonHTML()}
+                <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+        ${mobileLinks}
+    </nav>`;
+}
+
+function getFooterHTML(base) {
+    const year = new Date().getFullYear();
+    const nav = NAV_ITEMS.map(n => `<li><a href="${base}${n.href}">${n.label}</a></li>`).join('');
     return `
     <footer class="site-footer">
-        <p>&copy; 2026 Muhammad Lutfi. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    ${brandHTML(base)}
+                    <p>Web, mobile and game apps by Muhammad Lutfi, a developer in Batam, Indonesia.</p>
+                    <span class="available"><span class="dot"></span> Available for project</span>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>${nav}</ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Projects</h4>
+                    <ul>
+                        <li><a href="${base}project/warung-tycoon/">Warung Tycoon</a></li>
+                        <li><a href="${base}project/tropimori/">Tropimori</a></li>
+                        <li><a href="${base}project/online-shop/">Online Shop</a></li>
+                        <li><a href="${base}projects/">All projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Elsewhere</h4>
+                    <ul>
+                        <li><a href="https://github.com/lutfidev" target="_blank" rel="noopener"><i data-lucide="github"></i> GitHub</a></li>
+                        <li><a href="https://linkedin.com/in/lutfidev/" target="_blank" rel="noopener"><i data-lucide="linkedin"></i> LinkedIn</a></li>
+                        <li><a href="mailto:yoluvy.dev@gmail.com"><i data-lucide="mail"></i> Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; ${year} Muhammad Lutfi · yoluvy.dev</span>
+                <button class="to-top" type="button" id="to-top">Back to top <i data-lucide="arrow-up"></i></button>
+            </div>
+        </div>
     </footer>`;
 }
 
-function initHamburger() {
-    const hamburger = document.getElementById('hamburger');
-    const overlay = document.getElementById('mobile-overlay');
-    if (!hamburger || !overlay) return;
-
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        overlay.classList.toggle('open');
-    });
-
-    overlay.querySelectorAll('.sidebar-mobile-link').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            overlay.classList.remove('open');
-        });
-    });
+function currentPage() {
+    const p = window.location.pathname;
+    if (p.includes('/projects/') || p.includes('/project/')) return 'projects';
+    if (p.includes('/about/')) return 'about';
+    if (p.includes('/achievement/')) return 'achievement';
+    if (p.includes('/contact/')) return 'contact';
+    return 'home';
 }
 
 function setActiveNav() {
-    const currentPath = window.location.pathname;
-    document.querySelectorAll('.sidebar-item').forEach(item => {
-        item.classList.remove('active');
-        const page = item.getAttribute('data-page');
-        if (!page) return;
-
-        if (page === 'about' && currentPath.includes('/about/')) {
-            item.classList.add('active');
-        } else if (page === 'achievement' && currentPath.includes('/achievement/')) {
-            item.classList.add('active');
-        } else if (page === 'projects' && (currentPath.includes('/projects/') || currentPath.includes('/project/'))) {
-            item.classList.add('active');
-        } else if (page === 'contact' && currentPath.includes('/contact/')) {
-            item.classList.add('active');
-        } else if (page === 'home' && !currentPath.includes('/about/')
-            && !currentPath.includes('/achievement/')
-            && !currentPath.includes('/project/')
-            && !currentPath.includes('/projects/')
-            && !currentPath.includes('/contact/')) {
-            item.classList.add('active');
-        }
+    const page = currentPage();
+    document.querySelectorAll('.main-nav a, .mobile-menu a[data-page]').forEach(a => {
+        const on = a.dataset.page === page;
+        a.classList.toggle('active', on);
+        if (on) a.setAttribute('aria-current', 'page');
     });
 }
 
-// Theme: Light / Dark
+function initMenu() {
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    const setOpen = open => {
+        btn.classList.toggle('active', open);
+        menu.classList.toggle('open', open);
+        document.body.classList.toggle('menu-open', open);
+        btn.setAttribute('aria-expanded', String(open));
+    };
+    btn.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+}
+
+function initHeaderScroll() {
+    const header = document.getElementById('site-header');
+    if (!header) return;
+    const update = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+}
+
+function initToTop() {
+    const btn = document.getElementById('to-top');
+    if (btn) btn.addEventListener('click', () => window.scrollTo({ top: 0 }));
+}
+
+// Theme: Light / Dark. A saved choice wins; otherwise follow the OS.
 function initTheme() {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light') {
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) { /* storage blocked */ }
+    const preferLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (saved === 'light' || (!saved && preferLight)) {
         document.body.classList.add('light-mode');
     }
 }
 
-// The sidebar toggle (#theme-toggle) is hidden on the mobile top bar, so the
-// mobile menu carries its own [data-theme-toggle] button.
+// Binds the header button and the standalone toggle on privacy pages
+// (both carry id="theme-toggle"), plus any [data-theme-toggle].
 function initThemeToggle() {
     document.querySelectorAll('#theme-toggle, [data-theme-toggle]').forEach(btn => {
         btn.addEventListener('click', () => {
             const isLight = document.body.classList.toggle('light-mode');
-            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch (e) { /* ignore */ }
         });
+    });
+}
+
+// Project screenshots (img[data-shot]) stay invisible until they load, so a
+// missing file simply leaves the drawn mockup underneath on show.
+function initShots() {
+    document.querySelectorAll('img[data-shot]').forEach(img => {
+        const done = () => img.classList.add('is-loaded');
+        if (img.complete && img.naturalWidth > 0) done();
+        else img.addEventListener('load', done, { once: true });
     });
 }
 
@@ -224,16 +229,15 @@ function initComponents(base) {
     const navPlaceholder = document.getElementById('nav-placeholder');
     const footerPlaceholder = document.getElementById('footer-placeholder');
 
-    if (navPlaceholder) {
-        navPlaceholder.innerHTML = getSidebarHTML(base);
-    }
-    if (footerPlaceholder) {
-        footerPlaceholder.innerHTML = getFooterHTML();
-    }
+    if (navPlaceholder) navPlaceholder.outerHTML = getHeaderHTML(base);
+    if (footerPlaceholder) footerPlaceholder.outerHTML = getFooterHTML(base);
 
-    initHamburger();
+    initMenu();
     setActiveNav();
+    initHeaderScroll();
+    initToTop();
     initThemeToggle();
+    initShots();
 
     if (window.lucide) {
         renderIcons();
@@ -241,3 +245,4 @@ function initComponents(base) {
         document.addEventListener('DOMContentLoaded', renderIcons);
     }
 }
+

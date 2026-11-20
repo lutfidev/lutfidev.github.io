@@ -2,25 +2,14 @@
    PRIVACY POLICY PAGE STYLES
    ============================================ */
 
-/* The site sidebar is not injected on policy pages — reclaim its gutter
-   so the document reads full-width and distraction-free. Navigation is
-   handled by the breadcrumb at the top and the back-link at the bottom. */
-body.policy-page {
-    padding-left: 0;
+/* Policy pages carry no site header — navigation is the breadcrumb at the
+   top and the back-link at the bottom — and read at a narrower measure. */
+.policy-page .project-detail-container {
+    max-width: 860px;
+    padding-top: 3.5rem;
 }
 
-body.policy-page .sidebar,
-body.policy-page .sidebar-mobile-overlay {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    body.policy-page {
-        padding-top: 0;
-    }
-}
-
-/* Standalone theme toggle — the sidebar one is not available here.
+/* Standalone theme toggle — the header one is not available here.
    Keeping id="theme-toggle" is what wires it up: initThemeToggle()
    in js/components.js binds by that id, and the .icon-dark/.icon-light
    swap rules in css/nav.css apply to it as-is. */
@@ -32,13 +21,13 @@ body.policy-page .sidebar-mobile-overlay {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
     padding: 0;
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 50%;
     background: var(--card-bg);
-    color: var(--text-muted);
+    color: var(--text-main);
     cursor: pointer;
     transition: color 0.2s, border-color 0.2s;
 }
@@ -63,10 +52,10 @@ body.policy-page .sidebar-mobile-overlay {
 }
 
 .policy-header h1 {
-    font-size: 2.5rem;
-    line-height: 1.15;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    line-height: 1.08;
     margin-bottom: 0.75rem;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.045em;
 }
 
 .policy-subtitle {
@@ -76,7 +65,7 @@ body.policy-page .sidebar-mobile-overlay {
 }
 
 .policy-meta {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font);
     font-size: 0.82rem;
     color: var(--text-muted);
     line-height: 1.8;
@@ -136,7 +125,7 @@ body.policy-page .sidebar-mobile-overlay {
     border: 1px solid var(--border);
     border-radius: 5px;
     padding: 0.1em 0.4em;
-    font-family: 'Space Grotesk', ui-monospace, monospace;
+    font-family: var(--font);
     font-size: 0.85em;
     color: var(--text-main);
 }
@@ -145,13 +134,13 @@ body.policy-page .sidebar-mobile-overlay {
 .policy-callout {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.35rem 1.5rem 1.1rem;
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem 1.25rem;
     margin-bottom: 1rem;
 }
 
 .policy-callout-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font);
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -171,8 +160,8 @@ body.policy-page .sidebar-mobile-overlay {
 .policy-note {
     display: flex;
     gap: 0.8rem;
-    background: rgba(59, 130, 246, 0.07);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
     border-radius: 12px;
     padding: 1rem 1.15rem;
     margin: 1.5rem 0;
@@ -180,7 +169,8 @@ body.policy-page .sidebar-mobile-overlay {
     line-height: 1.7;
 }
 
-.policy-note i {
+.policy-note i,
+.policy-note svg {
     width: 18px;
     height: 18px;
     flex-shrink: 0;
@@ -209,7 +199,7 @@ body.policy-page .sidebar-mobile-overlay {
 
 .policy-table th {
     text-align: left;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font);
     font-size: 0.72rem;
     font-weight: 500;
     text-transform: uppercase;
