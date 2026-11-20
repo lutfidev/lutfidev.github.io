@@ -64,7 +64,8 @@ Isi setiap folder:
 | `pos-cafe`           | POS Cafe System                 | Browser       |
 | `general-pos`        | General POS System (API)        | Browser (mis. halaman dokumentasi API) |
 
-Project baru: nama slug sama dengan nama folder di `D:\Dev\portofolio\project\<slug>\`.
+Project baru: nama slug sama dengan nama folder halaman detailnya, `D:\Dev\portofolio\<slug>\`
+(halaman tampil di `https://yoluvy.my.id/<slug>/`).
 
 ## Cara mengambil screenshot
 
@@ -98,7 +99,27 @@ Bisa juga di squoosh.app (gratis, di browser).
 ## Mengecek hasilnya
 
 Dari folder `D:\Dev\portofolio`, jalankan `python -m http.server 8765`, lalu buka
-`http://localhost:8765/projects/` dan `http://localhost:8765/project/<slug>/`.
+`http://localhost:8765/projects/` dan `http://localhost:8765/<slug>/`.
+
+## Tema halaman
+
+Warna halaman detail tiap project (latar, kartu, teks, tombol, aksen) diatur di
+`D:\Dev\portofolio\css\project-themes.css`, satu blok per slug. Screenshot
+tidak perlu disesuaikan dengan tema. Ambil saja tampilan asli aplikasinya.
+
+## Prompt siap pakai
+
+Salin prompt di bawah, lalu ganti `<slug>` dengan slug dari tabel di atas:
+
+```
+Baca D:\Dev\portofolio\img\projects\README.md, lalu kerjakan untuk slug: <slug>.
+Lihat tabel "Daftar slug" untuk jenis bingkainya (HP atau Browser) dan ikuti
+ukuran di bagian "Ukuran". Ambil 1 screenshot paling menarik sebagai cover.webp
+dan 4 screenshot fitur lain sebagai shot-1.webp sampai shot-4.webp. Ubah ke
+.webp (di bawah ±300 KB per gambar) dan simpan di
+D:\Dev\portofolio\img\projects\<slug>\. Pakai data contoh yang rapi, tanpa
+data pribadi asli. Ikuti "Aturan untuk agen/asisten" di README itu.
+```
 
 ## Aturan untuk agen/asisten yang mengisi folder ini
 
