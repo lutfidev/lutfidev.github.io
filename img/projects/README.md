@@ -115,7 +115,8 @@ tidak perlu disesuaikan dengan tema. Ambil saja tampilan asli aplikasinya.
 
 Tempel prompt di bawah apa adanya di sesi Claude Code yang terbuka di repo
 project itu sendiri (bukan di repo portofolio). Sesi itu mengerjakan semuanya
-sampai commit di repo portofolio, jadi tidak perlu kembali ke sesi portofolio.
+sampai commit dan push di repo portofolio tanpa menunggu persetujuan, jadi
+tidak perlu kembali ke sesi portofolio. Hasilnya tinggal dicek di situs live.
 Kalau mau cover tertentu, tambahkan satu kalimat di akhir, misalnya
 "Cover-nya gameplay suasana kebun dan pulau."
 
@@ -141,10 +142,11 @@ lalu ikuti aturannya, termasuk "Aturan untuk agen/asisten" di README.
    simpan di D:\Dev\portofolio\img\projects\<slug>\.
 5. Cek hasilnya seperti di bagian "Mengecek hasilnya": cover dan ikon tampil di
    beranda dan /projects/, galeri tampil di halaman /<slug>/.
-6. Commit di repo portofolio (git -C D:\Dev\portofolio) mengikuti bagian
-   "Commit" di CLAUDE.md portofolio: tunjukkan daftar file dan pesan commit
-   dulu, tunggu persetujuan saya, lalu commit langsung ke main. Jangan push
-   kecuali saya minta.
+6. Langsung commit dan push di repo portofolio (git -C D:\Dev\portofolio),
+   tanpa menunggu persetujuan saya: hanya file di img/projects/<slug>/,
+   langsung ke main, author tetap identitas git saya, tanpa trailer
+   co-author atau tanda bot. Lalu beri saya daftar file yang masuk, hash
+   commit, dan link https://yoluvy.my.id/<slug>/ untuk dicek.
 ```
 
 ## Aturan untuk agen/asisten yang mengisi folder ini
@@ -153,9 +155,10 @@ lalu ikuti aturannya, termasuk "Aturan untuk agen/asisten" di README.
   HTML, CSS, atau JS portofolio.
 - Commit hanya file gambar di `img/projects/<slug>/`, satu commit per project,
   langsung di `main` repo portofolio, dengan pesan seperti
-  `feat: add <slug> screenshots and icon`. Ikuti aturan commit di
-  `D:\Dev\portofolio\CLAUDE.md`: minta persetujuan dulu, author tetap identitas
-  git pemilik repo, tanpa trailer co-author atau tanda bot apa pun, dan jangan
-  push kecuali diminta.
+  `feat: add <slug> screenshots and icon`. Untuk alur ini pemilik repo sudah
+  mengizinkan commit dan push ke `main` tanpa menunggu persetujuan (pengecualian
+  dari aturan "Commit" di `D:\Dev\portofolio\CLAUDE.md`). Aturan lainnya tetap:
+  author tetap identitas git pemilik repo, tanpa trailer co-author atau tanda
+  bot apa pun.
 - Jangan ikut meng-commit perubahan lain yang kebetulan ada di repo portofolio
   (cek `git -C D:\Dev\portofolio status` dulu).
