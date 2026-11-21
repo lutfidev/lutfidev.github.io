@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ginger Logic — yoluvy.dev</title>
+    <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project-detail.css">
+    <link rel="stylesheet" href="../css/project-themes.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script defer src="https://unpkg.com/lucide@1.31.0/dist/umd/lucide.min.js"></script>
+</head>
+<body data-project="ginger-logic">
+
+    <div id="nav-placeholder"></div>
+
+    <main class="project-detail-container">
+
+        <nav class="breadcrumb">
+            <a href="../">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="../projects/">Projects</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">Ginger Logic</span>
+        </nav>
+
+        <div class="project-hero">
+            <div class="project-hero-tags">
+                <span class="project-year">2026</span>
+                <span class="project-tag-badge">Mobile Game</span>
+                <span class="project-tag-badge">Puzzle</span>
+            </div>
+            <h1>Ginger Logic</h1>
+            <p class="project-hero-subtitle">
+                A puzzle game about Oyen, a stubborn orange cat who won&rsquo;t take orders. You can&rsquo;t move him: you set up the room, wake him up, and watch him follow his rules to the food bowl.
+            </p>
+        </div>
+
+        <div class="stage detail-stage animate-ready">
+            <div class="frame frame-phone is-side">
+                <div class="screen">
+                    <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="cat"></i></span><span class="sf-name">Ginger Logic</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                    <img data-shot src="../img/projects/ginger-logic/shot-1.webp" alt="Ginger Logic screenshot" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <div class="frame frame-phone">
+                <div class="screen">
+                    <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="cat"></i></span><span class="sf-name">Ginger Logic</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                    <img data-shot src="../img/projects/ginger-logic/cover.webp" alt="Ginger Logic screenshot" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <div class="frame frame-phone is-side">
+                <div class="screen">
+                    <div class="shot-fallback" aria-hidden="true"><div class="sf-head"><span class="sf-icon"><i data-lucide="cat"></i></span><span class="sf-name">Ginger Logic</span></div><div class="sf-lines"><i></i><i></i><i></i></div><div class="sf-grid"><i></i><i></i></div></div>
+                    <img data-shot src="../img/projects/ginger-logic/shot-2.webp" alt="Ginger Logic screenshot" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+
+        <div class="project-content-grid">
+
+            <div class="project-main-content">
+                <div class="content-section">
+                    <h2>Overview</h2>
+                    <p>Ginger Logic is a puzzle game where you never control the hero. While Oyen sleeps, you place salted fish, water buckets and cardboard boxes on a 7×9 board. Once he wakes up, Oyen moves on his own, following a fixed list of rules: chase the nearest fish in sight, turn back at water, hop into boxes, knock things off tables. The goal is to read his behaviour well enough to get him to the food bowl without breaking Mom&rsquo;s vase, using as few items as possible.</p>
+                    <p>Between levels, Oyen&rsquo;s room doubles as the home screen: decorate it with items from the shop, adopt eight more cats, and dress any of them up with accessories. The game runs offline with no account, and is available in English, Indonesian, Brazilian Portuguese and Russian.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Challenges &amp; Solutions</h2>
+                    <p>Every level has to be solvable with exactly the item count its stars promise. The simulation and a solver live in <code>lib/game/sim/</code> as pure Dart with no Flutter imports, and they must behave identically to a Python reference simulator. Tests replay the stored solution of all 20 levels and fail if Oyen misses the bowl, breaks the vase or takes a different number of steps.</p>
+                    <p>A rule-following cat can easily walk in circles forever. The simulation ends the level as soon as Oyen returns to a state he has already been in, or after 80 steps, so a bad setup fails quickly instead of hanging.</p>
+                    <p>Seeing why a plan failed matters more than the fail screen itself, so every attempt can be replayed step by step on a timeline, with a line explaining which rule Oyen just followed.</p>
+                    <p>The board, Oyen and the illustrations are drawn in code on a <code>Canvas</code> rather than shipped as sprite sheets, which keeps the art sharp on every screen. Layout tests check each screen from 360×640 up to 412×915 and at 130% text size.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>20 hand-made levels in two chapters (Kitchen and Living Room), each ending with a boss level</li>
+                        <li>Three stars per level: reach the bowl, keep Mom&rsquo;s vase safe, use the fewest items</li>
+                        <li>Step-by-step replay of every attempt</li>
+                        <li>Rule cards, interactive tutorials and tiered hints paid with coins or an optional video ad</li>
+                        <li>Oyen&rsquo;s room as the home screen, with a shop, eight adoptable cats, snacks and accessories</li>
+                        <li>No timers, lives or energy bars; plays fully offline</li>
+                        <li>Four languages, following the phone&rsquo;s language by default</li>
+                        <li>Optional rewarded ads only, with a consent form where the law requires one</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="sidebar-card">
+                    <h3>Tech Stack</h3>
+                    <div class="sidebar-tags">
+                        <span>Flutter</span>
+                        <span>Dart</span>
+                        <span>Flame</span>
+                        <span>go_router</span>
+                        <span>shared_preferences</span>
+                        <span>Google Mobile Ads</span>
+                        <span>audioplayers</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Project Info</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Status</span>
+                            <span class="sidebar-info-value">Pre-launch</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Platform</span>
+                            <span class="sidebar-info-value">Android</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Role</span>
+                            <span class="sidebar-info-value">Solo Developer</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">Type</span>
+                            <span class="sidebar-info-value">Personal Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Links</h3>
+                    <div class="sidebar-links">
+                        <a href="https://github.com/lutfidev" target="_blank" class="sidebar-link">
+                            <i data-lucide="github"></i> GitHub
+                        </a>
+                        <a href="privacy/" class="sidebar-link">
+                            <i data-lucide="shield-check"></i> Privacy Policy
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <section class="gallery-section" data-gallery>
+            <div class="section-head">
+                <div>
+                    <span class="eyebrow">Gallery</span>
+                    <h2>Screenshots</h2>
+                </div>
+            </div>
+            <div class="gallery-track is-phone">
+                <button type="button" class="gallery-item" aria-label="Open screenshot 1"><img src="../img/projects/ginger-logic/shot-1.webp" alt="Ginger Logic screenshot 1" decoding="async"></button>
+                <button type="button" class="gallery-item" aria-label="Open screenshot 2"><img src="../img/projects/ginger-logic/shot-2.webp" alt="Ginger Logic screenshot 2" decoding="async"></button>
+                <button type="button" class="gallery-item" aria-label="Open screenshot 3"><img src="../img/projects/ginger-logic/shot-3.webp" alt="Ginger Logic screenshot 3" decoding="async"></button>
+                <button type="button" class="gallery-item" aria-label="Open screenshot 4"><img src="../img/projects/ginger-logic/shot-4.webp" alt="Ginger Logic screenshot 4" decoding="async"></button>
+            </div>
+            <div class="gallery-empty"><i data-lucide="image"></i><p>Real screenshots of Ginger Logic are on the way.</p></div>
+        </section>
+
+        <nav class="project-nav">
+            <a href="../tropimori/" class="project-nav-btn">
+                <span class="project-nav-label"><i data-lucide="arrow-left"></i> Prev Project</span>
+                <span class="project-nav-title">Tropimori</span>
+            </a>
+            <span class="project-nav-btn empty"></span>
+        </nav>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+    <script>initComponents('../');</script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/gallery.js"></script>
+</body>
+</html>

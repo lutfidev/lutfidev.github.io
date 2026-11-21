@@ -118,6 +118,32 @@ body[data-project="tropimori"] {
     --hero-pattern: radial-gradient(circle at 1px 1px, rgba(230, 250, 247, 0.65) 1.5px, transparent 2px) 0 0 / 22px 22px;
 }
 
+/* Ginger Logic — Oyen's kitchen: warm cream, orange fur, checkered floor */
+body[data-project="ginger-logic"] {
+    --tone: light;
+    --bg: #fff4e2;
+    --card-bg: #fffbf3;
+    --surface-2: #f7e8ce;
+    --border: #ead3ae;
+    --border-strong: #e2c79c;
+    --text-main: #3b2716;
+    --text-muted: #6b4f3a;
+    --accent: #a8520a;
+    --accent-2: #c9650c;
+    --accent-soft: rgba(168, 82, 10, 0.10);
+    --on-accent: #fffbf3;
+    --p-accent: #a8520a;
+    --stage-bg: #fde3b8;
+    --ambient-1: rgba(245, 154, 51, 0.22);
+    --ambient-2: rgba(43, 181, 160, 0.12);
+    --ambient-3: rgba(143, 211, 240, 0.14);
+    --grain-opacity: 0.04;
+    --radius: 20px;
+    --radius-sm: 14px;
+    --shadow: 0 4px 0 rgba(120, 70, 20, 0.12);
+    --hero-pattern: repeating-conic-gradient(rgba(201, 101, 12, 0.07) 0 25%, transparent 0 50%) 0 0 / 44px 44px;
+}
+
 /* Cabinet80s — neon arcade cabinet: deep purple night, hot pink, cyan */
 body[data-project="cabinet80s"] {
     --tone: dark;

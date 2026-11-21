@@ -50,6 +50,7 @@ Isi setiap folder:
 | `warung-tycoon`      | Warung Tycoon                   | HP (game)     |
 | `tropimori`          | Tropimori: Cozy Island Farm     | HP (game)     |
 | `cabinet80s`         | Cabinet80s: Offline Retro Game  | HP (game)     |
+| `ginger-logic`       | Ginger Logic: Cute Cat Puzzle   | HP (game)     |
 | `tasbihgo`           | TasbihGo - Tasbih & Dzikir      | HP            |
 | `nusa-tasks`         | Nusa Tasks: Daily Planner       | HP            |
 | `ourmoney`           | OurMoney: Plan Your Money       | HP            |
