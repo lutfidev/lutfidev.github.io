@@ -113,34 +113,49 @@ tidak perlu disesuaikan dengan tema. Ambil saja tampilan asli aplikasinya.
 
 ## Prompt siap pakai
 
-Salin prompt di bawah, lalu ganti `<slug>` (dari tabel di atas) dan
-`<path repo>`. Baris arahan cover boleh diisi atau dihapus.
+Tempel prompt di bawah apa adanya di sesi Claude Code yang terbuka di repo
+project itu sendiri (bukan di repo portofolio). Sesi itu mengerjakan semuanya
+sampai commit di repo portofolio, jadi tidak perlu kembali ke sesi portofolio.
+Kalau mau cover tertentu, tambahkan satu kalimat di akhir, misalnya
+"Cover-nya gameplay suasana kebun dan pulau."
 
 ```
-Baca D:\Dev\portofolio\img\projects\README.md dan ikuti aturannya, termasuk
-"Aturan untuk agen/asisten". Slug: <slug>. Lihat tabel "Daftar slug" untuk
-jenis bingkainya (HP atau Browser) dan ikuti ukuran di bagian "Ukuran".
+Tugas ini untuk repo portofolio saya di D:\Dev\portofolio. Baca dulu
+D:\Dev\portofolio\CLAUDE.md dan D:\Dev\portofolio\img\projects\README.md,
+lalu ikuti aturannya, termasuk "Aturan untuk agen/asisten" di README.
 
-Jalankan project-nya (repo: <path repo>) dan ambil 5 screenshot asli:
-- cover.webp: layar yang langsung menunjukkan daya tarik utama produk.
-  <opsional: arahan khusus cover>
-- shot-1.webp sampai shot-4.webp: 4 fitur yang berbeda. shot-1 dan shot-2
-  juga tampil di samping cover di kartu (untuk app/game), jadi taruh dua yang
-  paling menarik di sana.
-
-Ambil juga ikon aplikasinya sebagai icon.webp 512×512 tanpa sudut membulat:
-untuk app/game dari ikon launcher (android/app/src/main/res atau assets),
-untuk web app dari logo/favicon-nya. Kalau tidak ada ikon yang cukup besar,
-lewati saja.
-
-Pertahankan warna dan tampilan asli, pakai data contoh yang rapi tanpa data
-pribadi asli. Ekspor ke .webp (di bawah ±300 KB per file, ikon ±50 KB) dan
-simpan di D:\Dev\portofolio\img\projects\<slug>\. Jangan ubah file lain dan
-jangan commit di repo portofolio.
+1. Cocokkan project ini dengan tabel "Daftar slug" di README untuk menentukan
+   slug dan jenis bingkainya (HP atau Browser). Kalau tidak ada yang cocok,
+   tanya saya dulu.
+2. Jalankan project ini dan ambil 5 screenshot asli sesuai bagian "Ukuran":
+   - cover.webp: layar yang langsung menunjukkan daya tarik utama produk.
+   - shot-1.webp sampai shot-4.webp: 4 fitur yang berbeda. shot-1 dan shot-2
+     juga tampil di samping cover di kartu (untuk app/game), jadi taruh dua
+     yang paling menarik di sana.
+3. Ambil ikon aplikasinya sebagai icon.webp 512×512 tanpa sudut membulat:
+   untuk app/game dari ikon launcher (android/app/src/main/res atau assets),
+   untuk web app dari logo/favicon-nya. Kalau tidak ada ikon yang cukup
+   besar, lewati saja.
+4. Pertahankan warna dan tampilan asli, pakai data contoh yang rapi tanpa data
+   pribadi asli. Ekspor ke .webp (di bawah ±300 KB per file, ikon ±50 KB) dan
+   simpan di D:\Dev\portofolio\img\projects\<slug>\.
+5. Cek hasilnya seperti di bagian "Mengecek hasilnya": cover dan ikon tampil di
+   beranda dan /projects/, galeri tampil di halaman /<slug>/.
+6. Commit di repo portofolio (git -C D:\Dev\portofolio) mengikuti bagian
+   "Commit" di CLAUDE.md portofolio: tunjukkan daftar file dan pesan commit
+   dulu, tunggu persetujuan saya, lalu commit langsung ke main. Jangan push
+   kecuali saya minta.
 ```
 
 ## Aturan untuk agen/asisten yang mengisi folder ini
 
 - Hanya tambah/ganti file gambar di `img/projects/<slug>/`. Jangan mengubah
   HTML, CSS, atau JS portofolio.
-- Jangan commit di repo portofolio. Pemilik repo yang meninjau dan commit.
+- Commit hanya file gambar di `img/projects/<slug>/`, satu commit per project,
+  langsung di `main` repo portofolio, dengan pesan seperti
+  `feat: add <slug> screenshots and icon`. Ikuti aturan commit di
+  `D:\Dev\portofolio\CLAUDE.md`: minta persetujuan dulu, author tetap identitas
+  git pemilik repo, tanpa trailer co-author atau tanda bot apa pun, dan jangan
+  push kecuali diminta.
+- Jangan ikut meng-commit perubahan lain yang kebetulan ada di repo portofolio
+  (cek `git -C D:\Dev\portofolio status` dulu).
