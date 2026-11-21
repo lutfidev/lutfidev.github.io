@@ -92,21 +92,21 @@ body[data-project="warung-tycoon"] {
     --hero-pattern: repeating-linear-gradient(90deg, rgba(47, 107, 58, 0.10) 0 28px, transparent 28px 56px);
 }
 
-/* Tropimori — cozy tropical island: cream sand, leaf green, shallow sea */
+/* Tropimori — cozy tropical island: leaf green, shallow sea, warm wood */
 body[data-project="tropimori"] {
     --tone: light;
-    --bg: #fff7ec;
-    --card-bg: #fffdf8;
-    --surface-2: #fbebd3;
-    --border: #eed9b8;
-    --border-strong: #d9bf8e;
-    --text-main: #4a3826;
-    --text-muted: #7a6350;
-    --accent: #3f7a2e;
+    --bg: #eaf6e4;
+    --card-bg: #f8fdf4;
+    --surface-2: #dcefd2;
+    --border: #cae4bc;
+    --border-strong: #a5cd90;
+    --text-main: #243620;
+    --text-muted: #4c6342;
+    --accent: #3a7029;
     --accent-2: #86573a;
-    --accent-soft: rgba(140, 196, 99, 0.16);
-    --on-accent: #fffdf8;
-    --p-accent: #4e8a35;
+    --accent-soft: rgba(140, 196, 99, 0.18);
+    --on-accent: #f8fdf4;
+    --p-accent: #3f7a2e;
     --stage-bg: #b9e4d9;
     --ambient-1: rgba(140, 196, 99, 0.24);
     --ambient-2: rgba(132, 196, 210, 0.26);
@@ -114,7 +114,7 @@ body[data-project="tropimori"] {
     --grain-opacity: 0.04;
     --radius: 24px;
     --radius-sm: 16px;
-    --shadow: 0 4px 0 #ead7ae;
+    --shadow: 0 4px 0 #cae4bc;
     --hero-pattern: radial-gradient(circle at 1px 1px, rgba(230, 250, 247, 0.65) 1.5px, transparent 2px) 0 0 / 22px 22px;
 }
 
