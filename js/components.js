@@ -229,10 +229,11 @@ function initThemeToggle() {
     });
 }
 
-// Project screenshots (img[data-shot]) stay invisible until they load, so a
-// missing file simply leaves the drawn mockup underneath on show.
+// Project screenshots (img[data-shot]) and app icons (img[data-icon]) stay
+// invisible until they load, so a missing file simply leaves the drawn mockup
+// or Lucide glyph underneath on show.
 function initShots() {
-    document.querySelectorAll('img[data-shot]').forEach(img => {
+    document.querySelectorAll('img[data-shot], img[data-icon]').forEach(img => {
         const done = () => img.classList.add('is-loaded');
         if (img.complete && img.naturalWidth > 0) done();
         else img.addEventListener('load', done, { once: true });

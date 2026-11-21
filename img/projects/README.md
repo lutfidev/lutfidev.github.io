@@ -23,6 +23,7 @@ Isi setiap folder:
 | `shot-2.webp`  | Galeri halaman detail (untuk app/game juga tampil di samping cover)         |
 | `shot-3.webp`  | Galeri halaman detail                                                        |
 | `shot-4.webp`  | Galeri halaman detail                                                        |
+| `icon.webp`    | Ikon aplikasi di beranda (ikon melayang di hero dan daftar "N more projects") |
 
 - Nama file harus persis seperti di atas: huruf kecil, ekstensi `.webp`.
 - Semua file opsional. Minimal `cover.webp`; shot yang tidak ada akan
@@ -37,7 +38,10 @@ Isi setiap folder:
   Jangan dipotong atau diberi bingkai, karena bingkai HP sudah digambar oleh situs.
 - **Web app & API** (ditampilkan di bingkai browser): **lanskap 1600×1000**
   (rasio 16:10). Ambil isi halaman saja, tanpa address bar browser.
-- Ukuran file usahakan di bawah ±300 KB per gambar.
+- **Ikon (`icon.webp`)**: persegi **512×512**, ikon launcher asli aplikasi,
+  full-bleed tanpa sudut membulat dan tanpa bayangan (situs sudah memberi
+  sudut membulat). Selama belum ada, situs menampilkan ikon generik.
+- Ukuran file usahakan di bawah ±300 KB per gambar (ikon cukup ±50 KB).
 
 ## Daftar slug
 
@@ -109,16 +113,30 @@ tidak perlu disesuaikan dengan tema. Ambil saja tampilan asli aplikasinya.
 
 ## Prompt siap pakai
 
-Salin prompt di bawah, lalu ganti `<slug>` dengan slug dari tabel di atas:
+Salin prompt di bawah, lalu ganti `<slug>` (dari tabel di atas) dan
+`<path repo>`. Baris arahan cover boleh diisi atau dihapus.
 
 ```
-Baca D:\Dev\portofolio\img\projects\README.md, lalu kerjakan untuk slug: <slug>.
-Lihat tabel "Daftar slug" untuk jenis bingkainya (HP atau Browser) dan ikuti
-ukuran di bagian "Ukuran". Ambil 1 screenshot paling menarik sebagai cover.webp
-dan 4 screenshot fitur lain sebagai shot-1.webp sampai shot-4.webp. Ubah ke
-.webp (di bawah ±300 KB per gambar) dan simpan di
-D:\Dev\portofolio\img\projects\<slug>\. Pakai data contoh yang rapi, tanpa
-data pribadi asli. Ikuti "Aturan untuk agen/asisten" di README itu.
+Baca D:\Dev\portofolio\img\projects\README.md dan ikuti aturannya, termasuk
+"Aturan untuk agen/asisten". Slug: <slug>. Lihat tabel "Daftar slug" untuk
+jenis bingkainya (HP atau Browser) dan ikuti ukuran di bagian "Ukuran".
+
+Jalankan project-nya (repo: <path repo>) dan ambil 5 screenshot asli:
+- cover.webp: layar yang langsung menunjukkan daya tarik utama produk.
+  <opsional: arahan khusus cover>
+- shot-1.webp sampai shot-4.webp: 4 fitur yang berbeda. shot-1 dan shot-2
+  juga tampil di samping cover di kartu (untuk app/game), jadi taruh dua yang
+  paling menarik di sana.
+
+Ambil juga ikon aplikasinya sebagai icon.webp 512×512 tanpa sudut membulat:
+untuk app/game dari ikon launcher (android/app/src/main/res atau assets),
+untuk web app dari logo/favicon-nya. Kalau tidak ada ikon yang cukup besar,
+lewati saja.
+
+Pertahankan warna dan tampilan asli, pakai data contoh yang rapi tanpa data
+pribadi asli. Ekspor ke .webp (di bawah ±300 KB per file, ikon ±50 KB) dan
+simpan di D:\Dev\portofolio\img\projects\<slug>\. Jangan ubah file lain dan
+jangan commit di repo portofolio.
 ```
 
 ## Aturan untuk agen/asisten yang mengisi folder ini
