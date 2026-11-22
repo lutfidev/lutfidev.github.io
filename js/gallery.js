@@ -1,31 +1,35 @@
 // Project screenshot gallery + lightbox (project detail pages only).
-// Screenshots are img/projects/<slug>/shot-N.webp. Items whose file is missing
-// are dropped; if none load, the section shows its "coming soon" note instead.
+// Screenshots are img/projects/<slug>/shot-N.webp (or web-shot-N.webp for a
+// project's website gallery). A page may have several [data-gallery] sections;
+// each one gets its own lightbox sequence. Items whose file is missing are
+// dropped; if none load, that section shows its "coming soon" note instead.
 (function () {
-    const section = document.querySelector('[data-gallery]');
-    if (!section) return;
+    const sections = Array.from(document.querySelectorAll('[data-gallery]'));
+    if (!sections.length) return;
 
-    const items = Array.from(section.querySelectorAll('.gallery-item'));
-    let pending = items.length;
-    const settle = () => {
-        pending--;
-        if (pending === 0 && !section.querySelector('.gallery-item.is-loaded')) {
-            section.classList.add('is-empty');
-        }
-    };
+    sections.forEach(section => {
+        const items = Array.from(section.querySelectorAll('.gallery-item'));
+        let pending = items.length;
+        const settle = () => {
+            pending--;
+            if (pending === 0 && !section.querySelector('.gallery-item.is-loaded')) {
+                section.classList.add('is-empty');
+            }
+        };
 
-    items.forEach(item => {
-        const img = item.querySelector('img');
-        const ok = () => { item.classList.add('is-loaded'); settle(); };
-        const fail = () => { item.remove(); settle(); };
-        if (img.complete) { img.naturalWidth > 0 ? ok() : fail(); }
-        else {
-            img.addEventListener('load', ok, { once: true });
-            img.addEventListener('error', fail, { once: true });
-        }
+        items.forEach(item => {
+            const img = item.querySelector('img');
+            const ok = () => { item.classList.add('is-loaded'); settle(); };
+            const fail = () => { item.remove(); settle(); };
+            if (img.complete) { img.naturalWidth > 0 ? ok() : fail(); }
+            else {
+                img.addEventListener('load', ok, { once: true });
+                img.addEventListener('error', fail, { once: true });
+            }
+        });
     });
 
-    // Lightbox
+    // Lightbox (shared; browses the section that was clicked)
     const box = document.createElement('div');
     box.className = 'lightbox';
     box.setAttribute('role', 'dialog');
@@ -41,8 +45,9 @@
     const boxImg = box.querySelector('img');
     const count = box.querySelector('.lb-count');
     let index = 0;
+    let current = sections[0];
 
-    const shots = () => Array.from(section.querySelectorAll('.gallery-item.is-loaded img'));
+    const shots = () => Array.from(current.querySelectorAll('.gallery-item.is-loaded img'));
     const show = i => {
         const list = shots();
         if (!list.length) return;
@@ -51,7 +56,8 @@
         boxImg.alt = list[index].alt;
         count.textContent = (index + 1) + ' / ' + list.length;
     };
-    const open = i => {
+    const open = (section, i) => {
+        current = section;
         show(i);
         box.classList.add('open');
         document.body.style.overflow = 'hidden';
@@ -63,9 +69,13 @@
         document.body.style.overflow = '';
     };
 
-    section.addEventListener('click', e => {
-        const item = e.target.closest('.gallery-item.is-loaded');
-        if (item) open(shots().indexOf(item.querySelector('img')));
+    sections.forEach(section => {
+        section.addEventListener('click', e => {
+            const item = e.target.closest('.gallery-item.is-loaded');
+            if (!item) return;
+            const list = Array.from(section.querySelectorAll('.gallery-item.is-loaded img'));
+            open(section, list.indexOf(item.querySelector('img')));
+        });
     });
     box.querySelector('.lb-close').addEventListener('click', close);
     box.querySelector('.lb-prev').addEventListener('click', () => show(index - 1));

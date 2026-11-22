@@ -25,6 +25,15 @@ Isi setiap folder:
 | `shot-4.webp`  | Galeri halaman detail                                                        |
 | `icon.webp`    | Ikon aplikasi di beranda (ikon melayang di hero dan daftar "N more projects") |
 
+Project yang punya **website dan aplikasi mobile** (saat ini `ourmoney`) memakai
+file di atas untuk aplikasi mobile (portrait, bingkai HP), ditambah file
+website (lanskap 1600×1000, bingkai browser):
+
+| File                  | Dipakai untuk                                                         |
+|-----------------------|-----------------------------------------------------------------------|
+| `web-cover.webp`      | Bingkai browser di tile beranda + gambar pertama galeri "Website"     |
+| `web-shot-1.webp` … `web-shot-4.webp` | Galeri "Website" di halaman detail                    |
+
 - Nama file harus persis seperti di atas: huruf kecil, ekstensi `.webp`.
 - Semua file opsional. Minimal `cover.webp`; shot yang tidak ada akan
   disembunyikan otomatis.
@@ -53,7 +62,7 @@ Isi setiap folder:
 | `ginger-logic`       | Ginger Logic: Cute Cat Puzzle   | HP (game)     |
 | `tasbihgo`           | TasbihGo - Tasbih & Dzikir      | HP            |
 | `nusa-tasks`         | Nusa Tasks: Daily Planner       | HP            |
-| `ourmoney`           | OurMoney: Plan Your Money       | HP            |
+| `ourmoney`           | OurMoney: Plan Your Money       | HP (app) + Browser (website, file `web-*`) |
 | `absensi-face`       | Absensi Face Recognition + GPS  | HP            |
 | `food-delivery`      | Food Delivery                   | HP            |
 | `laundry-app`        | Laundry App                     | HP            |
