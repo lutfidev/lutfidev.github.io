@@ -207,7 +207,7 @@ h1, h2, h3, h4 {
 }
 .available .dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; }
 
-/* Filter chips (projects + achievement) */
+/* Filter chips (projects) */
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
     display: inline-flex;
@@ -245,7 +245,7 @@ h1, h2, h3, h4 {
 .section-head h2 { font-size: clamp(1.9rem, 3.8vw, 2.8rem); margin-top: 0.7rem; }
 .section-head p { color: var(--text-muted); max-width: 520px; margin-top: 0.6rem; }
 
-/* Inner page hero (projects, about, achievement, contact) */
+/* Inner page hero (projects, about, contact) */
 .page-hero { padding-top: 4.5rem; padding-bottom: 2.5rem; position: relative; }
 .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4.2rem); margin: 0.9rem 0 0.9rem; letter-spacing: -0.03em; }
 .page-hero p { color: var(--text-muted); font-size: 1.08rem; max-width: 620px; }

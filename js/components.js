@@ -52,7 +52,6 @@ const NAV_ITEMS = [
     { page: 'home', label: 'Home', href: '' },
     { page: 'projects', label: 'Projects', href: 'projects/' },
     { page: 'about', label: 'About', href: 'about/' },
-    { page: 'achievement', label: 'Achievement', href: 'achievement/' },
     { page: 'contact', label: 'Contact', href: 'contact/' }
 ];
 
@@ -149,7 +148,6 @@ function currentPage() {
     const p = window.location.pathname;
     if (p.includes('/projects/') || document.body.dataset.project) return 'projects';
     if (p.includes('/about/')) return 'about';
-    if (p.includes('/achievement/')) return 'achievement';
     if (p.includes('/contact/')) return 'contact';
     return 'home';
 }
