@@ -68,36 +68,6 @@
         .tl-desc { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; }
         .timeline .tag-list { margin-top: 0.75rem; }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
-            gap: 12px;
-        }
-        .skill {
-            display: flex; align-items: center; gap: 12px;
-            padding: 14px 16px; border-radius: 16px;
-            background: var(--card-bg); border: 1px solid var(--border);
-            transition: transform 0.25s, border-color 0.25s;
-        }
-        .skill:hover { transform: translateY(-3px); border-color: var(--border-strong); }
-        .skill img { width: 30px; height: 30px; flex-shrink: 0; }
-        .skill strong { display: block; font-size: 0.95rem; }
-        .skill-meter { display: flex; gap: 3px; margin-top: 5px; }
-        .skill-meter i { width: 18px; height: 4px; border-radius: 2px; background: var(--border); }
-        .skill[data-level="Beginner"] .skill-meter i:nth-child(-n+1),
-        .skill[data-level="Intermediate"] .skill-meter i:nth-child(-n+2),
-        .skill[data-level="Advanced"] .skill-meter i:nth-child(-n+3) { background: var(--text-main); }
-        .skill small { font-family: var(--font); font-size: 0.68rem; color: var(--text-muted); margin-left: 6px; }
-
-        .soft-skills { display: flex; flex-wrap: wrap; gap: 10px; }
-        .soft-skills span {
-            padding: 10px 18px; border-radius: 999px;
-            background: var(--card-bg); border: 1px solid var(--border);
-            font-weight: 600; font-size: 0.92rem;
-        }
-        .soft-skills span:nth-child(3n+1) { border-color: rgba(124, 92, 255, 0.4); }
-        .soft-skills span:nth-child(3n+2) { border-color: rgba(255, 122, 89, 0.4); }
-
         @media (max-width: 860px) {
             .about-hero { grid-template-columns: 1fr; gap: 1.5rem; }
             .about-avatar { width: 160px; }
@@ -121,10 +91,9 @@
                 <div class="animate-ready">
                     <span class="eyebrow">About me</span>
                     <h1>Muhammad <span class="grad-text">Lutfi</span></h1>
-                    <p>Software Engineer &amp; Full Stack Developer · @lutfidev</p>
+                    <p>Software Engineer · @lutfidev</p>
                     <div class="about-facts">
                         <span class="about-fact"><i data-lucide="map-pin"></i> Batam City, Indonesia</span>
-                        <span class="about-fact"><i data-lucide="graduation-cap"></i> BINUS University</span>
                         <span class="about-fact"><i data-lucide="briefcase"></i> Open to work &amp; projects</span>
                     </div>
                 </div>
@@ -180,7 +149,7 @@
                             <span class="tl-period">2024 – 2026</span>
                             <span class="tl-title">S1 Computer Science</span>
                             <span class="tl-org">BINUS University</span>
-                            <p class="tl-desc">IPK: 3.86 / 4.00</p>
+                            <p class="tl-desc">IPK: 3.80 / 4.00</p>
                         </li>
                         <li>
                             <span class="tl-period">2020 – 2023</span>
@@ -190,52 +159,6 @@
                         </li>
                     </ol>
                 </div>
-            </div>
-        </section>
-
-        <section class="section container">
-            <div class="section-head animate-ready">
-                <div>
-                    <span class="eyebrow">Toolbox</span>
-                    <h2>Technical Skills</h2>
-                </div>
-            </div>
-            <div class="skills-grid animate-ready">
-                <div class="skill" data-level="Advanced"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="" loading="lazy"><div><strong>HTML</strong><span class="skill-meter"><i></i><i></i><i></i><small>Advanced</small></span></div></div>
-                <div class="skill" data-level="Advanced"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="" loading="lazy"><div><strong>CSS</strong><span class="skill-meter"><i></i><i></i><i></i><small>Advanced</small></span></div></div>
-                <div class="skill" data-level="Advanced"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="" loading="lazy"><div><strong>JavaScript</strong><span class="skill-meter"><i></i><i></i><i></i><small>Advanced</small></span></div></div>
-                <div class="skill" data-level="Intermediate"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" loading="lazy"><div><strong>TypeScript</strong><span class="skill-meter"><i></i><i></i><i></i><small>Intermediate</small></span></div></div>
-                <div class="skill" data-level="Advanced"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="" loading="lazy"><div><strong>Laravel</strong><span class="skill-meter"><i></i><i></i><i></i><small>Advanced</small></span></div></div>
-                <div class="skill" data-level="Advanced"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" loading="lazy"><div><strong>React</strong><span class="skill-meter"><i></i><i></i><i></i><small>Advanced</small></span></div></div>
-                <div class="skill" data-level="Intermediate"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg" alt="" loading="lazy"><div><strong>Firebase</strong><span class="skill-meter"><i></i><i></i><i></i><small>Intermediate</small></span></div></div>
-                <div class="skill" data-level="Intermediate"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="" loading="lazy"><div><strong>Node.js</strong><span class="skill-meter"><i></i><i></i><i></i><small>Intermediate</small></span></div></div>
-                <div class="skill" data-level="Intermediate"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="" loading="lazy"><div><strong>Flutter</strong><span class="skill-meter"><i></i><i></i><i></i><small>Intermediate</small></span></div></div>
-                <div class="skill" data-level="Advanced"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="" loading="lazy"><div><strong>Tailwind CSS</strong><span class="skill-meter"><i></i><i></i><i></i><small>Advanced</small></span></div></div>
-                <div class="skill" data-level="Advanced"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" loading="lazy"><div><strong>MySQL</strong><span class="skill-meter"><i></i><i></i><i></i><small>Advanced</small></span></div></div>
-                <div class="skill" data-level="Intermediate"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="" loading="lazy"><div><strong>Figma</strong><span class="skill-meter"><i></i><i></i><i></i><small>Intermediate</small></span></div></div>
-                <div class="skill" data-level="Beginner"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="" loading="lazy"><div><strong>Docker</strong><span class="skill-meter"><i></i><i></i><i></i><small>Beginner</small></span></div></div>
-                <div class="skill" data-level="Advanced"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" loading="lazy"><div><strong>Git</strong><span class="skill-meter"><i></i><i></i><i></i><small>Advanced</small></span></div></div>
-                <div class="skill invert-dark" data-level="Advanced"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" loading="lazy"><div><strong>GitHub</strong><span class="skill-meter"><i></i><i></i><i></i><small>Advanced</small></span></div></div>
-                <div class="skill" data-level="Advanced"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="" loading="lazy"><div><strong>VS Code</strong><span class="skill-meter"><i></i><i></i><i></i><small>Advanced</small></span></div></div>
-            </div>
-        </section>
-
-        <section class="section container">
-            <div class="section-head animate-ready">
-                <div>
-                    <span class="eyebrow">Beyond code</span>
-                    <h2>Soft Skills</h2>
-                </div>
-            </div>
-            <div class="soft-skills animate-ready">
-                <span>Problem Solving</span>
-                <span>Communication</span>
-                <span>Collaboration</span>
-                <span>Leadership</span>
-                <span>Time Management</span>
-                <span>Adaptability</span>
-                <span>Growth Mindset</span>
-                <span>Critical Thinking</span>
             </div>
         </section>
     </main>
